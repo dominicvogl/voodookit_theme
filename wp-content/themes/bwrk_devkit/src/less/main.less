@@ -1,22 +1,13 @@
 /*
+* Load all Less files together
 * @file:    main.less
 * @author:  BERGWERK, [dv]
 */
 
-// @todo need to Import files
-
-@rootpath: 'bootstrap';
 
 
-// Bootstrap Basic Stuff
+// Bootstrap
+@import 'bootstrap/bootstrap';
 
-// Variables
-@import '@{rootpath}/variables';
-
-// Mixins
-@import '@{rootpath}/mixins';
-
-body {
-   background: @brand-warning;
-   color: pink;
-}
+// Customs
+@import 'custom/_all';
