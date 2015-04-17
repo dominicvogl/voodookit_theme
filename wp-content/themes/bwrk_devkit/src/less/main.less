@@ -1,6 +1,22 @@
 /*
 * @file:    main.less
-* @author:  BERGWERK, Dominic Vogl
+* @author:  BERGWERK, [dv]
 */
 
 // @todo need to Import files
+
+@rootpath: 'bootstrap';
+
+
+// Bootstrap Basic Stuff
+
+// Variables
+@import '@{rootpath}/variables';
+
+// Mixins
+@import '@{rootpath}/mixins';
+
+body {
+   background: @brand-warning;
+   color: pink;
+}
