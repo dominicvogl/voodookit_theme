@@ -12,7 +12,7 @@ var gulp =
    minifyCSS = require('gulp-minify-css'),
    less = require('gulp-less'),
    concat = require('gulp-concat'),
-// uglify = require('gulp-uglify'),
+   uglify = require('gulp-uglify'),
    plumber = require('gulp-plumber'),
    rename = require("gulp-rename"),
 // sourcemaps = require("gulp-sourcemaps");
@@ -46,14 +46,30 @@ gulp.task('scripts', function () {
 
    var filelist = [
 
+      // Load Bootstrap stuff
+      //themepath+'/src/js/bootstrap/affix.js',
+      //themepath+'/src/js/bootstrap/alert.js',
+      //themepath+'/src/js/bootstrap/button.js',
+      //themepath+'/src/js/bootstrap/carousel.js',
+      //themepath+'/src/js/bootstrap/collapse.js',
+      //themepath+'/src/js/bootstrap/dropdown.js',
+      //themepath+'/src/js/bootstrap/modal.js',
+      //themepath+'/src/js/bootstrap/popover.js',
+      //themepath+'/src/js/bootstrap/scrollspy.js',
+      //themepath+'/src/js/bootstrap/tab.js',
+      //themepath+'/src/js/bootstrap/tooltip.js',
+      //themepath+'/src/js/bootstrap/transitions.js',
+
       // Load own stuff
-      'fileadmin/templates/default/src/js/custom/*.js'
+      themepath+'/src/js/custom/*.js'
    ];
 
    gulp.src(filelist)
       .pipe(plumber())
-      .pipe(concat('main.js'))
-      //.pipe(uglify('compress'))
+      .pipe(concat('app.js'))
+      .pipe(gulp.dest(themepath + '/js/'))
+      .pipe(uglify('compress'))
+      .pipe(rename({suffix: '.min'}))
       .pipe(gulp.dest(themepath + '/js/'))
 });
 
