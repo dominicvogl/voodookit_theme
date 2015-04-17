@@ -61,7 +61,7 @@ gulp.task('scripts', function () {
       //themepath+'/src/js/bootstrap/transitions.js',
 
       // Load own stuff
-      themepath+'/src/js/custom/*.js'
+      themepath + '/src/js/custom/*.js'
    ];
 
    gulp.src(filelist)
@@ -87,6 +87,10 @@ gulp.task('watch', function () {
 //------------------------------------------------------------------------
 
 gulp.task('default', ['styles', 'scripts', 'watch']);
+
+//
+// Functions
+//------------------------------------------------------------------------
 
 /**
  * Error handler function
