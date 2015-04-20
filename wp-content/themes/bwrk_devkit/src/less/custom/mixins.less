@@ -334,3 +334,20 @@
       -moz-osx-font-smoothing: grayscale;
    }
 }
+
+.selection(@bg: @brand-primary, @color: @white) {
+   ::-webkit-selection {
+      background: @bg;
+      color: @color;
+   }
+
+   ::-moz-selection {
+      background: @bg;
+      color: @color;
+   }
+
+   ::selection {
+      background: @bg;
+      color: @color;
+   }
+}
