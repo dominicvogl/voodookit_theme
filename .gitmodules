@@ -1,0 +1,3 @@
+[submodule "wp-content/plugins/responsive-images"]
+	path = wp-content/plugins/responsive-images
+	url = https://github.com/ResponsiveImagesCG/wp-tevko-responsive-images.git
