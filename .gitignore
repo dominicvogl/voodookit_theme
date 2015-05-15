@@ -20,6 +20,8 @@
 !/custom/themes/voodookit/**
 
 !/custom/plugins/
+!/custom/plugins/bwrk_monsterkill/
+!/custom/plugins/bwrk_monsterkill/**
 !/custom/plugins/cachify/
 !/custom/plugins/cachify/**
 !/custom/plugins/responsive-images/

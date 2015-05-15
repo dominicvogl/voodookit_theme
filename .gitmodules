@@ -9,3 +9,6 @@
 [submodule "custom/plugins/cachify"]
 	path = custom/plugins/cachify
 	url = https://github.com/wp-plugins/cachify.git
+[submodule "custom/plugins/bwrk_monsterkill"]
+	path = custom/plugins/bwrk_monsterkill
+	url = https://git.bergwerk.ag/wordpress-extensions/bwrk_monsterkill.git
