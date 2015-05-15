@@ -1,0 +1,61 @@
+# ----------------------- #
+# First ignore everything #
+# ----------------------- #
+
+*
+
+# ---------------------------------------------------- #
+# Then "un-ignore" all directories which are necessary #
+# ---------------------------------------------------- #
+
+!/custom/
+!.gitignore
+
+!/custom/themes/
+!/custom/themes/voodookit/
+!/custom/themes/voodookit/**
+
+!/custom/plugins/
+
+# ---------------------------------------------------- #
+# Then "un-ignore" necessary files #
+# ---------------------------------------------------- #
+
+!local-config.php
+!local-config-sample.php
+!gulpfile.js
+!wp-config.php
+!package.json
+!index.php
+
+# -------------------------------------------- #
+# Now "force" git to ignore OS generated Files #
+# -------------------------------------------- #
+
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ------------------------------------------------- #
+# Now "force" git to Developement and Graphic Files #
+# ------------------------------------------------- #
+
+*.psd
+*.ai
+.idea
+
+# --------------------------------------- #
+# Now "force" git to ignore package Files #
+# --------------------------------------- #
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
