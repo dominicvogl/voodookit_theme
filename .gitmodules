@@ -1,6 +1,11 @@
-[submodule "wp-content/plugins/responsive-images"]
-	path = wp-content/plugins/responsive-images
+[submodule "core"]
+	path = core
+	url = https://github.com/WordPress/WordPress
+
+[submodule "custom/plugins/responsive-images"]
+	path = custom/plugins/responsive-images
 	url = https://github.com/ResponsiveImagesCG/wp-tevko-responsive-images.git
-[submodule "wp-content/plugins/cachify"]
-	path = wp-content/plugins/cachify
+
+[submodule "custom/plugins/cachify"]
+	path = custom/plugins/cachify
 	url = https://github.com/wp-plugins/cachify.git
