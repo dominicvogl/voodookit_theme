@@ -10,12 +10,15 @@
 
 !/custom/
 !.gitignore
+!.gitmodules
 
 !/custom/themes/
 !/custom/themes/voodookit/
 !/custom/themes/voodookit/**
 
 !/custom/plugins/
+!/custom/plugins/cachify/
+!/custom/plugins/cachify/**
 
 # ---------------------------------------------------- #
 # Then "un-ignore" necessary files #
