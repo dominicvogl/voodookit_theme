@@ -19,6 +19,8 @@
 !/custom/plugins/
 !/custom/plugins/cachify/
 !/custom/plugins/cachify/**
+!/custom/plugins/responsive-images/
+!/custom/plugins/responsive-images/**
 
 # ---------------------------------------------------- #
 # Then "un-ignore" necessary files #
