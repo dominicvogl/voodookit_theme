@@ -3,8 +3,7 @@
 // Author: BERGWERK (dv)
 // --------------------------------------------------------------------------
 
-$(document).ready(function ()
-{
+$(document).ready(function () {
 
    var checkbox = $('.checkbox');
    var radio = $('.radio');

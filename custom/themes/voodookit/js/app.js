@@ -1,25 +1,21 @@
-/*
- * Checkbox Script
- * @file:    general.less
- * @author:  BERGWERK, [dv]
- */
+//
+// checkbox.js
+// Author: BERGWERK (dv)
+// --------------------------------------------------------------------------
 
-$(document).ready(function ()
-{
+$(document).ready(function () {
 
-   var bwrk = {};
-   bwrk.checkbox = $('.checkbox');
-   bwrk.radio = $('.radio');
+   var checkbox = $('.checkbox');
+   var radio = $('.radio');
 
-   if (bwrk.checkbox.length)
+   if (checkbox.length)
    {
-      bwrk.checkbox.each(function ()
+      checkbox.each(function ()
       {
          setCheckBox($(this));
       });
    }
 
-   // Cleanup this stuff!
    setRadioButton();
 
 });
@@ -59,7 +55,6 @@ function setCheckBox(obj)
 
 function setRadioButton()
 {
-   // Cleanup this stuff!
    var radio = $('.radio input');
 
    radio.click(function ()
