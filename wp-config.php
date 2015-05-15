@@ -72,9 +72,19 @@ define( 'AUTOMATIC_UPDATER_DISABLED', true );
 define( 'DISALLOW_FILE_EDIT', true );
 define( 'DISALLOW_FILE_MODS', true );
 
+// Set Reviosions
+define( 'WP_POST_REVISIONS', 3 );
+
 // Debugging? Enable these. Can also enable them in local-config.php
 // define( 'SAVEQUERIES', true );
 // define( 'WP_DEBUG', true );
+
+// Define memory limit
+// define( 'WP_MEMORY_LIMIT', '96M' );
+
+// Override file permissions
+// define( 'FS_CHMOD_DIR', ( 0755 & ~ umask() ) );
+// define( 'FS_CHMOD_FILE', ( 0644 & ~ umask() ) );
 
 // Load a Memcached config if we have one
 if ( file_exists( dirname( __FILE__ ) . '/memcached.php' ) )
