@@ -55,45 +55,36 @@ define('NONCE_SALT',       '-+niI(r0PlsIgB>}9Am^S|y1<-|L2h+M|K~+f*9//aNtI1d{QSIe
 $table_prefix  = 'wp_';
 
 //
-// Language
+// Defintions
 // Leave blank for American English
 // ------------------------------------------------------------------------
 
 define( 'WPLANG', '' );
 
-//
 // Hide errors
-// ------------------------------------------------------------------------
-
 ini_set( 'display_errors', 0 );
 define( 'WP_DEBUG_DISPLAY', false );
 
-//
-// Debug mode
-// Debugging? Enable these. Can also enable them in local-config.php
-// ------------------------------------------------------------------------
+// Disallow automatic core updates
+define( 'AUTOMATIC_UPDATER_DISABLED', true );
 
+// Disallow file modification in backend
+define( 'DISALLOW_FILE_EDIT', true );
+define( 'DISALLOW_FILE_MODS', true );
+
+// Debugging? Enable these. Can also enable them in local-config.php
 // define( 'SAVEQUERIES', true );
 // define( 'WP_DEBUG', true );
 
-//
 // Load a Memcached config if we have one
-// ------------------------------------------------------------------------
-
 if ( file_exists( dirname( __FILE__ ) . '/memcached.php' ) )
 	$memcached_servers = include( dirname( __FILE__ ) . '/memcached.php' );
 
-//
 // This can be used to programatically set the stage when deploying (e.g. production, staging)
-// ------------------------------------------------------------------------
-
 define( 'WP_STAGE', '%%WP_STAGE%%' );
 define( 'STAGING_DOMAIN', '%%WP_STAGING_DOMAIN%%' ); // Does magic in WP Stack to handle staging domain rewriting
 
-//
 // Bootstrap WordPress
-// ------------------------------------------------------------------------
-
 if ( !defined( 'ABSPATH' ) )
 	define( 'ABSPATH', dirname( __FILE__ ) . '/core/' );
 require_once( ABSPATH . 'wp-settings.php' );
