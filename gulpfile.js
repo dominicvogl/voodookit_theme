@@ -6,8 +6,8 @@
 // Include necessary gulp files
 // ------------------------------------------------------------------------
 
-var gulp =
-      require('gulp'),
+var
+   gulp = require('gulp'),
 // path = require('path'),
    minifyCSS = require('gulp-minify-css'),
    less = require('gulp-less'),
@@ -15,12 +15,10 @@ var gulp =
    uglify = require('gulp-uglify'),
    plumber = require('gulp-plumber'),
    rename = require("gulp-rename"),
-// sourcemaps = require("gulp-sourcemaps");
-// autoprefixer = require("gulp-autoprefixer");
-   watch = require('gulp-watch');
+   watch = require('gulp-watch'),
+   themepath = 'custom/themes/voodookit';
 
-// Define Path Variables
-var themepath = 'wp-content/themes/bwrk_devkit';
+
 
 //
 // Compile LESS files
@@ -36,6 +34,7 @@ gulp.task('styles', function () {
       .pipe(minifyCSS())
       .pipe(rename({suffix: '.min'}))
       .pipe(gulp.dest(themepath + '/css/'))
+
 });
 
 //
@@ -71,6 +70,7 @@ gulp.task('scripts', function () {
       .pipe(uglify('compress'))
       .pipe(rename({suffix: '.min'}))
       .pipe(gulp.dest(themepath + '/js/'))
+
 });
 
 //
