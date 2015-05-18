@@ -39,6 +39,9 @@
 !local-config-sample.php
 !gulpfile.js
 !wp-config.php
+!wp-config.default.php
+!wp-config.development.php
+!wp-config.env.php
 !package.json
 !index.php
 !readme.md

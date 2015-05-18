@@ -1,99 +1,105 @@
 <?php
+/**
+ * The base configurations of the WordPress.
+ *
+ * This file has the following configurations: MySQL settings, Table Prefix,
+ * Secret Keys, WordPress Language, and ABSPATH. You can find more information
+ * by visiting {@link http://codex.wordpress.org/Editing_wp-config.php Editing
+ * wp-config.php} Codex page. You can get the MySQL settings from your web host.
+ *
+ * This file is used by the wp-config.php creation script during the
+ * installation. You don't have to use the web site, you can just copy this file
+ * to "wp-config.php" and fill in the values.
+ *
+ * @package WordPress
+ */
 
-//
-// Load database info and local development parameters
-// ------------------------------------------------------------------------
 
-//define( 'WP_LOCAL_DEV', true );
-// Connect Database
-define( 'DB_NAME', 'wp_devkit' );
-define( 'DB_USER', 'root' );
-define( 'DB_PASSWORD', 'root' );
-define( 'DB_HOST', 'localhost' ); // Probably 'localhost'
+/**
+ * WordPress Multi-Environment Config
+ * 
+ * Loads config file based on current environment, environment can be set
+ * in either the environment variable 'WP_ENV' or can be set based on the 
+ * server hostname.
+ * 
+ * This also overrides the option_home and option_siteurl settings in the 
+ * WordPress database to ensure site URLs are correct between environments.
+ * 
+ * Common environment names are as follows, though you can use what you wish:
+ * 
+ *   production
+ *   staging
+ *   development
+ * 
+ * For each environment a config file must exist named wp-config.{environment}.php
+ * with any settings specific to that environment. For example a development 
+ * environment would use the config file: wp-config.development.php
+ * 
+ * Default settings that are common to all environments can exist in wp-config.default.php
+ * 
+ * @package    Studio 24 WordPress Multi-Environment Config
+ * @version    1.0
+ * @author     Studio 24 Ltd  <info@studio24.net>
+ */
 
-// Define some other stuff
-define('BWRK_TEMPLATE_VERSION', '2.0');
+// Try environment variable 'WP_ENV'
+if (getenv('WP_ENV') !== false) {
+    // Filter non-alphabetical characters for security
+    define('WP_ENV', preg_replace('/[^a-z]/', '', getenv('WP_ENV')));
+}
 
-// Define Base URLS
-define('WP_HOME','http://localhost');
-define('WP_SITEURL','http://localhost/core');
+// Define site host
+if (isset($_SERVER['X_FORWARDED_HOST']) && !empty($_SERVER['X_FORWARDED_HOST'])) {
+    $hostname = $_SERVER['X_FORWARDED_HOST'];
+} else {
+    $hostname = $_SERVER['HTTP_HOST'];
+}
+    
+// Try server hostname
+if (!defined('WP_ENV')) {
+    // Set environment based on hostname
+    include 'wp-config.env.php';
+}
 
-//
-// Custom Content Directory
-// ------------------------------------------------------------------------
+// Are we in SSL mode?
+if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+    $protocol = 'https://';
+} else {
+    $protocol = 'http://';
+}
+
+// Load default config
+include 'wp-config.default.php';
+
+// Load config file for current environment
+include 'wp-config.' . WP_ENV . '.php';
+
+// Define WordPress Site URLs if not already set in config files
+if (!defined('WP_SITEURL')) {
+    define('WP_SITEURL', $protocol . rtrim($hostname, '/'));
+}
+if (!defined('WP_HOME')) {
+    define('WP_HOME', $protocol . rtrim($hostname, '/'));
+}
 
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/custom' );
 define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/custom' );
 
-//
-// You almost certainly do not want to change these
-// ------------------------------------------------------------------------
 
-define( 'DB_CHARSET', 'utf8' );
-define( 'DB_COLLATE', '' );
+// Define some other stuff
+define('BWRK_TEMPLATE_VERSION', '2.0');
 
-//
-// Salts, for security
-// Grab these from: https://api.wordpress.org/secret-key/1.1/salt
-// ------------------------------------------------------------------------
+// Clean up
+unset($hostname, $protocol);
 
-define('AUTH_KEY',         '|?inxg*]rq;E_g@>9tV^YscQ&}X5Dm2J3nt2e+g8v7zP=uu.)DDv*=xg?6ZC?%j(');
-define('SECURE_AUTH_KEY',  '~C|BtvkC`O=C|D$CYe|RumC|x%U0 `N?|_Y|72}e-Dk~$DAVYCk5Bc##L/3?-aVk');
-define('LOGGED_IN_KEY',    '3Wq4i>&_nV`{/1nt/8hT+>Mc+n EAq|]tk;1U@CJ>,QT[,5x9$8ScTLGzK}Q!^tX');
-define('NONCE_KEY',        'hQ$z>oL;zis[=^,$b#K8v~S7ea_f+94 7y.O{_2!w(!Hc14HpmCH1*&1;(j6_oMU');
-define('AUTH_SALT',        '/^^|JdtH-%~?W(a=FvE WBAfo8fo9m:L&LO^](#$$H|qh6#~/Lz2$TwYtOExKJcE');
-define('SECURE_AUTH_SALT', '}FBjZ;{9 v]d*SBe,+E<NY(PuxUUFSoF 9 O;[#pU0e_-T.L4h!` d!vbAD#aIP;');
-define('LOGGED_IN_SALT',   '9B%vQD}?94jE3n}/R)I^X/q.TejG(lIKGa5Da=I7>K$HJwM5h5mdY;.v+<8|IZ$a');
-define('NONCE_SALT',       '-+niI(r0PlsIgB>}9Am^S|y1<-|L2h+M|K~+f*9//aNtI1d{QSIefrr[?4|-#K+e');
+/** End of WordPress Multi-Environment Config **/
 
-//
-// Table prefix
-// Change this if you have multiple installs in the same database
-// ------------------------------------------------------------------------
 
-$table_prefix  = 'wp_';
+/* That's all, stop editing! Happy blogging. */
 
-//
-// Defintions
-// Leave blank for American English
-// ------------------------------------------------------------------------
+/** Absolute path to the WordPress directory. */
+if ( !defined('ABSPATH') )
+	define('ABSPATH', dirname(__FILE__) . '/');
 
-define( 'WPLANG', '' );
-
-// Hide errors
-ini_set( 'display_errors', 0 );
-define( 'WP_DEBUG_DISPLAY', false );
-
-// Disallow automatic core updates
-define( 'AUTOMATIC_UPDATER_DISABLED', true );
-
-// Disallow file modification in backend
-define( 'DISALLOW_FILE_EDIT', true );
-define( 'DISALLOW_FILE_MODS', true );
-
-// Set Reviosions
-define( 'WP_POST_REVISIONS', 3 );
-
-// Debugging? Enable these. Can also enable them in local-config.php
-// define( 'SAVEQUERIES', true );
-// define( 'WP_DEBUG', true );
-
-// Define memory limit
-// define( 'WP_MEMORY_LIMIT', '96M' );
-
-// Override file permissions
-// define( 'FS_CHMOD_DIR', ( 0755 & ~ umask() ) );
-// define( 'FS_CHMOD_FILE', ( 0644 & ~ umask() ) );
-
-// Load a Memcached config if we have one
-if ( file_exists( dirname( __FILE__ ) . '/memcached.php' ) )
-	$memcached_servers = include( dirname( __FILE__ ) . '/memcached.php' );
-
-// This can be used to programatically set the stage when deploying (e.g. production, staging)
-define( 'WP_STAGE', '%%WP_STAGE%%' );
-define( 'STAGING_DOMAIN', '%%WP_STAGING_DOMAIN%%' ); // Does magic in WP Stack to handle staging domain rewriting
-
-// Bootstrap WordPress
-if ( !defined( 'ABSPATH' ) )
-	define( 'ABSPATH', dirname( __FILE__ ) . '/core/' );
-require_once( ABSPATH . 'wp-settings.php' );
+/** Sets up WordPress vars and included files. */
+require_once(ABSPATH . 'wp-settings.php');
