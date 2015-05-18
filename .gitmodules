@@ -13,3 +13,6 @@
 [submodule "custom/plugins/bwrk_monsterkill"]
 	path = custom/plugins/bwrk_monsterkill
 	url = https://git.bergwerk.ag/wordpress-extensions/bwrk_monsterkill.git
+[submodule "custom/plugins/advanced-custom-fields-pro"]
+	path = custom/plugins/advanced-custom-fields-pro
+	url = https://git.bergwerk.ag/wordpress-extensions/advanced-custom-fields-pro.git
