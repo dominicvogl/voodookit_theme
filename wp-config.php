@@ -4,20 +4,19 @@
 // Load database info and local development parameters
 // ------------------------------------------------------------------------
 
-if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
+//define( 'WP_LOCAL_DEV', true );
+// Connect Database
+define( 'DB_NAME', 'wp_devkit' );
+define( 'DB_USER', 'root' );
+define( 'DB_PASSWORD', 'root' );
+define( 'DB_HOST', 'localhost' ); // Probably 'localhost'
 
-	define( 'WP_LOCAL_DEV', true );
-	include( dirname( __FILE__ ) . '/local-config.php' );
+// Define some other stuff
+define('BWRK_TEMPLATE_VERSION', '2.0');
 
-} else {
-
-	define( 'WP_LOCAL_DEV', false );
-	define( 'DB_NAME', '%%DB_NAME%%' );
-	define( 'DB_USER', '%%DB_USER%%' );
-	define( 'DB_PASSWORD', '%%DB_PASSWORD%%' );
-	define( 'DB_HOST', '%%DB_HOST%%' ); // Probably 'localhost'
-
-}
+// Define Base URLS
+define('WP_HOME','http://localhost');
+define('WP_SITEURL','http://localhost/core');
 
 //
 // Custom Content Directory

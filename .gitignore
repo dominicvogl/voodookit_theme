@@ -19,6 +19,8 @@
 !/custom/themes/bwrk_devkit/
 !/custom/themes/bwrk_devkit/**
 
+!/custom/mu-plugins/
+!/custom/mu-plugins/**
 !/custom/plugins/
 !/custom/plugins/bwrk_monsterkill/
 !/custom/plugins/bwrk_monsterkill/**
