@@ -16,8 +16,8 @@
 !/core/**
 
 !/custom/themes/
-!/custom/themes/voodookit/
-!/custom/themes/voodookit/**
+!/custom/themes/bwrk_devkit/
+!/custom/themes/bwrk_devkit/**
 
 !/custom/plugins/
 !/custom/plugins/bwrk_monsterkill/
