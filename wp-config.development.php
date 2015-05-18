@@ -29,3 +29,4 @@ define('WP_SITEURL','http://localhost/core');
  */
 
 define('WP_DEBUG', true);
+define('WP_DEBUG_DISPLAY', true);

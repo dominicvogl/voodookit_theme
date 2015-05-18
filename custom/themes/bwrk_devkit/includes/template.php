@@ -50,21 +50,6 @@ add_action('wp_enqueue_scripts', 'bwrk_load_css');
 
 
 //
-// Remove standard wordpress jquery library
-// ----------------------------------------------------------------------------------------
-
-function bwrk_modify_jquery()
-{
-   if (!is_admin()) {
-      wp_deregister_script('jquery');
-   }
-}
-
-add_action('init', 'bwrk_modify_jquery');
-
-
-
-//
 // Lade Javascript
 // ----------------------------------------------------------------------------------------
 
@@ -72,6 +57,8 @@ function bwrk_load_javascript()
 {
 
    if(!is_admin()) {
+
+      wp_deregister_script('jquery');
 
       $files = array(
 
