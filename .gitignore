@@ -47,6 +47,7 @@
 !package.json
 !index.php
 !readme.md
+!.htaccess
 
 # -------------------------------------------- #
 # Now "force" git to ignore OS generated Files #

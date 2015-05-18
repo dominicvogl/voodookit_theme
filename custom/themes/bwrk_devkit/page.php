@@ -9,6 +9,10 @@ if(have_posts()) {
       the_title();
       the_content();
 
+      $fields = get_fields(CURRENT_PAGE_ID);
+
+      bwrk_get_flexible_fields($fields['flexModules']);
+
    }
 }
 
