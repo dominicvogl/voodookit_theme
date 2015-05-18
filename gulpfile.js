@@ -16,7 +16,7 @@ var
    plumber = require('gulp-plumber'),
    rename = require("gulp-rename"),
    watch = require('gulp-watch'),
-   themepath = 'custom/themes/voodookit';
+   themepath = 'custom/themes/bwrk_devkit';
 
 
 
@@ -46,6 +46,7 @@ gulp.task('scripts', function () {
    var filelist = [
 
       // Load Bootstrap stuff
+      themepath+'/src/js/libs/jquery.js',
       //themepath+'/src/js/bootstrap/affix.js',
       //themepath+'/src/js/bootstrap/alert.js',
       //themepath+'/src/js/bootstrap/button.js',
@@ -58,6 +59,7 @@ gulp.task('scripts', function () {
       //themepath+'/src/js/bootstrap/tab.js',
       //themepath+'/src/js/bootstrap/tooltip.js',
       //themepath+'/src/js/bootstrap/transitions.js',
+      themepath+'/src/js/libs/slick.js',
 
       // Load own stuff
       themepath + '/src/js/custom/*.js'
