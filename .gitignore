@@ -19,6 +19,9 @@
 !/custom/themes/bwrk_devkit/
 !/custom/themes/bwrk_devkit/**
 
+!/custom/dumps/
+!/custom/dumps/**
+
 !/custom/mu-plugins/
 !/custom/mu-plugins/**
 !/custom/plugins/
@@ -40,6 +43,7 @@
 !local-config.php
 !local-config-sample.php
 !gulpfile.js
+!_wp-config.php
 !wp-config.php
 !wp-config.default.php
 !wp-config.development.php
