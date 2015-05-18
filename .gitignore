@@ -46,6 +46,7 @@
 !_wp-config.php
 !wp-config.php
 !wp-config.default.php
+!wp-config.staging.php
 !wp-config.development.php
 !wp-config.env.php
 !package.json

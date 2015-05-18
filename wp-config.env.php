@@ -20,7 +20,7 @@ switch ($hostname) {
         define('WP_ENV', 'development');
         break;
     
-    case 'intern.bergwerk.ag/YOURPROJECT':
+    case 'intern.bergwerk.ag/default/zaigler':
         define('WP_ENV', 'staging');
         break;
 
