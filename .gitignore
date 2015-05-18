@@ -22,6 +22,8 @@
 !/custom/plugins/
 !/custom/plugins/bwrk_monsterkill/
 !/custom/plugins/bwrk_monsterkill/**
+!/custom/plugins/bwrk_monsterkill/includes/
+!/custom/plugins/bwrk_monsterkill/includes/**
 !/custom/plugins/cachify/
 !/custom/plugins/cachify/**
 !/custom/plugins/responsive-images/
