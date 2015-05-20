@@ -11,7 +11,9 @@ if(have_posts()) {
 
       $fields = get_fields(CURRENT_PAGE_ID);
 
-      bwrk_get_flexible_fields($fields['flexModules']);
+      bwrk_get_flex_layouts($fields['addRow']);
+
+      //bwrk_get_flexible_fields($fields['addRow']);
 
    }
 }

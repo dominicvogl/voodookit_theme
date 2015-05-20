@@ -6,6 +6,8 @@ define('CURRENT_PAGE_ID', get_the_ID());
 
 $files = array(
    'template',
+   'acf-blocks',
+   'loops'
 );
 
 if (is_array($files)) {
