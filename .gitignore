@@ -8,19 +8,15 @@
 # Then "un-ignore" all directories which are necessary #
 # ---------------------------------------------------- #
 
+!/core/
 !/custom/
+!/config/
 !.gitignore
 !.gitmodules
 
-!/core/
-!/core/**
-
-!config/
-!config/**
-
 !/custom/themes/
-!/custom/themes/bwrk_devkit/
-!/custom/themes/bwrk_devkit/**
+!/custom/themes/template/
+!/custom/themes/template/**
 
 !/custom/dumps/
 !/custom/dumps/**
