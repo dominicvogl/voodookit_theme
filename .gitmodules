@@ -6,13 +6,10 @@
 	path = custom/plugins/cachify
 	url = https://github.com/wp-plugins/cachify.git
 
-[submodule "custom/plugins/bwrk_monsterkill"]
-	path = custom/plugins/bwrk_monsterkill
-	url = https://git.bergwerk.ag/wordpress-extensions/bwrk_monsterkill.git
-
 [submodule "custom/plugins/advanced-custom-fields-pro"]
 	path = custom/plugins/advanced-custom-fields-pro
 	url = https://git.bergwerk.ag/wordpress-extensions/advanced-custom-fields-pro.git
+
 [submodule "core"]
 	path = core
 	url = https://github.com/WordPress/WordPress.git
