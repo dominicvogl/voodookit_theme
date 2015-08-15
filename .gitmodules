@@ -13,3 +13,6 @@
 [submodule "core"]
 	path = core
 	url = https://github.com/WordPress/WordPress.git
+[submodule "custom/mu-plugins/bwrk_monsterkill"]
+	path = custom/mu-plugins/bwrk_monsterkill
+	url = https://git.bergwerk.ag/wordpress-extensions/bwrk_monsterkill.git
