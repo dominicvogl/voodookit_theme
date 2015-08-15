@@ -2,105 +2,80 @@
 // Gulp Configuration
 //------------------------------------------------------------------------
 
-//
-// Include necessary gulp files
-// ------------------------------------------------------------------------
 
+// Include gulp
 var
    gulp = require('gulp'),
-// path = require('path'),
-   minifyCSS = require('gulp-minify-css'),
-   less = require('gulp-less'),
-   concat = require('gulp-concat'),
    uglify = require('gulp-uglify'),
-   plumber = require('gulp-plumber'),
-   rename = require("gulp-rename"),
+   concat = require('gulp-concat'),
+   sass = require('gulp-sass'),
    watch = require('gulp-watch'),
-   themepath = 'custom/themes/bwrk_devkit';
+   plumber = require('gulp-plumber'),
+   rename = require("gulp-rename");
 
+// Define Basepaths
+var sourcepath = 'custom/themes/template/';
 
-
-//
-// Compile LESS files
-//------------------------------------------------------------------------
-
+// Compile SASS files
 gulp.task('styles', function () {
 
-   gulp.src(themepath + '/src/less/main.less')
+   // Foundation 5
+   gulp.src([sourcepath+'src/scss/app.scss'])
       .pipe(plumber())
-      .pipe(less())
-      .pipe(rename({basename: 'app', extname: '.css'}))
-      .pipe(gulp.dest(themepath + '/css/'))
-      .pipe(minifyCSS())
+      .pipe(sass({outputStyle: 'expanded'}))
+      .pipe(gulp.dest(sourcepath+'css'))
       .pipe(rename({suffix: '.min'}))
-      .pipe(gulp.dest(themepath + '/css/'))
+      .pipe(sass({outputStyle: 'compressed'}))
+      .pipe(gulp.dest(sourcepath+'css'));
 
 });
 
-//
+var filelist = [
+
+   // Foundation Stuff
+   //'src/js/libs/foundation/foundation.js',
+   //'src/js/libs/foundation/foundation.abide.js',
+   //'src/js/libs/foundation/foundation.accordion.js',
+   //'src/js/libs/foundation/foundation.alert.js',
+   //'src/js/libs/foundation/foundation.clearing.js',
+   //'src/js/libs/foundation/foundation.dropdown.js',
+   //'src/js/libs/foundation/foundation.equalizer.js',
+   //'src/js/libs/foundation/foundation.interchange.js',
+   //'src/js/libs/foundation/foundation.joyride.js',
+   //'src/js/libs/foundation/foundation.magellan.js',
+   //'src/js/libs/foundation/foundation.offcanvas.js',
+   //'src/js/libs/foundation/foundation.orbit.js',
+   //'src/js/libs/foundation/foundation.reveal.js',
+   //'src/js/libs/foundation/foundation.slider.js',
+   //'src/js/libs/foundation/foundation.tab.js',
+   //'src/js/libs/foundation/foundation.tooltip.js',
+   //'src/js/libs/foundation/foundation.topbar.js',
+
+   // Your Own Stuff
+   sourcepath+'src/js/libs/custom/fastclick.js',
+   sourcepath+'src/js/libs/custom/jquery.min.js',
+   sourcepath+'src/js/libs/custom/modernizr.js',
+   sourcepath+'src/js/custom/custom.js'
+
+];
+
+
 // Concatenate & Minify JS
-// ------------------------------------------------------------------------
-
 gulp.task('scripts', function () {
-
-   var filelist = [
-
-      // Load Bootstrap stuff
-      themepath+'/src/js/libs/jquery.js',
-      //themepath+'/src/js/bootstrap/affix.js',
-      //themepath+'/src/js/bootstrap/alert.js',
-      //themepath+'/src/js/bootstrap/button.js',
-      //themepath+'/src/js/bootstrap/carousel.js',
-      //themepath+'/src/js/bootstrap/collapse.js',
-      //themepath+'/src/js/bootstrap/dropdown.js',
-      //themepath+'/src/js/bootstrap/modal.js',
-      //themepath+'/src/js/bootstrap/popover.js',
-      //themepath+'/src/js/bootstrap/scrollspy.js',
-      //themepath+'/src/js/bootstrap/tab.js',
-      //themepath+'/src/js/bootstrap/tooltip.js',
-      //themepath+'/src/js/bootstrap/transitions.js',
-      themepath+'/src/js/libs/slick.js',
-
-      // Load own stuff
-      themepath + '/src/js/custom/*.js'
-   ];
-
    gulp.src(filelist)
       .pipe(plumber())
-      .pipe(concat('app.js'))
-      .pipe(gulp.dest(themepath + '/js/'))
-      .pipe(uglify('compress'))
+      .pipe(concat('/app.js'))
+      .pipe(gulp.dest(sourcepath+'js'))
+      .pipe(uglify())
       .pipe(rename({suffix: '.min'}))
-      .pipe(gulp.dest(themepath + '/js/'))
-
+      .pipe(gulp.dest(sourcepath+'js'))
 });
 
-//
 // Watch files for changes
-// ------------------------------------------------------------------------
-
 gulp.task('watch', function () {
-   gulp.watch(themepath + '/src/less/**/*.less', ['styles'], errorHandling);
-   gulp.watch(themepath + '/src/js/**/*.js', ['scripts'], errorHandling);
+   gulp.watch(sourcepath+'src/scss/**/*.scss', ['styles']);
+   gulp.watch(sourcepath+'src/js/**/*.js', ['scripts']);
 });
 
-//
-// Define default Tasks
-//------------------------------------------------------------------------
-
-gulp.task('default', ['styles', 'scripts', 'watch']);
-
-//
-// Functions
-//------------------------------------------------------------------------
-
-/**
- * Error handler function
- * @param event
- * @returns {*}
- */
-
-function errorHandling(event) {
-   return gulp.src(event.path)
-      .pipe(refresh(lrserver));
-}
+// Default Task
+gulp.task('default', ['styles', 'watch']);

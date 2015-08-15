@@ -15,6 +15,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 $files = array(
    'helpers',
    'admin',
+   'template',
    'acf-blocks',
    'images',
    'items',
