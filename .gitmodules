@@ -10,9 +10,9 @@
 	path = custom/plugins/advanced-custom-fields-pro
 	url = https://git.bergwerk.ag/wordpress-extensions/advanced-custom-fields-pro.git
 
-[submodule "custom/mu-plugins/bwrk_monsterkill"]
-	path = custom/mu-plugins/bwrk_monsterkill
-	url = https://git.bergwerk.ag/wordpress-extensions/bwrk_monsterkill.git
+[submodule "custom/plugins/acf-accordion"]
+	path = custom/plugins/acf-accordion
+	url = https://github.com/wp-plugins/acf-accordion.git
 
 [submodule "core"]
 	path = core
