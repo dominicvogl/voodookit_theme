@@ -8,7 +8,6 @@ if(have_posts()) {
 
       the_title();
       the_content();
-      echo first_loop();
 
    }
 }
