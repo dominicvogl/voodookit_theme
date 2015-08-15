@@ -14,6 +14,10 @@
 	path = custom/plugins/acf-accordion
 	url = https://github.com/wp-plugins/acf-accordion.git
 
+[submodule "custom/plugins/force-regenerate-thumbnail"]
+	path = custom/plugins/force-regenerate-thumbnail
+	url = https://github.com/pedroelsner/force-regenerate-thumbnails.git
+
 [submodule "core"]
 	path = core
 	url = https://github.com/WordPress/WordPress.git

@@ -23,17 +23,11 @@
 
 !/custom/mu-plugins/
 !/custom/mu-plugins/**
+
 !/custom/plugins/
+
 !/custom/plugins/bwrk_monsterkill/
 !/custom/plugins/bwrk_monsterkill/**
-!/custom/plugins/bwrk_monsterkill/includes/
-!/custom/plugins/bwrk_monsterkill/includes/**
-!/custom/plugins/cachify/
-!/custom/plugins/cachify/**
-!/custom/plugins/responsive-images/
-!/custom/plugins/responsive-images/**
-!/custom/plugins/advanced-custom-fields-pro/
-!/custom/plugins/advanced-custom-fields-pro/**
 
 # ---------------------------------------------------- #
 # Then "un-ignore" necessary files #
