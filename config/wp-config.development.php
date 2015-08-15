@@ -12,7 +12,7 @@
   
 
 // ** MySQL settings - You can get this info from your web host ** //
-define( 'DB_NAME', 'wp_devkit' );
+define( 'DB_NAME', 'wp_voodookit' );
 define( 'DB_USER', 'root' );
 define( 'DB_PASSWORD', 'root' );
 define( 'DB_HOST', 'localhost' ); // Probably 'localhost'
