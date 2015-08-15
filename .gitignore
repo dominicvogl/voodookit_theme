@@ -15,6 +15,9 @@
 !/core/
 !/core/**
 
+!config/
+!config/**
+
 !/custom/themes/
 !/custom/themes/bwrk_devkit/
 !/custom/themes/bwrk_devkit/**

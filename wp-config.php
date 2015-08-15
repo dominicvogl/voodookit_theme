@@ -42,6 +42,8 @@
  * @author     Studio 24 Ltd  <info@studio24.net>
  */
 
+define('WP_CONFIG_PATH', 'config/');
+
 // Try environment variable 'WP_ENV'
 if (getenv('WP_ENV') !== false) {
     // Filter non-alphabetical characters for security
@@ -58,7 +60,7 @@ if (isset($_SERVER['X_FORWARDED_HOST']) && !empty($_SERVER['X_FORWARDED_HOST']))
 // Try server hostname
 if (!defined('WP_ENV')) {
     // Set environment based on hostname
-    include 'wp-config.env.php';
+    include WP_CONFIG_PATH.'wp-config.env.php';
 }
 
 // Are we in SSL mode?
@@ -69,10 +71,10 @@ if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
 }
 
 // Load default config
-include 'wp-config.default.php';
+include WP_CONFIG_PATH.'wp-config.default.php';
 
 // Load config file for current environment
-include 'wp-config.' . WP_ENV . '.php';
+include WP_CONFIG_PATH.'wp-config.' . WP_ENV . '.php';
 
 // Define WordPress Site URLs if not already set in config files
 if (!defined('WP_SITEURL')) {
