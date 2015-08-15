@@ -66,7 +66,7 @@ gulp.task('icons', iconsTask);
 gulp.task('styles', stylesTask);
 
 // Default Task
-gulp.task('default', ['styles', 'watch']);
+gulp.task('default', ['styles', 'scripts', 'watch']);
 
 //
 // Gulp Functions
