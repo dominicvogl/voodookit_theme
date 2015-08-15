@@ -3,6 +3,9 @@
 //------------------------------------------------------------------------
 
 
+// Define Basepaths
+var sourcepath = 'custom/themes/template/';
+
 // Include gulp
 var
    gulp = require('gulp'),
@@ -11,24 +14,11 @@ var
    sass = require('gulp-sass'),
    watch = require('gulp-watch'),
    plumber = require('gulp-plumber'),
+   iconfont = require('gulp-iconfont'),
+   consolidate = require('gulp-consolidate'),
+   path = require('path'),
    rename = require("gulp-rename");
 
-// Define Basepaths
-var sourcepath = 'custom/themes/template/';
-
-// Compile SASS files
-gulp.task('styles', function () {
-
-   // Foundation 5
-   gulp.src([sourcepath+'src/scss/app.scss'])
-      .pipe(plumber())
-      .pipe(sass({outputStyle: 'expanded'}))
-      .pipe(gulp.dest(sourcepath+'css'))
-      .pipe(rename({suffix: '.min'}))
-      .pipe(sass({outputStyle: 'compressed'}))
-      .pipe(gulp.dest(sourcepath+'css'));
-
-});
 
 var filelist = [
 
@@ -52,30 +42,85 @@ var filelist = [
    //'src/js/libs/foundation/foundation.topbar.js',
 
    // Your Own Stuff
-   sourcepath+'src/js/libs/custom/fastclick.js',
-   sourcepath+'src/js/libs/custom/jquery.min.js',
-   sourcepath+'src/js/libs/custom/modernizr.js',
-   sourcepath+'src/js/custom/custom.js'
+   sourcepath + 'src/js/libs/custom/fastclick.js',
+   sourcepath + 'src/js/libs/custom/jquery.min.js',
+   sourcepath + 'src/js/libs/custom/modernizr.js',
+   sourcepath + 'src/js/custom/custom.js'
 
 ];
 
+//
+// Gulp Tasks
+// ------------------------------------------------------------------------------------
 
 // Concatenate & Minify JS
-gulp.task('scripts', function () {
-   gulp.src(filelist)
-      .pipe(plumber())
-      .pipe(concat('/app.js'))
-      .pipe(gulp.dest(sourcepath+'js'))
-      .pipe(uglify())
-      .pipe(rename({suffix: '.min'}))
-      .pipe(gulp.dest(sourcepath+'js'))
-});
+gulp.task('scripts', scriptTask);
 
 // Watch files for changes
-gulp.task('watch', function () {
-   gulp.watch(sourcepath+'src/scss/**/*.scss', ['styles']);
-   gulp.watch(sourcepath+'src/js/**/*.js', ['scripts']);
-});
+gulp.task('watch', watchTask);
+
+// Generate Icons
+gulp.task('icons', iconsTask);
+
+// Compile SASS files
+gulp.task('styles', stylesTask);
 
 // Default Task
 gulp.task('default', ['styles', 'watch']);
+
+//
+// Gulp Functions
+// ------------------------------------------------------------------------------------
+
+function stylesTask() {
+
+   var compileStyles = function (_baseName)
+   {
+      gulp.src([sourcepath + '/src/scss/' + _baseName + '.scss'])
+         .pipe(plumber())
+         .pipe(sass({outputStyle: 'nested'}))
+         .pipe(gulp.dest(sourcepath + '/css'))
+         .pipe(rename({suffix: '.min'}))
+         .pipe(sass({outputStyle: 'compressed'}))
+         .pipe(gulp.dest(sourcepath + '/css'));
+   };
+
+   compileStyles('app');
+
+}
+
+function scriptTask() {
+   gulp.src(filelist)
+      .pipe(plumber())
+      .pipe(concat('/app.js'))
+      .pipe(gulp.dest(sourcepath + 'js'))
+      .pipe(uglify())
+      .pipe(rename({suffix: '.min'}))
+      .pipe(gulp.dest(sourcepath + 'js'))
+}
+
+function watchTask() {
+   gulp.watch(sourcepath + 'src/scss/**/*.scss', ['styles']);
+   gulp.watch(sourcepath + 'src/js/**/*.js', ['scripts']);
+}
+
+function iconsTask() {
+   gulp.src([sourcepath + '/src/svg/*.svg'])
+      .pipe(iconfont({
+         fontName: 'icon',
+         appendCodepoints: true,
+         normalize: true,
+         //fontHeight: 500
+      }))
+      .on('codepoints', function (codepoints, options) {
+         gulp.src(sourcepath + '/src/scss/template/icons.scss')
+            .pipe(consolidate('lodash', {
+               glyphs: codepoints,
+               fontName: 'icon',
+               fontPath: '../fonts/',
+               className: 'icon'
+            }))
+            .pipe(gulp.dest(sourcepath + '/src/scss/generated/'));
+      })
+      .pipe(gulp.dest(sourcepath + '/fonts/'));
+}
