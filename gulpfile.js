@@ -2,7 +2,6 @@
 // Gulp Configuration
 //------------------------------------------------------------------------
 
-
 // Define Basepaths
 var sourcepath = 'custom/themes/template/';
 
@@ -13,12 +12,15 @@ var
    concat = require('gulp-concat'),
    sass = require('gulp-sass'),
    watch = require('gulp-watch'),
-   plumber = require('gulp-plumber'),
+   w3cjs = require('gulp-w3cjs'),
+   through2 = require('through2'),
+   themepath = 'custom/themes/bwrk_devkit';
+
+plumber = require('gulp-plumber'),
    iconfont = require('gulp-iconfont'),
    consolidate = require('gulp-consolidate'),
    path = require('path'),
    rename = require("gulp-rename");
-
 
 var filelist = [
 
@@ -53,9 +55,6 @@ var filelist = [
 // Gulp Tasks
 // ------------------------------------------------------------------------------------
 
-// Concatenate & Minify JS
-gulp.task('scripts', scriptTask);
-
 // Watch files for changes
 gulp.task('watch', watchTask);
 
@@ -64,6 +63,12 @@ gulp.task('icons', iconsTask);
 
 // Compile SASS files
 gulp.task('styles', stylesTask);
+
+// Compile
+gulp.task('scripts', scriptTask);
+
+// Validate
+gulp.task('validate', w3cValidate);
 
 // Default Task
 gulp.task('default', ['styles', 'scripts', 'watch']);
@@ -74,8 +79,7 @@ gulp.task('default', ['styles', 'scripts', 'watch']);
 
 function stylesTask() {
 
-   var compileStyles = function (_baseName)
-   {
+   var compileStyles = function (_baseName) {
       gulp.src([sourcepath + '/src/scss/' + _baseName + '.scss'])
          .pipe(plumber())
          .pipe(sass({outputStyle: 'nested'}))
@@ -86,6 +90,19 @@ function stylesTask() {
    };
 
    compileStyles('app');
+
+}
+
+function w3cValidate() {
+
+   gulp.src('*.html')
+      .pipe(w3cjs())
+      .pipe(through2.obj(function (file, enc, cb) {
+         cb(null, file);
+         if (!file.w3cjs.success) {
+            throw new Error('HTML validation error(s) found');
+         }
+      }));
 
 }
 
