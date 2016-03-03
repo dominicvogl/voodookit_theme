@@ -2,37 +2,25 @@
 # First ignore everything #
 # ----------------------- #
 
-*
+
 
 # ---------------------------------------------------- #
 # Then "un-ignore" all directories which are necessary #
 # ---------------------------------------------------- #
 
-!/core/
-!/custom/
-!/config/
-!.gitignore
-
-!/custom/themes/template/
-#!/custom/dumps/
-!/custom/mu-plugins/
-!/custom/plugins/
+/core/
+/custom/languages/
+/custom/upgrade/
+/custom/plugins/
+!/custom/plugins/voodookit/**
 
 # ---------------------------------------------------- #
 # Then "un-ignore" necessary files #
 # ---------------------------------------------------- #
 
-!local-config.php
-!local-config-sample.php
-!gulpfile.js
-!_wp-config.php
-!wp-config.php
-!wp-config.default.php
-!wp-config.sample.php
-!package.json
-!index.php
-!readme.md
-!.htaccess
+wp-config.dev.php
+wp-config.stage.php
+wp-config.prod.php
 
 # -------------------------------------------- #
 # Now "force" git to ignore OS generated Files #
