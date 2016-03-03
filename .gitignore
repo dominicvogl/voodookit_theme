@@ -25,9 +25,7 @@
 !/custom/mu-plugins/**
 
 !/custom/plugins/
-
-!/custom/plugins/bwrk_monsterkill/
-!/custom/plugins/bwrk_monsterkill/**
+!/custom/plugins/voodookit/
 
 # ---------------------------------------------------- #
 # Then "un-ignore" necessary files #
