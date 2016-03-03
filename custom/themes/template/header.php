@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="ie8 no-js" lang="de"> <![endif]-->
 <!--[if IE 9]><html class="ie9 no-js" lang="de"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="de"> <!--<![endif]-->
 
