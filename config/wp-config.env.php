@@ -16,11 +16,11 @@
 
 // Set environment based on hostname
 switch ($hostname) {
-    case 'localhost':
+    case 'clients.local':
         define('WP_ENV', 'development');
         break;
     
-    case 'intern.bergwerk.ag/default/zaigler':
+    case 'www.domain.com':
         define('WP_ENV', 'staging');
         break;
 

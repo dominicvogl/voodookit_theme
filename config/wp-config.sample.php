@@ -12,13 +12,13 @@
   
 
 // ** MySQL settings - You can get this info from your web host ** //
-define( 'DB_NAME', 'wp_voodookit' );
+define( 'DB_NAME', 'jh_clients' );
 define( 'DB_USER', 'root' );
 define( 'DB_PASSWORD', 'root' );
 define( 'DB_HOST', 'localhost' ); // Probably 'localhost'
 
-define('WP_HOME','http://localhost');
-define('WP_SITEURL','http://localhost/core');
+define('WP_HOME','https://clients.local');
+define('WP_SITEURL','https://clients.local/core');
 
 /**
  * For developers: WordPress debugging mode.
