@@ -2,14 +2,18 @@
 
 get_header();
 
-if(have_posts()) {
-   while(have_posts()) {
-      the_post();
+$args = array();
 
-      the_title();
-      the_content();
+if(is_page(get_the_ID())) {
 
-   }
+   $args = array(
+      'post_type' => 'page',
+      'posts_per_page' => 1,
+      'p' => get_the_ID()
+   );
+
 }
+
+echo $Voo_Loops->basic_loop($args);
 
 get_footer();
