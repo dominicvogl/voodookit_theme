@@ -17,15 +17,15 @@
 // Set environment based on hostname
 switch ($hostname) {
     case 'clients.local':
-        define('WP_ENV', 'development');
+        define('WP_ENV', 'dev');
         break;
     
     case 'www.domain.com':
-        define('WP_ENV', 'staging');
+        define('WP_ENV', 'stage');
         break;
 
     case 'www.domain.com':
     default: 
-        define('WP_ENV', 'production');
+        define('WP_ENV', 'prod');
 }
 
