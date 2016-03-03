@@ -12,20 +12,11 @@
 !/custom/
 !/config/
 !.gitignore
-!.gitmodules
 
-!/custom/themes/
 !/custom/themes/template/
-!/custom/themes/template/**
-
-!/custom/dumps/
-!/custom/dumps/**
-
+#!/custom/dumps/
 !/custom/mu-plugins/
-!/custom/mu-plugins/**
-
 !/custom/plugins/
-!/custom/plugins/voodookit/
 
 # ---------------------------------------------------- #
 # Then "un-ignore" necessary files #
