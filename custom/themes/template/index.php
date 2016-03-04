@@ -14,6 +14,7 @@ if(is_page(get_the_ID())) {
 
 }
 
+
 echo $Voo_Loops->basic_loop($args);
 
 get_footer();

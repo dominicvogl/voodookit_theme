@@ -13,12 +13,13 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 // List all file to import
 $files = array(
-   'helpers',
-   'admin',
-   'template',
-   'images',
-   'items',
-   'loops'
+   'Voo_Admin_Class',
+   'Voo_Frontend_Template_Class',
+   'Voo_Helper_Class',
+   'Voo_Images_Class',
+   'Voo_Loops_Class',
+   'Voo_Post_Helper_Class',
+   'Voo_Shortcodes_Class'
 );
 
 if (is_array($files)) {
