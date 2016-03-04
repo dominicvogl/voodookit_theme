@@ -40,7 +40,7 @@ add_action('admin_menu', 'add_acf_option_pages');
 // Admin Bar im Backend anpassen
 // ----------------------------------------------------------------------------------------
 
-function bwrk_adjust_admin_bar() {
+function adjust_admin_bar() {
     /* Global */
     global $wp_admin_bar;
 
@@ -84,7 +84,7 @@ function bwrk_adjust_admin_bar() {
 // Register Navigations
 // ----------------------------------------------------------------------------------------
 
-add_action('wp_before_admin_bar_render', 'bwrk_adjust_admin_bar');
+add_action('wp_before_admin_bar_render', 'adjust_admin_bar');
 
 register_nav_menus( array(
     'main-nav' => 'Hauptnavigation',
@@ -103,7 +103,7 @@ register_nav_menus( array(
 // ADD MIME SUPPORT FOR SVG's
 // ----------------------------------------------------------------------------------------
 
-function bwrk_cc_mime_types( $mimes ){
+function cc_mime_types( $mimes ){
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
