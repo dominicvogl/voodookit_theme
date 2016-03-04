@@ -13,9 +13,9 @@ class Voo_Frontend_Template
    public function __construct()
    {
 
-      add_action('wp_head', array($this, 'add_favicons'));
-      add_action('wp_head', array($this, 'load_css'));
-      add_action('wp_footer', array($this, 'load_javascript'));
+   //      add_action('wp_head', array($this, 'add_favicons'));
+   //      add_action('wp_head', array($this, 'load_css'));
+   //      add_action('wp_footer', array($this, 'load_javascript'));
       add_action('init', array($this, 'clean_headers'));
 
    }
