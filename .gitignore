@@ -13,6 +13,7 @@
 /custom/upgrade/
 /custom/plugins/
 !/custom/plugins/voodookit/**
+!/custom/plugins/acf-options/**
 
 # ---------------------------------------------------- #
 # Then "un-ignore" necessary files #
