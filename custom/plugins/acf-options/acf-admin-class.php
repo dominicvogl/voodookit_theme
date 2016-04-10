@@ -1,8 +1,8 @@
 <?php
 
-$ACF_Admin = new ACF_Admin();
+$Voo_ACF_Admin = new Voo_ACF_Admin();
 
-class ACF_Admin
+class Voo_ACF_Admin
 {
 
    public function __construct()
