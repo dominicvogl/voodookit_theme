@@ -6,7 +6,7 @@
 
 ## 2. Create wp-config.php
 
-Create `wp-config.php` with this code
+Create `wp-config.php` in `core/` folder just with this code:
 `<?php
  include_once("${_SERVER['DOCUMENT_ROOT']}/wp-config.php");
  ?>`
