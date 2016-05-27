@@ -17,8 +17,8 @@ define( 'DB_USER', 'USER' );
 define( 'DB_PASSWORD', 'USER' );
 define( 'DB_HOST', 'localhost' ); // Probably 'localhost'
 
-define('WP_HOME','https://localhost/');
-define('WP_SITEURL','https://localhost/core');
+define('WP_HOME','http://localhost/');
+define('WP_SITEURL','http://localhost/core');
 
 /**
  * For developers: WordPress debugging mode.

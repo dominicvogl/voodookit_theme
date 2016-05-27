@@ -23,8 +23,7 @@ switch ($hostname) {
     case 'www.domain.com':
         define('WP_ENV', 'stage');
         break;
-
-    case 'www.domain.com':
+    
     default: 
         define('WP_ENV', 'prod');
 }
