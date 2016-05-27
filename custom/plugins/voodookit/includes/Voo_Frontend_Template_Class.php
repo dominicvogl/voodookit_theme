@@ -13,9 +13,9 @@ class Voo_Frontend_Template
    public function __construct()
    {
 
-   //      add_action('wp_head', array($this, 'add_favicons'));
-   //      add_action('wp_head', array($this, 'load_css'));
-   //      add_action('wp_footer', array($this, 'load_javascript'));
+      // add_action('wp_head', array($this, 'add_favicons'));
+      add_action('wp_head', array($this, 'load_css'));
+      add_action('wp_footer', array($this, 'load_javascript'));
       add_action('init', array($this, 'clean_headers'));
 
    }
@@ -50,7 +50,7 @@ class Voo_Frontend_Template
 
             array(
                'handle' => 'styles',
-               'src' => get_template_directory_uri() . '/css/app.css',
+               'src' => get_template_directory_uri() . '/dist/css/app.css',
                'deps' => array(),
             )
 
@@ -83,7 +83,7 @@ class Voo_Frontend_Template
 
             array(
                'handle' => 'app',
-               'src' => get_template_directory_uri() . '/js/app.js',
+               'src' => get_template_directory_uri() . '/dist/js/app.js',
                'deps' => array(),
             )
 
