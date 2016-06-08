@@ -57,3 +57,4 @@ $table_prefix  = 'wp_';
  * language support.
  */
 define('WPLANG', '');
+define('DISALLOW_FILE_EDIT', true);
