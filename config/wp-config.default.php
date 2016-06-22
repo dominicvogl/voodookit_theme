@@ -58,3 +58,6 @@ $table_prefix  = 'wp_';
  */
 define('WPLANG', '');
 define('DISALLOW_FILE_EDIT', true);
+
+// Disable all automatic Wordpress updates
+define( 'AUTOMATIC_UPDATER_DISABLED', true );
