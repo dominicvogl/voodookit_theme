@@ -1,12 +1,4 @@
-# ----------------------- #
-# First ignore everything #
-# ----------------------- #
-
-
-
-# ---------------------------------------------------- #
-# Then "un-ignore" all directories which are necessary #
-# ---------------------------------------------------- #
+## ignore folders
 
 core
 /custom/languages/
@@ -16,37 +8,17 @@ core
 !/custom/plugins/acf-options/
 !/custom/plugins/maintenance/
 
-# ---------------------------------------------------- #
-# Then "un-ignore" necessary files #
-# ---------------------------------------------------- #
+## ignore files
 
-wp-config.dev.php
-wp-config.stage.php
-wp-config.prod.php
-
-# -------------------------------------------- #
-# Now "force" git to ignore OS generated Files #
-# -------------------------------------------- #
-
+.idea
 .DS_Store
 ._*
 .Spotlight-V100
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# ------------------------------------------------- #
-# Now "force" git to Developement and Graphic Files #
-# ------------------------------------------------- #
-
 *.psd
 *.ai
-.idea
-
-# --------------------------------------- #
-# Now "force" git to ignore package Files #
-# --------------------------------------- #
-
 *.7z
 *.dmg
 *.gz
