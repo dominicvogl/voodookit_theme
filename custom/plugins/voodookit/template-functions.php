@@ -18,12 +18,27 @@ $files = array(
    'Voo_Helper_Class',
    'Voo_Images_Class',
    'Voo_Loops_Class',
+   'Voo_Media.Class',
    'Voo_Post_Helper_Class',
    'Voo_Shortcodes_Class'
 );
 
-if (is_array($files)) {
-   foreach ($files as $filename) {
-      include(plugin_dir_path( __FILE__ ) . 'includes/' . $filename . '.php');
-   }
+/**
+ * Include Files for template functions
+ * @param $files
+ * @return bool
+ */
+
+function include_files($files)
+{
+
+	if (is_array($files))
+		return false;
+
+	foreach ($files as $filename) {
+		include(plugin_dir_path( __FILE__ ) . 'includes/' . $filename . '.php');
+	}
+
+	return true;
+
 }
