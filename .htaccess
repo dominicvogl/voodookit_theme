@@ -312,7 +312,7 @@ RewriteCond %{HTTP_REFERER} !^https://(www\.)?yourdomaan\.de(/.*)?$ [NC]
 RewriteRule \.(jpg|jpeg|gif||png)$ - [F]
 </IfModule>
  
- # XML-RPC Schnittstelle komplett abschalten
+#XML-RPC Schnittstelle abschalten
 <Files xmlrpc.php>
  Order Deny,Allow
  Deny from all
