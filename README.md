@@ -1,25 +1,31 @@
 # Installation
 
-## With Symlink
+## Workflow with symlink
 
-### 1. Create Symlink
+### 1. Download core files
 
-`ln -s your_path_to_wordpress/ core`
+Download latest Wordpress core files from offical Website: [Wordpress Core Files](https://wordpress.org/latest.zip)
 
-### 2. Create wp-config.php
+### 2. Create Symlink
 
-Create `wp-config.php` in `core/` folder just with this code:
+Do in your Terminal:
+
+`ln -s path_to_your_wordpress_core/ core/`
+
+### 3. Create wp-config.php
+
+Create `wp-config.php` in `path_to_your_wordpress_core/` folder just with this code:
 
 `<?php
  include_once("${_SERVER['DOCUMENT_ROOT']}/wp-config.php");
  ?>`
  
-## Without Symlink
+## Workflow without symlink
 
 ### 1. Download core files
 
-Download latest Wordpresscore Files from offical Website: [Wordpress Core Files](https://wordpress.org/latest.zip)
+Download latest Wordpress core files from offical Website: [Wordpress Core Files](https://wordpress.org/latest.zip)
 
 ### 2. Install
 
-Move core file in `core` folder
+Move core files in `core/` folder
