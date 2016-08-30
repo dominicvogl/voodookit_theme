@@ -8,7 +8,7 @@ core
 !/custom/plugins/acf-options/
 !/custom/plugins/maintenance/
 
-## ignore files
+## ignore Files
 
 .idea
 .DS_Store
