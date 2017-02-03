@@ -21,5 +21,19 @@ define('WP_SITEURL','http://localhost/core');
  * in their development environments.
  */
 
-define('WP_DEBUG', true);
-define('WP_DEBUG_DISPLAY', true);
+// Schaltet den Debug Mode ein. Dadurch sind Fehler im Frontend sichtbar.
+define( 'WP_DEBUG', true );
+
+// Verhindert, dass Fehlermeldungen im Frontend sichtbar sind.
+define( 'WP_DEBUG_DISPLAY', false );
+
+// Zeige verschiedene Fehler an
+// E_ALL
+// E_ERROR | E_WARNING | E_PARSE | E_NOTICE
+@ini_set( 'display_errors', 0 );
+
+// Aktiviert das Logfile und legt es im Verzeichnis /wp-content/debug.log ab.
+define( 'WP_DEBUG_LOG', true );
+
+// Use dev versions of core JS and CSS files (only needed if you are modifying these core files)
+define( 'SCRIPT_DEBUG', false );
