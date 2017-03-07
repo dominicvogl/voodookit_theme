@@ -18,6 +18,7 @@ core
 .Trashes
 ehthumbs.db
 Thumbs.db
+debug.log
 *.psd
 *.ai
 *.7z
