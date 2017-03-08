@@ -5,7 +5,6 @@ core
 /custom/upgrade/
 /custom/uploads/
 /custom/plugins/
-!/custom/plugins/voodookit/
 !/custom/plugins/acf-options/
 !/custom/plugins/maintenance/
 
