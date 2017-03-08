@@ -9,7 +9,8 @@ function load_template_parts()
 	$filelist = array(
 		'voodookit/helper.php',      // some helper functions
 		'voodookit/frontend.php',    // load frontend stuff
-		'voodookit/images.php'       // load frontend stuff
+		'voodookit/images.php',      // setup image sizes
+		'voodookit/shortcodes.php'   // setup shortcodes
 	);
 
 	foreach($filelist as $file) {
