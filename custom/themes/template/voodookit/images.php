@@ -4,18 +4,15 @@ if ( function_exists('add_theme_support') ) {
 	add_theme_support( 'post-thumbnails' );
 }
 
-if ( function_exists( 'add_image_size' ) ) {
-
-	add_image_size( 'new-size', 350, 250, true ); //(cropped)
-
-	// add_image_size( 'quad-small', 400, 400, array('center', 'top') );
-	// add_image_size( 'quad-medium', 800, 800, array('center', 'top') );
-	// add_image_size( 'small', 460, 260, array('center', 'top') );
-}
-
-//
-// Render image tag with size of svg's and a better image rendering as the original wp function! Check it out =)
-// ----------------------------------------------------------------------------------------------------------------------
+/**
+ * @param $attachmentID
+ * @param string $size_args
+ * @param bool $is_lazy
+ * @param bool $echo
+ * @param array $elem_args
+ * Render image tag with size of svg's and a better image rendering as the original wp function! Check it out =)
+ * @return string
+ */
 
 function voo_get_image($attachmentID, $size_args = 'thumbnail', $is_lazy = false, $echo = true, $elem_args = array())
 {

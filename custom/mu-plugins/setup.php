@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Custom Admin Settings
+Plugin Name: Custom Setup
 Description: Set some Admin Settings or change some things
 Author: Dominic Vogl
 Version: 1.0
@@ -31,6 +31,17 @@ add_filter('wp_headers', 'remove_x_pingback');
 // update backend admin bar and remove some crap
 add_action('wp_before_admin_bar_render', 'adjust_admin_bar');
 
+/**
+ * Image Setup
+ */
+
+if ( function_exists( 'add_image_size' ) ) {
+
+	//	add_image_size( 'new-size', 350, 250, true ); //(cropped)
+	// add_image_size( 'quad-small', 400, 400, array('center', 'top') );
+	// add_image_size( 'quad-medium', 800, 800, array('center', 'top') );
+	// add_image_size( 'small', 460, 260, array('center', 'top') );
+}
 
 /**
  * Registrations
