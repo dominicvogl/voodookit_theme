@@ -10,7 +10,9 @@ function load_template_parts()
 		'voodookit/helper.php',      // some helper functions
 		'voodookit/frontend.php',    // load frontend stuff
 		'voodookit/images.php',      // setup image sizes
-		'voodookit/shortcodes.php'   // setup shortcodes
+		'voodookit/shortcodes.php',   // setup shortcodes
+
+		'acf/acf-fields.php'    // load frontend stuff
 	);
 
 	foreach($filelist as $file) {

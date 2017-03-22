@@ -5,8 +5,7 @@ core
 /custom/upgrade/
 /custom/uploads/
 /custom/plugins/
-!/custom/plugins/acf-options/
-!/custom/plugins/maintenance/
+!/custom/plugins/acf-to-json/
 
 ## ignore Files
 
