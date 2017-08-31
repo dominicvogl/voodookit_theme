@@ -51,12 +51,11 @@ if (getenv('WP_ENV') !== false) {
 }
 
 // Define site host
+$hostname = $_SERVER['HTTP_HOST'];
 if (isset($_SERVER['X_FORWARDED_HOST']) && !empty($_SERVER['X_FORWARDED_HOST'])) {
     $hostname = $_SERVER['X_FORWARDED_HOST'];
-} else {
-    $hostname = $_SERVER['HTTP_HOST'];
 }
-    
+
 // Try server hostname
 if (!defined('WP_ENV')) {
     // Set environment based on hostname
@@ -64,10 +63,9 @@ if (!defined('WP_ENV')) {
 }
 
 // Are we in SSL mode?
+$protocol = 'http://';
 if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
     $protocol = 'https://';
-} else {
-    $protocol = 'http://';
 }
 
 // Load default config
@@ -84,12 +82,13 @@ if (!defined('WP_HOME')) {
     define('WP_HOME', $protocol . rtrim($hostname, '/'));
 }
 
+// Define new folder for contents
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/custom' );
 define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/custom' );
 
-
-// Define some other stuff
-define('TEMPLATE_VERSION', '2.0');
+// define new folder for plugins
+// define( 'WP_PLUGIN_DIR', dirname(__FILE__) . '/plugins' );
+// define( 'WP_PLUGIN_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/plugins' );
 
 // Clean up
 unset($hostname, $protocol);

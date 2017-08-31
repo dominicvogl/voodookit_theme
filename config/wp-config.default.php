@@ -12,7 +12,9 @@
  * @version    1.0
  * @author     Studio 24 Ltd  <info@studio24.net>
  */
-  
+
+// Define some other stuff
+define('TEMPLATE_VERSION', '2.0');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -56,8 +58,28 @@ $table_prefix  = 'wp_';
  * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
  * language support.
  */
+
 define('WPLANG', '');
 define('DISALLOW_FILE_EDIT', true);
 
+# Disable all core updates:
+define( 'WP_AUTO_UPDATE_CORE', false );
+
 // Disable all automatic Wordpress updates
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
+
+// Define home and siteurl's
+define('WP_HOME','http://'.$_SERVER['HTTP_HOST'].'/');
+define('WP_SITEURL','http://'.$_SERVER['HTTP_HOST'].'/core');
+
+// Post Revisions
+define( 'WP_POST_REVISIONS', 5 );
+
+// Set Cookie Domain
+// define( 'COOKIE_DOMAIN', 'www.example.com' );
+
+// Set Wordpress memory limit
+// define( 'WP_MEMORY_LIMIT', '128M' );
+
+// Show all defined constants
+// print_r( @get_defined_constants() );

@@ -11,5 +11,5 @@ switch ($hostname) {
         break;
 
     default: 
-        define('WP_ENV', 'dev');
+        define('WP_ENV', 'prod');
 }
