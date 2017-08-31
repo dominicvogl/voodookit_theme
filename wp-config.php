@@ -89,7 +89,7 @@ define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/custom' );
 
 
 // Define some other stuff
-define('BWRK_TEMPLATE_VERSION', '2.0');
+define('TEMPLATE_VERSION', '2.0');
 
 // Clean up
 unset($hostname, $protocol);

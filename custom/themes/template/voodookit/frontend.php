@@ -47,7 +47,7 @@ function load_css()
 
 		foreach ($files as $file) {
 
-			wp_register_style($file['handle'], $file['src'], $file['deps'], BWRK_TEMPLATE_VERSION);
+			wp_register_style($file['handle'], $file['src'], $file['deps'], TEMPLATE_VERSION);
 			wp_enqueue_style($file['handle']);
 
 		}
@@ -80,7 +80,7 @@ function load_javascript()
 
 		foreach ($files as $file) {
 
-			wp_register_script($file['handle'], $file['src'], $file['deps'], BWRK_TEMPLATE_VERSION);
+			wp_register_script($file['handle'], $file['src'], $file['deps'], TEMPLATE_VERSION);
 			wp_enqueue_script($file['handle']);
 
 		}
