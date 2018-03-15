@@ -7,13 +7,14 @@ function load_template_parts()
 
 	// Here we load from our includes directory
 	$filelist = array(
-		'voodookit/helper.php',      // some helper functions
-		'voodookit/editor.php',    // load frontend stuff
-		'voodookit/frontend.php',    // load frontend stuff
-		'voodookit/images.php',      // setup image sizes
-		'voodookit/shortcodes.php',   // setup shortcodes
+		'voodookit/helper.php',         // some helper functions
+		'voodookit/editor.php',         // load frontend stuff
+		'voodookit/frontend.php',       // load frontend stuff
+		'voodookit/images.php',         // setup image sizes
+		'voodookit/shortcodes.php',     // setup shortcodes
+		'voodookit/tracking.php',       // setup tracking
 
-		'acf/acf-fields.php'    // load frontend stuff
+		'acf/acf-fields.php'            // load frontend ACF stuff
 	);
 
 	foreach($filelist as $file) {
