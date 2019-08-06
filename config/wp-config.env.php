@@ -6,7 +6,7 @@
 
 // Set environment based on hostname
 switch ($hostname) {
-    case 'wp-voodookit.loc':
+    case 'voodookit.loc':
         define('WP_ENV', 'dev');
         break;
 

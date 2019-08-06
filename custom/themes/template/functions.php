@@ -2,33 +2,21 @@
 
 // Autoload Template Settings
 
-function load_template_parts()
-{
+if( ! function_exists('load_template_parts') ) {
 
-	// Here we load from our includes directory
-	$filelist = array(
-		'voodookit/helper.php',         // some helper functions
-		'voodookit/editor.php',         // load frontend stuff
-		'voodookit/frontend.php',       // load frontend stuff
-		'voodookit/images.php',         // setup image sizes
-		'voodookit/shortcodes.php',     // setup shortcodes
-		'voodookit/tracking.php',       // setup tracking
+	function load_template_parts()
+	{
 
-		'acf/acf-fields.php'            // load frontend ACF stuff
-	);
-
-	foreach($filelist as $file) {
-
-		$path = get_template_directory() .'/'. $file;
+		$path = get_template_directory() .'/Ressources/init-voodookit.php';
 
 		if(file_exists($path)) {
-			include($path);
+			require_once($path);
 		}
 		else {
-			error_log('Template Part "' . $file . '" could not be loaded');
+			error_log('Template Part "' . $path . '" could not be loaded');
 		}
-
 	}
+
 }
 
-add_action('init', 'load_template_parts');
+add_action('init', 'load_voodookit', 5);
