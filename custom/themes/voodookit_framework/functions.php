@@ -6,7 +6,7 @@ if ( ! function_exists( 'load_template_parts' ) ) {
 
 	function load_template_parts() {
 
-		$path = get_template_directory() . '/Ressources/init-voodookit.php';
+		$path = get_template_directory() . '/inc/init-voodookit.php';
 
 		if ( file_exists( $path ) ) {
 			require_once( $path );
@@ -17,4 +17,4 @@ if ( ! function_exists( 'load_template_parts' ) ) {
 
 }
 
-add_action( 'init', 'load_voodookit', 5 );
+add_action( 'init', 'load_template_parts', 5 );
