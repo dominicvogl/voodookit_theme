@@ -1,16 +1,14 @@
 <?php
+/**
+ * This is Voodookit!
+ *
+ * @package Voodookit
+ * @since 1.0.0
+ */
 
 get_header();
 
-if(have_posts()) {
-
-	while(have_posts()) {
-		the_post();
-		the_title();
-		the_content();
-		// the_acf_modules();
-	}
-
-}
+do_action( 'voodookit_before_main' );
+do_action( 'voodookit_do_main' );
 
 get_footer();

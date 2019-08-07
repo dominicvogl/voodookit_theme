@@ -19,10 +19,11 @@ define( 'PARENT_DIR', get_template_directory() );
 define( 'CHILD_DIR', get_stylesheet_directory() );
 
 // voodookit directories
-define( 'VOODOOKIT_RESSOURCES_DIR', PARENT_DIR . '/inc' );
-define( 'VOODOOKIT_BACKEND_DIR', VOODOOKIT_RESSOURCES_DIR . '/backend' );
-define( 'VOODOOKIT_FRONTEND_DIR', VOODOOKIT_RESSOURCES_DIR . '/frontend' );
-define( 'VOODOOKIT_FUNCTIONS_DIR', VOODOOKIT_RESSOURCES_DIR . '/functions' );
+define( 'VOODOOKIT_INC_DIR', PARENT_DIR . '/inc' );
+define( 'VOODOOKIT_BACKEND_DIR', VOODOOKIT_INC_DIR . '/backend' );
+define( 'VOODOOKIT_FRONTEND_DIR', VOODOOKIT_INC_DIR . '/frontend' );
+define( 'VOODOOKIT_FUNCTIONS_DIR', VOODOOKIT_INC_DIR . '/functions' );
+define( 'VOODOOKIT_STRUCTURE_DIR', VOODOOKIT_INC_DIR . '/structure' );
 define( 'VOODOOKIT_SETUP_DIR', VOODOOKIT_FUNCTIONS_DIR . '/setup' );
 define( 'VOODOOKIT_HELPER_DIR', VOODOOKIT_FUNCTIONS_DIR . '/helper' );
 
@@ -48,4 +49,10 @@ require_once( VOODOOKIT_FRONTEND_DIR . '/head.php' );
 require_once( VOODOOKIT_HELPER_DIR . '/helper.php' );
 // load shortcodes
 require_once( VOODOOKIT_HELPER_DIR . '/shortcodes.php' );
+
+// load structure
+require_once ( VOODOOKIT_STRUCTURE_DIR . '/loops.php');
+
+// load hooks
+require_once ( VOODOOKIT_FUNCTIONS_DIR . '/voodookit-hooks.php');
 
