@@ -2,22 +2,33 @@
 
 // silence
 
-add_action( 'voodookit_do_main', 'voodookit_do_main_loop', 10 );
 
-if(! function_exists('voodookit_do_main_loop')) {
+if(! function_exists('waht')) {
 
-	function voodookit_do_main_loop() {
+	function waht() {
 
-		if(have_posts()) {
+		echo "<h1>Das sucked hart!</h1>";
 
-			while(have_posts()) {
-				the_post();
-				the_title();
-				echo "<h1>Das sucked hart!</h1>";
-				the_content();
-			}
+	}
 
-		}
+}
+
+add_action( 'voodookit_do_main', 'waht', 9 );
+
+
+if (! function_exists('new_navigation')) {
+
+	function voodookit_navigation() {
+
+		remove_action( 'voodookit_do_header', 'voodookit_navigation', 10);
+		add_action( 'voodookit_do_header', 'voodookit_navigation', 10);
+
+		wp_nav_menu( array(
+				'container' => 'nav',
+				'menu_class' => 'fucking-navigation',
+				'theme_location' => 'primary'
+			)
+		);
 
 	}
 

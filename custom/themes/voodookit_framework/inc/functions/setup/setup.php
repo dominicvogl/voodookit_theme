@@ -86,7 +86,7 @@ add_filter('wp_headers', 'remove_x_pingback');
  * @since 1.0.0
  */
 
-if(function_exists('voodookit_mime_types')) {
+if( !function_exists('voodookit_mime_types')) {
 
 	function voodookit_mime_types($mimes) {
 		$mimes['svg'] = 'image/svg+xml';
