@@ -4,7 +4,6 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 
 	function voodookit_setup() {
 
-
 		// Load template translations
 		load_theme_textdomain( 'voodookit', get_template_directory() . '/languages' );
 
@@ -32,12 +31,24 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 		add_image_size( 'voodookit-gallery', 1120, 450 );
 
 		// register and use wp_nav_menu() for navigation
-		register_nav_menus(array(
-			'primary' => esc_html__('Main Navigation', 'voodookit'),
-			'footer' => esc_attr__('Footer Navigation', 'voodookit')
-		));
+		register_nav_menus(
+			[
+				'primary' => esc_html__( 'Main Navigation', 'voodookit' ),
+				'footer'  => esc_attr__( 'Footer Navigation', 'voodookit' )
+			]
+		);
+
+		add_theme_support( 'html5', [ 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ] );
+
+		// add posts formats if necessary
+		add_theme_support( 'post-formats', [ 'audio', 'gallery', 'video' ] );
+
+		// This theme styles the visual editor to resemble the theme style.
+		// @todo set right path for the editor later
+		add_editor_style( array( 'css/normalize.css', 'style.css', 'css/editor-style.css' ) );
 
 	}
 
 }
 
+add_action( 'after_setup_theme', 'voodookit_setup' );

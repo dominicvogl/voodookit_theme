@@ -46,3 +46,5 @@ function voo_mce_before_init_insert_formats( $init_array ) {
 	return $init_array;
 }
 
+// This theme styles the visual editor to resemble the theme style.
+add_editor_style( array( 'css/normalize.css', 'style.css', 'css/editor-style.css' ) );

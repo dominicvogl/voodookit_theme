@@ -18,3 +18,11 @@ msgstr ""
 
 msgid "Footer Navigation"
 msgstr ""
+
+#. Author of the theme
+msgid "Dominic Vogl"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://dominicvogl.de"
+msgstr ""
