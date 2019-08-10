@@ -25,14 +25,14 @@ const src = './src/',
 // ################################
 // Minify SASS
 
-const gulpSass = () => {
-    gulp.src(src + 'assets/sass/*.scss')
+const gulpScss = () => {
+    gulp.src(src + 'assets/scss/*.scss')
         .pipe(sourcemaps.init())
         // .pipe(clean())
         .pipe(plumber())
         .pipe(sass())
         .pipe(autoprefixer())
-        .pipe(rename({basename: 'style'}))
+        .pipe(rename({basename: 'app'}))
         // .pipe(gulp.dest(dist + 'assets/css'))
         .pipe(cleanCSS())
         .pipe(rename({suffix: '.min'}))
@@ -103,7 +103,7 @@ function iconsTask() {
 // ################################
 // define gulp tasks
 
-gulp.task('sass', gulpSass);
+gulp.task('scss', gulpScss);
 gulp.task('js', gulpJS);
 // gulp.task('html', gulpHTML);
 
@@ -113,7 +113,7 @@ gulp.task('js', gulpJS);
 
 gulp.task('default', function () {
     // Initial compiling of files
-    gulpSass();
+    gulpScss();
     gulpJS();
     // gulpHTML();
 
@@ -124,6 +124,6 @@ gulp.task('default', function () {
 
     // watch some files
     // gulp.watch([src + '*.html'], ['html']);
-    gulp.watch([src + 'assets/sass/*.scss'], ['sass']);
+    gulp.watch([src + 'assets/scss/*.scss'], ['sass']);
     gulp.watch([src + 'assets/js/*.js'], ['js']);
 });

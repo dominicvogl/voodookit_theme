@@ -1,10 +1,10 @@
 ## ignore folders
 
 core
-/custom/languages/
-/custom/upgrade/
-/custom/uploads/
-/custom/plugins/
+custom/languages
+custom/upgrades
+custom/upload
+custom/plugins
 !/custom/plugins/acf-to-json/
 
 node_modules

@@ -22,7 +22,7 @@ if ( ! function_exists( 'load_css' ) ) {
 
 				array(
 					'handle' => 'styles',
-					'src'    => get_template_directory_uri() . '/dist/css/app.css',
+					'src'    => get_template_directory_uri() . '/dist/assets/css/app.min.css',
 					'deps'   => array(),
 				)
 
@@ -62,7 +62,7 @@ if ( ! function_exists( 'load_javascript' ) ) {
 
 				array(
 					'handle' => 'app',
-					'src'    => get_template_directory_uri() . '/dist/js/app.js',
+					'src'    => get_template_directory_uri() . '/dist/assets/js/app.min.js',
 					'deps'   => array(),
 				)
 
