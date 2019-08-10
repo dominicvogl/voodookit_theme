@@ -5,7 +5,7 @@
  * @since 1.0.0
  */
 
-if(function_exists('adjust_admin_bar')) {
+if(! function_exists('adjust_admin_bar')) {
 
 	function adjust_admin_bar()
 	{

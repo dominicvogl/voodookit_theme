@@ -7,7 +7,7 @@ if(! function_exists('waht')) {
 
 	function waht() {
 
-		echo "<h1>Das sucked hart!</h1>";
+		echo "<h1>Das ist noch total hässlich</h1>";
 
 	}
 
@@ -25,7 +25,7 @@ if (! function_exists('new_navigation')) {
 
 		wp_nav_menu( array(
 				'container' => 'nav',
-				'menu_class' => 'fucking-navigation',
+				'menu_class' => 'fucking-navigation menu',
 				'theme_location' => 'primary'
 			)
 		);

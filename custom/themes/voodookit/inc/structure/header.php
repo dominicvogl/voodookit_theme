@@ -23,7 +23,7 @@ if ( ! function_exists( 'voodookit_navigation' ) ) {
 
 		wp_nav_menu( array(
 				'container' => 'nav',
-				'menu_class' => 'navigation',
+				'menu_class' => 'navigation menu',
 				'theme_location' => 'primary'
 			)
 		);
