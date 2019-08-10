@@ -40,6 +40,8 @@ require_once( VOODOOKIT_SETUP_DIR . '/setup.php' );
 require_once( VOODOOKIT_SETUP_DIR . '/script-loader.php' );
 
 // load backend stuff
+require_once( VOODOOKIT_BACKEND_DIR . '/admin.php' );
+require_once( VOODOOKIT_BACKEND_DIR . '/customizer.php' );
 require_once( VOODOOKIT_BACKEND_DIR . '/editor.php' );
 
 // load frontend stuff

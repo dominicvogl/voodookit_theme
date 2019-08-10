@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAGA,KACG,WAAA,QACA,MAAA,QACA,UAAA","file":"style.min.css","sourcesContent":["@import \"settings/var\";\n@import \"../../../node_modules/foundation-sites/scss/foundation\";\n\nbody {\n   background: $ugly;\n   color: $yellow;\n   font-size: 3em;\n}\n"]}

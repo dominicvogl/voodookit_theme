@@ -6,7 +6,6 @@
  * @since 1.0.0
  */
 
-
 if ( ! function_exists( 'voodookit_setup' ) ) {
 
 	function voodookit_setup() {
@@ -26,10 +25,10 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 		 * provide it for us.
 		 */
 
-		add_theme_support( 'title-tag' );
+//		add_theme_support( 'title-tag' );
 
 		// Add Support for Custom Backgrounds
-		add_theme_support( 'custom-background' );
+//		add_theme_support( 'custom-background' );
 
 		// activate support for images in posts
 		add_theme_support( 'post-thumbnails' );
@@ -38,12 +37,10 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 		add_image_size( 'voodookit-gallery', 1120, 450 );
 
 		// register and use wp_nav_menu() for navigation
-		register_nav_menus(
-			[
-				'primary' => esc_html__( 'Main Navigation', 'voodookit' ),
-				'footer'  => esc_attr__( 'Footer Navigation', 'voodookit' )
-			]
-		);
+		register_nav_menus( array(
+			'primary' => __( 'Main Navigation', 'voodookit' ),
+			'footer'  => __( 'Footer Navigation', 'voodookit' )
+		) );
 
 		add_theme_support( 'html5', [ 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ] );
 
@@ -54,12 +51,11 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 		// @todo set right path for the editor later
 		add_editor_style( array( 'css/normalize.css', 'style.css', 'css/editor-style.css' ) );
 
-
 	}
 
 }
 
-add_action( 'after_setup_theme', 'voodookit_setup' );
+add_action( 'init', 'voodookit_setup' );
 
 
 /**
