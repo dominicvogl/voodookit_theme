@@ -42,6 +42,25 @@
                             "button_label": "Slide hinzufügen",
                             "sub_fields": [
                                 {
+                                    "key": "field_5d4ee5167aaf6",
+                                    "label": "title",
+                                    "name": "title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
                                     "key": "field_5d4ee380c9efb",
                                     "label": "Bild",
                                     "name": "image",
@@ -94,5 +113,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565451402
+    "modified": 1565451566
 }
