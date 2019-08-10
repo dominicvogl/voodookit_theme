@@ -33,3 +33,15 @@ if (! function_exists('new_navigation')) {
 	}
 
 }
+
+if(! function_exists('pikachu')) {
+
+	function pikachu() {
+
+		echo '<div class="wacken">Wacken rockt richtig hart!+</div>';
+
+	}
+
+}
+
+add_action('voodookit_do_main', 'pikachu', 12);

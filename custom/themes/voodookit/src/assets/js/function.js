@@ -1,6 +1,12 @@
 import $ from 'jquery';
+import 'slick-slider';
 
-const hallo = 0;
+const testval = $('body p');
 
-console.log( $('body p') );
-console.log( 'TEST TEST' );
+console.log( testval );
+console.log( 'TEST' );
+
+$('.slick-slider').slick({
+	'slidesToShow': 1,
+	infinite: true,
+});

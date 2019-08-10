@@ -118,12 +118,12 @@ gulp.task('default', function () {
     // gulpHTML();
 
     // Start browsersync server
-    browserSync.init({
-        server: './dist' // define folder to watch
-    }); // start server for effective developing
+    // browserSync.init({
+    //     server: './dist' // define folder to watch
+    // }); // start server for effective developing
 
     // watch some files
     // gulp.watch([src + '*.html'], ['html']);
-    gulp.watch([src + 'assets/scss/*.scss'], ['sass']);
+    gulp.watch([src + 'assets/scss/*.scss'], ['scss']);
     gulp.watch([src + 'assets/js/*.js'], ['js']);
 });

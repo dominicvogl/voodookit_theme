@@ -9,8 +9,15 @@ if ( ! function_exists( 'voodookit_logo' ) ) {
 
 	function voodookit_logo() {
 
+		if( ! get_theme_mod( 'evolution_logo' )) {
+			return;
+		}
+
+		$logo_src = esc_url( get_theme_mod( 'evolution_logo' ) );
+		list ( $logo_size ) = getimagesize( $logo_src );
+
 		echo '<div class="logo">';
-		echo 'Logo';
+		echo '<img src="' . $logo_src . '" width="'.$logo_size[0].'" height="'.$logo_size[1].'" />';
 		echo '</div>';
 
 	}

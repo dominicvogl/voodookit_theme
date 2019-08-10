@@ -19,6 +19,3 @@
 
 <?php
 do_action('voodookit_do_header');
-?>
-
-<div class="row column">

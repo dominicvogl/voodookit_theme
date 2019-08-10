@@ -1,6 +1,9 @@
-</div>
-
 <?php
+/**
+ * This is Voodookit
+ *
+ * @package Voodookit
+ */
 
 if ( current_user_can( 'administrator' ) ) {
    global $wpdb;
