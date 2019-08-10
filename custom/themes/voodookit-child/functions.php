@@ -13,12 +13,12 @@ if(! function_exists('waht')) {
 
 }
 
-add_action( 'voodookit_do_main', 'waht', 9 );
+//add_action( 'voodookit_do_main', 'waht', 9 );
 
 
-if (! function_exists('new_navigation')) {
+if (! function_exists('voodookit_new_navigation')) {
 
-	function voodookit_navigation() {
+	function voodookit_new_navigation() {
 
 		remove_action( 'voodookit_do_header', 'voodookit_navigation', 10);
 		add_action( 'voodookit_do_header', 'voodookit_navigation', 10);
@@ -38,10 +38,10 @@ if(! function_exists('pikachu')) {
 
 	function pikachu() {
 
-		echo '<div class="wacken">Wacken rockt richtig hart!+</div>';
+		echo '<div class="wacken">Wacken rockt richtig hart!</div>';
 
 	}
 
 }
 
-add_action('voodookit_do_main', 'pikachu', 12);
+//add_action('voodookit_do_main', 'pikachu', 12);

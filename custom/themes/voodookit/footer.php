@@ -5,11 +5,6 @@
  * @package Voodookit
  */
 
-if ( current_user_can( 'administrator' ) ) {
-   global $wpdb;
-   echo "<pre>";
-   print_r( $wpdb->queries );
-   echo "</pre>";
-}
+do_action('voodookit_do_footer');
 
 wp_footer();
