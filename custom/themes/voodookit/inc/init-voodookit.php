@@ -23,10 +23,10 @@ define( 'VOODOOKIT_INC_DIR', PARENT_DIR . '/inc' );
 define( 'VOODOOKIT_BACKEND_DIR', VOODOOKIT_INC_DIR . '/backend' );
 define( 'VOODOOKIT_FRONTEND_DIR', VOODOOKIT_INC_DIR . '/frontend' );
 define( 'VOODOOKIT_FUNCTIONS_DIR', VOODOOKIT_INC_DIR . '/functions' );
+define( 'VOODOOKIT_ACF_DIR', VOODOOKIT_FRONTEND_DIR . '/acf' );
 define( 'VOODOOKIT_STRUCTURE_DIR', VOODOOKIT_INC_DIR . '/structure' );
 define( 'VOODOOKIT_SETUP_DIR', VOODOOKIT_FUNCTIONS_DIR . '/setup' );
 define( 'VOODOOKIT_HELPER_DIR', VOODOOKIT_FUNCTIONS_DIR . '/helper' );
-
 
 /**
  * Load party of the Voodookit Framework
@@ -46,6 +46,8 @@ require_once( VOODOOKIT_BACKEND_DIR . '/editor.php' );
 
 // load frontend stuff
 require_once( VOODOOKIT_FRONTEND_DIR . '/head.php' );
+// load acf settings
+require_once( VOODOOKIT_ACF_DIR . '/acf-to-json.php' );
 
 // load helper
 require_once( VOODOOKIT_HELPER_DIR . '/helper.php' );
