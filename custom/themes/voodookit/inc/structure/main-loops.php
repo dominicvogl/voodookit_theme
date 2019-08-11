@@ -44,16 +44,6 @@ if ( ! function_exists( 'voodookit_do_main_loop' ) ) {
 			}
 
 		}
-
-		?>
-		<div class="slick-slider">
-			<div>wacken</div>
-			<div>ist</div>
-			<div>total</div>
-			<div>geil</div>
-		</div>
-		<?php
-
 	}
 
 }

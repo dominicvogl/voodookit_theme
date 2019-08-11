@@ -24,6 +24,7 @@ define( 'VOODOOKIT_BACKEND_DIR', VOODOOKIT_INC_DIR . '/backend' );
 define( 'VOODOOKIT_FRONTEND_DIR', VOODOOKIT_INC_DIR . '/frontend' );
 define( 'VOODOOKIT_FUNCTIONS_DIR', VOODOOKIT_INC_DIR . '/functions' );
 define( 'VOODOOKIT_ACF_DIR', VOODOOKIT_FRONTEND_DIR . '/acf' );
+define( 'VOODOOKIT_ACF_BLOCKS', VOODOOKIT_ACF_DIR . '/blocks' );
 define( 'VOODOOKIT_STRUCTURE_DIR', VOODOOKIT_INC_DIR . '/structure' );
 define( 'VOODOOKIT_SETUP_DIR', VOODOOKIT_FUNCTIONS_DIR . '/setup' );
 define( 'VOODOOKIT_HELPER_DIR', VOODOOKIT_FUNCTIONS_DIR . '/helper' );
@@ -48,6 +49,7 @@ require_once( VOODOOKIT_BACKEND_DIR . '/editor.php' );
 require_once( VOODOOKIT_FRONTEND_DIR . '/head.php' );
 // load acf settings
 require_once( VOODOOKIT_ACF_DIR . '/acf-to-json.php' );
+require_once( VOODOOKIT_ACF_BLOCKS . '/acf-gutenberg-blocks.php' );
 
 // load helper
 require_once( VOODOOKIT_HELPER_DIR . '/helper.php' );
@@ -61,4 +63,3 @@ require_once ( VOODOOKIT_STRUCTURE_DIR . '/footer.php');
 
 // load hooks
 require_once ( VOODOOKIT_FUNCTIONS_DIR . '/voodookit-hooks.php');
-
