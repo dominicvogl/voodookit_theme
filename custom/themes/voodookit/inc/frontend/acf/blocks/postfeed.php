@@ -31,14 +31,25 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 	<?php
 	if(is_array($posts)) {
 
-		echo '<div class="js-postloop-carousel">';
+		echo '<div class="mod">';
+		echo '<div class="js-postloop-carousel card-loop">';
 		foreach($posts as $post) {
 			setup_postdata($post);
+			?>
 
-			echo '<div id="post-'.$post->ID.'"">';
-			echo '<h3>' . get_the_title($post) . '</h3>';
-			echo '</div>';
+			<div id="post-<?php echo $post->ID; ?>" class="card">
+				<div class="card-divider">
+					<h3><?php echo get_the_title($post->ID); ?></h3>
+				</div>
+				<?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
+				<div class="card-section">
+					<?php echo get_the_excerpt(); ?>
+				</div>
+			</div>
+
+			<?php
 		}
+		echo '</div>';
 		echo '</div>';
 
 		wp_reset_postdata();
