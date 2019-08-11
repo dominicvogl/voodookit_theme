@@ -60,20 +60,23 @@ add_action( 'init', 'voodookit_setup' );
 
 /**
  * Remove XMLRPC Pingback
+ *
  * @param $headers
+ *
  * @return mixed
  */
 
-if(! function_exists('remove_x_pingback')) {
+if ( ! function_exists( 'remove_x_pingback' ) ) {
 
-	function remove_x_pingback($headers) {
-		unset($headers['X-Pingback']);
+	function remove_x_pingback( $headers ) {
+		unset( $headers['X-Pingback'] );
+
 		return $headers;
 	}
 
 }
 
-add_filter('wp_headers', 'remove_x_pingback');
+add_filter( 'wp_headers', 'remove_x_pingback' );
 
 
 /**
@@ -82,12 +85,28 @@ add_filter('wp_headers', 'remove_x_pingback');
  * @since 1.0.0
  */
 
-if( !function_exists('voodookit_mime_types')) {
+if ( ! function_exists( 'voodookit_mime_types' ) ) {
 
-	function voodookit_mime_types($mimes) {
+	function voodookit_mime_types( $mimes ) {
 		$mimes['svg'] = 'image/svg+xml';
+
 		return $mimes;
 	}
 }
 
-add_filter('upload_mimes', 'voodookit_mime_types');
+add_filter( 'upload_mimes', 'voodookit_mime_types' );
+
+
+/**
+ * Deactivate the wordpress autosave
+ */
+
+if ( ! function_exists( 'disable_autosave' ) ) {
+
+	function disable_autosave() {
+		wp_deregister_script( 'autosave' );
+	}
+
+}
+
+add_action( 'admin_init', 'disable_autosave' );

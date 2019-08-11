@@ -1,0 +1,16 @@
+.slick-slider {
+	display: flex;
+
+	div {
+		flex: 1 1 auto;
+		max-width: 200px;
+	}
+
+	.slide-title {
+		display: block;
+	}
+
+	.slide-image {
+		max-width: 200px;
+	}
+}

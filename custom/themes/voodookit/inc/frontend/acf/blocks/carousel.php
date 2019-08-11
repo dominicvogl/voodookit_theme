@@ -26,8 +26,8 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 		echo '<div class="slick-slider">';
 		foreach($carousel as $slide) {
 			echo '<div>';
-			echo '<span>'.$slide['title'].'</span>';
-			echo wp_get_attachment_image($slide['image']['id'], 'large');
+			echo '<span class="slide-title">'.$slide['title'].'</span>';
+			echo wp_get_attachment_image($slide['image']['id'], 'large', false, ['class' => 'slide-image']);
 			echo '</div>';
 		}
 		echo '</div>';
