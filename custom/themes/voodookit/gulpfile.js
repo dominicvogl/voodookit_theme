@@ -32,7 +32,7 @@ const gulpScss = () => {
         .pipe(plumber())
         .pipe(sass())
         .pipe(autoprefixer())
-        .pipe(rename({basename: 'app'}))
+        // .pipe(rename({basename: 'app'}))
         // .pipe(gulp.dest(dist + 'assets/css'))
         .pipe(cleanCSS())
         .pipe(rename({suffix: '.min'}))
@@ -124,6 +124,6 @@ gulp.task('default', function () {
 
     // watch some files
     // gulp.watch([src + '*.html'], ['html']);
-    gulp.watch([src + 'assets/scss/*.scss'], ['scss']);
+    gulp.watch([src + 'assets/scss/**/*.scss'], ['scss']);
     gulp.watch([src + 'assets/js/*.js'], ['js']);
 });

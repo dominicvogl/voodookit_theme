@@ -1,0 +1,1 @@
+{"version":3,"sources":["gutenberg/gutenberg.scss"],"names":[],"mappings":"AAEA,mDAEE,OAAA,EAAA,KACA,UAAA","file":"gutenberg.min.css","sourcesContent":["$gutenberg-editor-width: 1200px !default;\n\n.edit-post-visual-editor {\n\t.editor-block-list__block {\n\t\tmargin: 0 auto;\n\t\tmax-width: $gutenberg-editor-width;\n\t}\n}\n"]}

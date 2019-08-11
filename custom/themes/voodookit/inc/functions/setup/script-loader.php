@@ -23,7 +23,7 @@ if ( ! function_exists( 'load_css' ) ) {
 				array(
 					'handle' => 'styles',
 					'src'    => get_template_directory_uri() . '/dist/assets/css/app.min.css',
-					'deps'   => array(),
+					'deps'   => array()
 				)
 
 			);
@@ -42,6 +42,30 @@ if ( ! function_exists( 'load_css' ) ) {
 }
 
 add_action( 'wp_enqueue_scripts', 'load_css' );
+
+
+/**
+ * Loads extra Gutenberg css in Wordpress backend
+ */
+
+if ( ! function_exists( 'voodookit_gutenberg_styles' ) ) {
+
+	function voodookit_gutenberg_styles() {
+
+		$file = [
+			'handle' => 'gutenberg-css',
+			'src'    => get_template_directory_uri() . '/dist/assets/css/gutenberg.min.css',
+			'deps'   => false
+		];
+
+		wp_register_style( $file['handle'], $file['src'], $file['deps'] );
+		wp_enqueue_style( $file['handle'] );
+
+	}
+
+}
+
+add_action( 'enqueue_block_editor_assets', 'voodookit_gutenberg_styles' );
 
 
 /**

@@ -1,0 +1,8 @@
+$gutenberg-editor-width: 1200px !default;
+
+.edit-post-visual-editor {
+	.editor-block-list__block {
+		margin: 0 auto;
+		max-width: $gutenberg-editor-width;
+	}
+}
