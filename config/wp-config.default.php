@@ -73,7 +73,7 @@ define('WP_HOME','http://'.$_SERVER['HTTP_HOST'].'/');
 define('WP_SITEURL','http://'.$_SERVER['HTTP_HOST'].'/core');
 
 // Post Revisions
-define( 'WP_POST_REVISIONS', 5 );
+define( 'WP_POST_REVISIONS', 3 );
 
 // Set Cookie Domain
 // define( 'COOKIE_DOMAIN', 'www.example.com' );
