@@ -2,11 +2,17 @@ $toggler-border-radius: rem-calc(10) !default;
 $toggler-color: #929292 !default;
 
 .toggle-button {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: flex-end;
+	align-items: center;
+
 	.bar {
 		display: block;
 		border-radius: $toggler-border-radius;
 		background: $toggler-color;
 		margin: rem-calc(4);
 		height: rem-calc(5);
+		width: rem-calc(30);
 	}
 }

@@ -100,10 +100,15 @@ if ( ! function_exists('voodookit_slideout_toggler') ) {
 	function voodookit_slideout_toggler() {
 
 		echo
-			'<div class="js-slideout-toggle toggle-button column small-9 hide-for-large">
-				<span class="bar"></span>
-				<span class="bar"></span>
-				<span class="bar"></span>
+			'<div class="column small-9 hide-for-large js-slideout-toggle">
+				<div class="toggle-button">
+					<span class="button-label">'.__("Nav Menu", "voodookit").'</span>
+					<div class="button-bars">
+						<span class="bar"></span>
+						<span class="bar"></span>
+						<span class="bar"></span>
+					</div>
+				</div>
 			</div>';
 
 	}

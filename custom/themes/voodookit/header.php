@@ -12,7 +12,7 @@
 
 </head>
 
-<body <?php body_class('voodookit'); ?>>
+<body <?php body_class('voodookit'); ?> data-slideout-ignore>
 
 <!-- Module, Navigation + Logo -->
 
@@ -20,7 +20,7 @@
 // render mobile slideout navigation
 do_action('voodookit_do_slideout');
 
-echo '<div class="js-slideout-panel slideout-panel">';
+echo '<div class="js-slideout-panel">';
 
 // render site header with logo an desktop navigation
 do_action('voodookit_do_header');
