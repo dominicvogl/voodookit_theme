@@ -1,16 +1,14 @@
 <?php
-
-// silence
-
+/**
+ * This is a Voodookit child
+ *
+  * @since 1.0.0
+ */
 
 if(! function_exists('waht')) {
-
 	function waht() {
-
 		echo "<h1>Das ist noch total hässlich</h1>";
-
 	}
-
 }
 
 //add_action( 'voodookit_do_main', 'waht', 9 );
@@ -21,7 +19,7 @@ if (! function_exists('voodookit_new_navigation')) {
 	function voodookit_new_navigation() {
 
 		remove_action( 'voodookit_do_header', 'voodookit_navigation', 10);
-		add_action( 'voodookit_do_header', 'voodookit_navigation', 10);
+//		add_action( 'voodookit_do_header', 'voodookit_new_navigation', 10);
 
 		wp_nav_menu( array(
 				'container' => 'nav',
@@ -34,14 +32,12 @@ if (! function_exists('voodookit_new_navigation')) {
 
 }
 
-if(! function_exists('pikachu')) {
+if (! function_exists('voodookit_new_stuff')) {
 
-	function pikachu() {
-
-		echo '<div class="wacken">Wacken rockt richtig hart!</div>';
-
+	function voodookit_new_stuff() {
+		echo '<h1>This is awesome shit, you cannot stop!°</h1>';
 	}
 
 }
 
-//add_action('voodookit_do_main', 'pikachu', 12);
+//add_action( 'voodookit_do_before_main', 'voodookit_new_stuff', 15);

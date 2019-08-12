@@ -5,7 +5,15 @@
  * @since 1.0.0
  */
 
+
 if ( ! function_exists('the_acf_modules') ) {
+
+	/**
+	 * Renders ACF Block Modules with the classic Tiny MCE Editor
+	 *
+	 * @deprecated
+	 * @since 0.0.1
+	 */
 
 	function the_acf_modules() {
 

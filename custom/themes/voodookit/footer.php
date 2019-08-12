@@ -7,4 +7,6 @@
 
 do_action('voodookit_do_footer');
 
+echo '</div>'; // slideout-panel
+
 wp_footer();

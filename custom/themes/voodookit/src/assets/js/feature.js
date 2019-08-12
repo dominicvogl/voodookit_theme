@@ -12,7 +12,7 @@ import 'feature.js';
 document.documentElement.className = "js";
 
 // add message
-console.info("%cThis site was build with love " + "%c(www.dominicvogl.de)", "", "color: #2199e8");
+console.info("%cThis site was build with love " + "%c(https://dominicvogl.de)", "", "color: #2199e8");
 
 // check if svg is available in this browser
 if(feature.svg){

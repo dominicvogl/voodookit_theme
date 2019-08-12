@@ -2,31 +2,42 @@
 /**
  * This is Voodookit!
  *
- *
+ * @package voodookit
  * @since 1.0.0
  */
 
 if ( ! function_exists( 'voodookit_do_before_main_loop' ) ) {
 
+	/**
+	 * Render something before the main content loop
+	 * @since 1.0.0
+	 */
+
 	function voodookit_do_before_main_loop() {
-
-		echo '<main class="js-slideout-panel row column">';
-
+		echo '<main class="row column" data-slideout-ignore>';
 	}
 
 }
 
 if ( ! function_exists( 'voodookit_do_after_main_loop' ) ) {
 
+	/**
+	 * Render something after the main content loop
+	 * @since 1.0.0
+	 */
+
 	function voodookit_do_after_main_loop() {
-
 		echo '</main>';
-
 	}
 
 }
 
 if ( ! function_exists( 'voodookit_do_main_loop' ) ) {
+
+	/**
+	 * Render the main content loop
+	 * @since 1.0.0
+	 */
 
 	function voodookit_do_main_loop() {
 
@@ -36,9 +47,8 @@ if ( ! function_exists( 'voodookit_do_main_loop' ) ) {
 				the_post();
 				the_title();
 				the_content();
-				// the_acf_modules();
 
-//				do_action('voodookit_do_acf');
+				// the_acf_modules();
 			}
 
 		}
