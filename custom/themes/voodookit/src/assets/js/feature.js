@@ -4,7 +4,6 @@ import 'feature.js';
  * Feature Detection Script
  *
  * @version 1.0.0
- * @type {string}
  * @var feature
  */
 

@@ -7,7 +7,7 @@ const slideout = new Slideout({
 	'tolerance': 70
 });
 
-document.querySelector('.js-slideout-toggle').addEventListener('click', function() {
+document.querySelector('.js-toggle-slideout').addEventListener('click', function() {
 	slideout.toggle();
 });
 
