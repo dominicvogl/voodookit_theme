@@ -32,8 +32,6 @@ if ( ! function_exists( 'voodookit_header' ) ) {
 
 		do_action('voodookit_do_logo');
 		do_action('voodookit_do_navigation');
-		do_action('voodookit_do_slideout_toggler');
-
 
 	}
 
@@ -100,7 +98,7 @@ if ( ! function_exists('voodookit_slideout_toggler') ) {
 	function voodookit_slideout_toggler() {
 
 		echo
-			'<div class="column small-9 hide-for-large js-slideout-toggle">
+			'<div class="toggler-wrapper hide-for-large js-toggle-slideout">
 				<div class="toggle-button">
 					<span class="button-label">'.__("Nav Menu", "voodookit").'</span>
 					<div class="button-bars">
@@ -110,7 +108,6 @@ if ( ! function_exists('voodookit_slideout_toggler') ) {
 					</div>
 				</div>
 			</div>';
-
 	}
 
 }
