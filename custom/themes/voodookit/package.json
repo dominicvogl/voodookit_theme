@@ -33,6 +33,7 @@
 		"node-sass": "^4.9.0"
 	},
 	"dependencies": {
+		"feature.js": "^1.1.0",
 		"jquery": "^3.4.1",
 		"slick-slider": "^1.8.2",
 		"slideout": "^1.0.1"
