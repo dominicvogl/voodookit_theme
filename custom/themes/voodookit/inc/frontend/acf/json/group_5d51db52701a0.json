@@ -1,9 +1,9 @@
 {
-    "key": "group_5d4fce41443d0",
-    "title": "Block: Post Type Feed",
+    "key": "group_5d51db52701a0",
+    "title": "Block: Post Type Carousel",
     "fields": [
         {
-            "key": "field_5d4fd63906fa4",
+            "key": "field_5d51db527e370",
             "label": "Beitragstyp auswählen",
             "name": "post_type",
             "type": "select",
@@ -28,7 +28,7 @@
             "placeholder": ""
         },
         {
-            "key": "field_5d4fd67806fa5",
+            "key": "field_5d51db527e38d",
             "label": "Anzahl der Beiträge",
             "name": "post_num",
             "type": "number",
@@ -54,7 +54,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/postfeed"
+                "value": "acf\/postfeedcarousel"
             }
         ]
     ],
@@ -66,5 +66,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565646129
+    "modified": 1565645745
 }

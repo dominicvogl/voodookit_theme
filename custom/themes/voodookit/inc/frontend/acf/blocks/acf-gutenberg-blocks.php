@@ -78,10 +78,22 @@ if ( ! function_exists( 'acf_block_get_blocks' ) ) {
 				'keywords'        => [ 'carousel', 'feed', 'news', 'posts' ],
 			];
 
+			// register a post newsfeed
+			$postfeedcarousel = [
+				'name'            => 'postfeedcarousel',
+				'title'           => __( 'Post Feed Carousel' ),
+				'description'     => __( 'Post Feed as Cards in Carousel' ),
+				'render_callback' => 'acf_block_render_callback',
+				'category'        => 'common',
+				'icon'            => 'schedule',
+				'keywords'        => [ 'carousel', 'feed', 'news', 'posts' ],
+			];
+
 
 			return [
 				$carousel,
-				$postfeed
+				$postfeed,
+				$postfeedcarousel
 			];
 		}
 	}

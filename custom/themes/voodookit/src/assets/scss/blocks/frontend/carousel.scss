@@ -1,0 +1,21 @@
+.card-carousel {
+	
+	.slick-slide {
+		max-width: 75vw;
+		margin-right: map_get($grid-column-gutter, small);
+	}
+}
+
+@include breakpoint(medium) {
+
+	.card-carousel {
+		.card {
+
+		}
+
+		.slick-slide {
+			max-width: 50vw;
+		}
+	}
+
+}
