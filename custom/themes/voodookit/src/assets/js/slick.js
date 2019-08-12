@@ -1,11 +1,11 @@
 import $ from 'jquery'
 import 'slick-slider'
 
-$('.slick-slider').each(function() {
+$('.js-slick-slider').each(function() {
 	$(this).slick({
 		// options
 	})
-};
+});
 
 $('.js-postloop-carousel').each(function() {
 

@@ -1,8 +1,8 @@
 <?php
 /**
- * Block Name: Testimonial
+ * Block Name: Carousel
  *
- * This is the template that displays the testimonial block.
+ * This is a slick slider block
  * @var $block
  */
 
@@ -23,13 +23,16 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 
 	<?php
 	if(is_array($carousel)) {
-		echo '<div class="slick-slider">';
+		echo '<div class="js-slick-slider">';
+
 		foreach($carousel as $slide) {
-			echo '<div>';
-			echo '<span class="slide-title">'.$slide['title'].'</span>';
-			echo wp_get_attachment_image($slide['image']['id'], 'large', false, ['class' => 'slide-image']);
-			echo '</div>';
+			echo
+				'<div>
+					<span class="slide-title">'.$slide['title'].'</span>
+					'.wp_get_attachment_image($slide['image']['id'], 'large', false, ['class' => 'slide-image']).'
+				</div>';
 		}
+
 		echo '</div>';
 	}
 	?>
