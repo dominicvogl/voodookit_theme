@@ -4,10 +4,10 @@
 	"description": "Performant & flexible Wordpress Framework",
 	"main": "index.php",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"gulp": "gulp"
 	},
 	"author": "Dominic Vogl",
-	"license": "ISC",
+	"license": "GIT",
 	"devDependencies": {
 		"babel-core": "^6.26.3",
 		"babel-preset-es2015": "^6.24.1",

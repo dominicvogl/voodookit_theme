@@ -24,6 +24,8 @@ add_action( 'voodookit_do_logo', 'voodookit_logo', 10);
 
 // navigation
 add_action( 'voodookit_do_navigation', 'voodookit_navigation', 10);
+add_action( 'voodookit_do_navigation_mobile', 'voodookit_navigation_mobile', 10);
+add_action( 'voodookit_do_slideout_toggler', 'voodookit_slideout_toggler', 10);
 
 // slideout
 add_action('voodookit_do_slideout', 'voodookit_slideout', 10);

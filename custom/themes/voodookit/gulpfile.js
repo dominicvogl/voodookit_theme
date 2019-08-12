@@ -124,6 +124,6 @@ gulp.task('default', function () {
 
     // watch some files
     // gulp.watch([src + '*.html'], ['html']);
-    gulp.watch([src + 'assets/scss/**/*.scss'], ['scss']);
+	gulp.watch([src + 'assets/scss/**/*.scss'], ['scss']);
     gulp.watch([src + 'assets/js/*.js'], ['js']);
 });

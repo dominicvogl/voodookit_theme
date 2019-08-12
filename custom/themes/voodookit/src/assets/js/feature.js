@@ -5,6 +5,7 @@ import 'feature.js';
  *
  * @version 1.0.0
  * @type {string}
+ * @var feature
  */
 
 // Check if Javascript is active, overwrite no-js class

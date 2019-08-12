@@ -32,6 +32,8 @@ if ( ! function_exists( 'voodookit_header' ) ) {
 
 		do_action('voodookit_do_logo');
 		do_action('voodookit_do_navigation');
+		do_action('voodookit_do_slideout_toggler');
+
 
 	}
 
@@ -66,11 +68,43 @@ if ( ! function_exists( 'voodookit_navigation' ) ) {
 		wp_nav_menu(
 			[
 				'container' => 'nav',
-				'container_class' => 'column small-9',
+				'container_class' => 'column small-9 show-for-large',
 				'menu_class' => 'navigation menu',
 				'theme_location' => 'primary'
 			]
 		);
+
+	}
+
+}
+
+if ( ! function_exists( 'voodookit_navigation_mobile' ) ) {
+
+	function voodookit_navigation_mobile() {
+
+		wp_nav_menu(
+			[
+				'container' => 'nav',
+				'container_class' => '',
+				'menu_class' => 'navigation menu',
+				'theme_location' => 'primary'
+			]
+		);
+
+	}
+
+}
+
+if ( ! function_exists('voodookit_slideout_toggler') ) {
+
+	function voodookit_slideout_toggler() {
+
+		echo
+			'<div class="js-slideout-toggle toggle-button column small-9 hide-for-large">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</div>';
 
 	}
 
