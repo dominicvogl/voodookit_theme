@@ -4,9 +4,15 @@ body {
 	padding-bottom: rem-calc(46);
 }
 
-.mod {
+@mixin mod(
+	$gutter: map_get($grid-column-gutter, medium)
+) {
 	margin: {
-		top: (map_get($grid-column-gutter, medium) * 2);
-		bottom: (map_get($grid-column-gutter, medium) * 2);
+		top: ($gutter * 2);
+		bottom: ($gutter * 2);
 	}
+}
+
+.mod {
+	@include mod;
 }

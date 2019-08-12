@@ -1,0 +1,17 @@
+.social-links {
+	@include mod(map_get($grid-column-gutter, small) / 2);
+	margin: {
+		left: 0;
+		right: 0;
+	}
+
+	list-style: none;
+	display: flex;
+	justify-content: space-evenly;
+
+	li {
+		margin: rem-calc(0 4);
+		padding: rem-calc(3 7);
+		background: $light-gray;
+	}
+}
