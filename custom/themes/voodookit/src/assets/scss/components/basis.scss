@@ -1,0 +1,11 @@
+body {
+	width: 100%;
+	height: 100%;
+}
+
+.mod {
+	margin: {
+		top: (map_get($grid-column-gutter, medium) * 2);
+		bottom: (map_get($grid-column-gutter, medium) * 2);
+	}
+}

@@ -5,8 +5,9 @@
 @include foundation-everything
 
 @import '../../../node_modules/slick-slider/slick/slick.scss';
-@import "modules/basis";
-@import "modules/header";
+@import "components/basis";
+@import "components/header";
+@import "components/slideout";
 
 @import "blocks/frontend/carousel";
 @import "blocks/frontend/postfeed";

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 9]><html class="ie9 no-js" lang="de"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="de"> <!--<![endif]-->
+<html class="no-js" lang="<?php echo get_locale(); ?>">
 
 <head>
 
@@ -13,7 +12,7 @@
 
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('voodookit'); ?>>
 
 <!-- Module, Navigation + Logo -->
 

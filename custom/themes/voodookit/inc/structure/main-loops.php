@@ -10,9 +10,7 @@ if ( ! function_exists( 'voodookit_do_before_main_loop' ) ) {
 
 	function voodookit_do_before_main_loop() {
 
-		$class = 'voodookit row column';
-
-		echo '<main class="'. $class .'">';
+		echo '<main class="js-slideout-panel row column">';
 
 	}
 
