@@ -1,6 +1,6 @@
 $toggler-border-radius: rem-calc(15) !default;
 $toggler-color: #fff !default;
-$toggler-background: #f0955f !default;
+$toggler-background: map_get($foundation-palette, primary) !default;
 
 .toggler-wrapper {
 	background: $toggler-background;
