@@ -18,4 +18,9 @@
 <!-- Module, Navigation + Logo -->
 
 <?php
+
+// render site header with logo an desktop navigation
 do_action('voodookit_do_header');
+
+// render mobile slideout navigation
+do_action('voodookit_do_slideout');

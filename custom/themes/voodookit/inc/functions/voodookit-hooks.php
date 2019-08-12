@@ -15,10 +15,19 @@
  * header
  */
 
-add_action( 'voodookit_do_header', 'voodookit_do_before_header', 5);
-add_action( 'voodookit_do_header', 'voodookit_logo', 10);
-add_action( 'voodookit_do_header', 'voodookit_navigation', 15);
-add_action( 'voodookit_do_header', 'voodookit_do_after_header', 20);
+add_action( 'voodookit_do_header', 'voodookit_before_header', 5);
+add_action( 'voodookit_do_header', 'voodookit_header', 10);
+add_action( 'voodookit_do_header', 'voodookit_after_header', 20);
+
+// logo
+add_action( 'voodookit_do_logo', 'voodookit_logo', 10);
+
+// navigation
+add_action( 'voodookit_do_navigation', 'voodookit_navigation', 10);
+
+// slideout
+add_action('voodookit_do_slideout', 'voodookit_slideout', 10);
+
 
 /**
  * Main loop

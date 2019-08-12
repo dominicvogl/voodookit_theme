@@ -58,6 +58,7 @@ require_once( VOODOOKIT_HELPER_DIR . '/shortcodes.php' );
 
 // load structure
 require_once ( VOODOOKIT_STRUCTURE_DIR . '/header.php');
+require_once ( VOODOOKIT_STRUCTURE_DIR . '/slideout.php');
 require_once ( VOODOOKIT_STRUCTURE_DIR . '/main-loops.php');
 require_once ( VOODOOKIT_STRUCTURE_DIR . '/footer.php');
 
