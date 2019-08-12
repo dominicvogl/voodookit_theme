@@ -1,24 +1,36 @@
-$toggler-border-radius: rem-calc(10) !default;
+$toggler-border-radius: rem-calc(15) !default;
 $toggler-color: #fff !default;
 $toggler-background: #f0955f !default;
 
 .toggler-wrapper {
 	background: $toggler-background;
 	color: $toggler-color;
+	position: fixed;
+	z-index: 100;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 
 .toggle-button {
 	display: flex;
 	flex: 1 1 auto;
-	justify-content: flex-end;
+	justify-content: center;
 	align-items: center;
+	font-weight: bold;
+	font-size: 1.2em;
+	padding: rem-calc(5 0);
+
+	.button-bars {
+		margin-left: rem-calc(10);
+	}
 
 	.bar {
 		display: block;
 		border-radius: $toggler-border-radius;
 		background: $toggler-color;
-		margin: rem-calc(4);
-		height: rem-calc(5);
-		width: rem-calc(30);
+		margin: rem-calc(8);
+		height: rem-calc(6);
+		width: rem-calc(32);
 	}
 }
