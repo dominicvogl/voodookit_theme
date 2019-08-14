@@ -1,20 +1,36 @@
+// Mixins
+@mixin mod(
+	$arg: margin,
+	$gutter: map_get($grid-column-gutter, medium),
+	$gutter-bottom: $gutter
+) {
+	@if $arg == 'padding' {
+		padding: {
+			top: ($gutter);
+			bottom: ($gutter-bottom);
+		}
+	}
+	@else {
+		margin: {
+			top: ($gutter * 2);
+			bottom: ($gutter-bottom * 2);
+		}
+	}
+}
+
+
+// selectors
 body {
 	width: 100%;
 	height: 100%;
 }
 
-@mixin mod(
-	$gutter: map_get($grid-column-gutter, medium),
-	$gutter-bottom: $gutter
-) {
-	margin: {
-		top: ($gutter * 2);
-		bottom: ($gutter-bottom * 2);
-	}
-}
-
 .mod {
 	@include mod;
+
+	&.inner {
+		@include mod('padding');
+	}
 }
 
 footer {

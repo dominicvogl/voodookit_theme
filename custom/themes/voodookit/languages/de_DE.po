@@ -23,3 +23,6 @@ msgstr "Fußnavigation"
 #. Author of the theme
 msgid "Author"
 msgstr "Dominic Vogl"
+
+msgid "This framework was made with Wordpress, Voodookit and love by"
+msgstr ""

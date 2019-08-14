@@ -11,7 +11,7 @@ if ( ! function_exists( 'voodookit_footer' ) ) {
 	function voodookit_footer() {
 
 		?>
-		<footer class="mod">
+		<footer class="mod inner">
 			<div class="row">
 
 				<div class="column small-12 medium-6">
@@ -37,15 +37,16 @@ if ( ! function_exists( 'voodookit_footer' ) ) {
 if ( ! function_exists( 'voodookit_social' ) ) {
 
 	function voodookit_social() {
-
 		?>
+
 		<ul class="social-links">
-			<li>FB</li>
-			<li>IG</li>
-			<li>PI</li>
-			<li>WA</li>
-			<li>TE</li>
+			<li><a href="#">FB</a></li>
+			<li><a href="#">IG</a></li>
+			<li><a href="#">PI</a></li>
+			<li><a href="#">WA</a></li>
+			<li><a href="#">TE</a></li>
 		</ul>
+
 		<?php
 
 	}
@@ -80,7 +81,7 @@ if (! function_exists('voodookit_copyright') ) {
 
 		?>
 		<div class="footer-copyright text-center">
-			<p><?php _e('This template was made with Wordpress, Voodookit and love by'); ?> <a href="//dominicvogl.de" target="_blank"><?php _e('Author', 'voodookit'); ?></a></p>
+			<p><?php _e('This framework was made with Wordpress, Voodookit and love by'); ?> <a href="//dominicvogl.de" target="_blank"><?php _e('Author', 'voodookit'); ?></a></p>
 		</div>
 		<?php
 
