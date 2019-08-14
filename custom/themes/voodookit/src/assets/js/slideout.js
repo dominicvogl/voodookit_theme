@@ -1,3 +1,4 @@
+import { MediaQuery } from 'foundation-sites';
 import Slideout from 'slideout';
 
 const slideout = new Slideout({
@@ -7,9 +8,37 @@ const slideout = new Slideout({
 	'tolerance': 70
 });
 
-document.querySelector('.js-toggle-slideout').addEventListener('click', function() {
+const slideoutToggle = document.querySelector('.js-toggle-slideout');
+let slideoutToggleHeight = slideoutToggle.offsetHeight;
+
+slideoutToggle.addEventListener('click', function() {
 	slideout.toggle();
 });
+
+/**
+ * set the height of the slideout
+ * @param height
+ */
+
+if(slideoutToggleHeight > 0 && !Foundation.MediaQuery.is('large')) {
+	document.querySelector('body').style.paddingBottom = slideoutToggle.offsetHeight + 'px';
+}
+
+$(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
+	console.log(newSize, oldSize);
+
+	let toggler = document.querySelector('.js-toggle-slideout');
+
+	if(newSize === 'large' || newSize === 'xlarge') {
+		document.querySelector('body').style.paddingBottom = 0 + 'px';
+	}
+	else {
+		document.querySelector('body').style.paddingBottom = toggler.offsetHeight + 'px';
+	}
+
+});
+
+
 
 // const fixedHeader = document.querySelector('.js-fixed-header');
 //

@@ -11,7 +11,7 @@ if ( ! function_exists( 'voodookit_footer' ) ) {
 	function voodookit_footer() {
 
 		?>
-		<footer class="row column">
+		<footer class="mod">
 			<div class="row">
 
 				<div class="column small-12 medium-6">
