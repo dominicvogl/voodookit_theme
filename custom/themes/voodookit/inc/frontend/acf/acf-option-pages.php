@@ -1,14 +1,8 @@
 <?php
 
-/*
-Plugin Name: ACF PRO - Setup Theme Options
-Description: Setup Theme Option Pages and Fields
-Author: Dominic Vogl
-Version: 0.1
-Author URI: http://www.dominicvogl.de
-*/
-
-defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+/**
+ * This is Voodookit
+ */
 
 if (! function_exists( 'add_acf_option_pages' ) ) {
 
