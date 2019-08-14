@@ -30,7 +30,10 @@ if ( ! function_exists( 'voodookit_header' ) ) {
 
 	function voodookit_header() {
 
+		echo '<div class="column small-12 large-3">';
 		do_action('voodookit_do_logo');
+		echo '</div>';
+
 		do_action('voodookit_do_navigation');
 
 	}
@@ -49,12 +52,10 @@ if ( ! function_exists( 'voodookit_logo' ) ) {
 		list ( $logo_size ) = getimagesize( $logo_src );
 
 		echo
-			'<div class="column small-12 large-3">
-				<div class="logo">
-					<a href="'.get_home_url().'" target="_self">
-						<img src="' . $logo_src . '" width="'.$logo_size[0].'" height="'.$logo_size[1].'" />
-					</a>
-				</div>
+			'<div class="logo">
+				<a href="'.get_home_url().'" target="_self">
+					<img src="' . $logo_src . '" width="'.$logo_size[0].'" height="'.$logo_size[1].'" />
+				</a>
 			</div>';
 
 	}

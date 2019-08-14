@@ -12,6 +12,10 @@ $slideout-width: 256px !default;
 	-webkit-overflow-scrolling: touch;
 	display: none;
 	background-color: map_get($foundation-palette, secondary);
+
+	.logo {
+		margin: map_get($grid-column-gutter, small) auto;
+	}
 }
 
 .slideout-panel {

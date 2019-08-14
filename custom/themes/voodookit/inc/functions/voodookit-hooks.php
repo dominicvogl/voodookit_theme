@@ -10,6 +10,7 @@
  * Slideout
  */
 
+add_action( 'voodookit_do_navigation_mobile', 'voodookit_logo', 5 );
 add_action( 'voodookit_do_navigation_mobile', 'voodookit_navigation_mobile', 10 );
 
 
