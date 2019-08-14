@@ -1,6 +1,8 @@
 import { MediaQuery } from 'foundation-sites';
 import Slideout from 'slideout';
 
+let toggler = document.querySelector('.js-toggle-slideout');
+
 const slideout = new Slideout({
 	'panel': document.querySelector('.js-slideout-panel'),
 	'menu': document.querySelector('.js-slideout-menu'),
@@ -8,10 +10,29 @@ const slideout = new Slideout({
 	'tolerance': 70
 });
 
-const slideoutToggle = document.querySelector('.js-toggle-slideout');
-let slideoutToggleHeight = slideoutToggle.offsetHeight;
+const setBodyPadding = ( togglerHeight ) => {
+	document.querySelector('body').style.paddingBottom = togglerHeight + 'px';
+};
 
-slideoutToggle.addEventListener('click', function() {
+const initTogglerPadding = (toggler) => {
+	if(toggler.offsetHeight > 0 && !Foundation.MediaQuery.is('large')) {
+		setBodyPadding(toggler.offsetHeight);
+	}
+
+	$(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
+		// console.log(event, newSize, oldSize);
+
+		toggler = document.querySelector('.js-toggle-slideout');
+		setBodyPadding(toggler.offsetHeight);
+
+	});
+};
+
+// Init functions
+initTogglerPadding(toggler);
+
+// Events
+toggler.addEventListener('click', function() {
 	slideout.toggle();
 });
 
@@ -20,23 +41,6 @@ slideoutToggle.addEventListener('click', function() {
  * @param height
  */
 
-if(slideoutToggleHeight > 0 && !Foundation.MediaQuery.is('large')) {
-	document.querySelector('body').style.paddingBottom = slideoutToggle.offsetHeight + 'px';
-}
-
-$(window).on('changed.zf.mediaquery', function(event, newSize, oldSize) {
-	console.log(newSize, oldSize);
-
-	let toggler = document.querySelector('.js-toggle-slideout');
-
-	if(newSize === 'large' || newSize === 'xlarge') {
-		document.querySelector('body').style.paddingBottom = 0 + 'px';
-	}
-	else {
-		document.querySelector('body').style.paddingBottom = toggler.offsetHeight + 'px';
-	}
-
-});
 
 
 
