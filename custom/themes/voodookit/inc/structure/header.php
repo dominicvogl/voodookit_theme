@@ -11,7 +11,7 @@ if ( ! function_exists( 'voodookit_before_header' ) ) {
 
 	function voodookit_before_header    () {
 		echo
-			'<header class="row align-bottom">';
+			'<header class="row full-width align-bottom">';
 	}
 
 }
@@ -49,7 +49,7 @@ if ( ! function_exists( 'voodookit_logo' ) ) {
 		list ( $logo_size ) = getimagesize( $logo_src );
 
 		echo
-			'<div class="column small-3">
+			'<div class="column small-12 large-3">
 				<div class="logo">
 					<img src="' . $logo_src . '" width="'.$logo_size[0].'" height="'.$logo_size[1].'" />
 				</div>
@@ -67,7 +67,7 @@ if ( ! function_exists( 'voodookit_navigation' ) ) {
 			[
 				'container' => 'nav',
 				'container_class' => 'column small-9 show-for-large',
-				'menu_class' => 'navigation menu',
+				'menu_class' => 'navigation menu align-right',
 				'theme_location' => 'primary'
 			]
 		);

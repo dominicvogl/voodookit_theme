@@ -1,0 +1,15 @@
+.logo {
+	text-align: center;
+
+	img,
+	svg {
+		max-width: rem-calc(140);
+	}
+}
+
+@include breakpoint(large) {
+
+	.logo {
+		text-align: inherit;
+	}
+}

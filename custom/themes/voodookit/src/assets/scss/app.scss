@@ -5,8 +5,12 @@
 @include foundation-everything
 
 @import '../../../node_modules/slick-slider/slick/slick.scss';
+@import "components/grid";
 @import "components/basis";
 @import "components/header";
+@import "components/logo";
+@import "components/navigation/desktop";
+@import "components/navigation/mobile";
 @import "components/slideout";
 @import "components/toggler";
 @import "components/social";
