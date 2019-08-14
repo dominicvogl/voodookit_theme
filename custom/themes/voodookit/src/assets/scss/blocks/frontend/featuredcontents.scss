@@ -1,0 +1,26 @@
+$feature-item-color: magenta !default;
+$feature-item-weight: bold !default;
+$feature-item-font-size: 3em !default;
+$feature-item-small-font-size: 0.85em !default;
+
+.feature-list {
+	span {
+		display: block;
+	}
+
+	.feature-item {
+		margin: map_get($grid-column-gutter, small);
+		text-align: center;
+	}
+}
+
+.feature-title {
+	font-size: $feature-item-small-font-size;
+}
+
+.feature-content {
+	line-height: 1.2em;
+	font-size: $feature-item-font-size;
+	color: $feature-item-color;
+	font-weight: $feature-item-weight;
+}

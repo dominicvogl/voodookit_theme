@@ -9,8 +9,8 @@ if ( ! function_exists( 'voodookit_register_acf_blocks' ) ) {
 
 			$blocks = acf_block_get_blocks();
 
-			foreach($blocks as $block) {
-				acf_register_block_type($block);
+			foreach ( $blocks as $block ) {
+				acf_register_block_type( $block );
 			}
 
 		}
@@ -89,11 +89,23 @@ if ( ! function_exists( 'acf_block_get_blocks' ) ) {
 				'keywords'        => [ 'carousel', 'feed', 'news', 'posts' ],
 			];
 
+			// register a post newsfeed
+			$featuredcontents = [
+				'name'            => 'featuredcontents',
+				'title'           => __( 'Featured Text or Numbers' ),
+				'description'     => __( 'Feature some contents in the Frontend' ),
+				'render_callback' => 'acf_block_render_callback',
+				'category'        => 'common',
+				'icon'            => 'lightbulb',
+				'keywords'        => [ 'content', 'feature' ],
+			];
+
 
 			return [
 				$carousel,
 				$postfeed,
-				$postfeedcarousel
+				$postfeedcarousel,
+				$featuredcontents
 			];
 		}
 	}

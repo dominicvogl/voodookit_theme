@@ -23,7 +23,7 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 
 	<?php
 	if(is_array($carousel)) {
-		echo '<div class="js-slick-slider">';
+		echo '<div class="js-slick-slider slick-slider">';
 
 		foreach($carousel as $slide) {
 			echo
