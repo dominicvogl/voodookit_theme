@@ -32,6 +32,18 @@ if (! function_exists('voodookit_new_navigation')) {
 
 }
 
+
+if(! function_exists('remove_voodookit_social') ) {
+
+	function remove_voodookit_social() {
+		remove_action( 'voodookit_do_social', 'voodookit_social');
+	}
+
+}
+
+// add_action( 'init', 'remove_voodookit_social');
+
+
 if (! function_exists('voodookit_new_stuff')) {
 
 	function voodookit_new_stuff() {
