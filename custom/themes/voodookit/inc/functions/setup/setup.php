@@ -34,7 +34,7 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 		add_theme_support( 'post-thumbnails' );
 
 		// add more image sizes for template
-		add_image_size( 'voodookit-gallery', 1120, 450 );
+		add_image_size( 'voodookit-slider', 1270, 1270 );
 
 		// register and use wp_nav_menu() for navigation
 		register_nav_menus( array(

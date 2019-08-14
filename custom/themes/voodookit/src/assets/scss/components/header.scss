@@ -1,5 +1,7 @@
+$header-background: $dark-gray !default;
+
 header {
-	background: $medium-gray;
+	background: $header-background;
 }
 
 .fixed-header {

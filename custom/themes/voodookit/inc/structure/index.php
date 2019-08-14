@@ -45,7 +45,11 @@ if ( ! function_exists( 'voodookit_do_main_loop' ) ) {
 
 			while ( have_posts() ) {
 				the_post();
-				the_title();
+
+				if(!is_front_page() && !is_home()) {
+					the_title('<h1>', '</h1>');
+				}
+
 				the_content();
 
 				// the_acf_modules();

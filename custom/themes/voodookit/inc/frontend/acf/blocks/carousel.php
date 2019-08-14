@@ -29,7 +29,7 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 			echo
 				'<div>
 					<span class="slide-title">'.$slide['title'].'</span>
-					'.wp_get_attachment_image($slide['image']['id'], 'large', false, ['class' => 'slide-image']).'
+					'.wp_get_attachment_image($slide['image']['id'], 'voodookit-slider', false, ['class' => 'slide-image']).'
 				</div>';
 		}
 

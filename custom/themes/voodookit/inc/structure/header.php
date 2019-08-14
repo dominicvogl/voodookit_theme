@@ -51,7 +51,9 @@ if ( ! function_exists( 'voodookit_logo' ) ) {
 		echo
 			'<div class="column small-12 large-3">
 				<div class="logo">
-					<img src="' . $logo_src . '" width="'.$logo_size[0].'" height="'.$logo_size[1].'" />
+					<a href="'.get_home_url().'" target="_self">
+						<img src="' . $logo_src . '" width="'.$logo_size[0].'" height="'.$logo_size[1].'" />
+					</a>
 				</div>
 			</div>';
 
