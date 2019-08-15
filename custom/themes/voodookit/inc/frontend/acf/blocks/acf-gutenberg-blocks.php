@@ -100,12 +100,24 @@ if ( ! function_exists( 'acf_block_get_blocks' ) ) {
 				'keywords'        => [ 'content', 'feature' ],
 			];
 
+			// register a post newsfeed
+			$voodookit_acf_block_intro_with_image = [
+				'name'            => 'introwithimage',
+				'title'           => __( 'Intro Header with CTA' ),
+				'description'     => __( 'Intro Header with Images, Content and CTA' ),
+				'render_callback' => 'acf_block_render_callback',
+				'category'        => 'common',
+				'icon'            => 'carrot',
+				'keywords'        => [ 'intro', 'feature', 'cta', 'content' ],
+			];
+
 
 			return [
 				$carousel,
 				$postfeed,
 				$postfeedcarousel,
-				$featuredcontents
+				$featuredcontents,
+				$voodookit_acf_block_intro_with_image
 			];
 		}
 	}

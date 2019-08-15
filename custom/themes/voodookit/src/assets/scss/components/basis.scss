@@ -27,10 +27,11 @@ body {
 
 .mod {
 	@include mod;
+}
 
-	&.inner {
-		@include mod('padding');
-	}
+.mod-inner {
+	@include mod('padding');
+
 }
 
 footer {
