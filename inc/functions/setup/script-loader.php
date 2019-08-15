@@ -22,7 +22,7 @@ if ( ! function_exists( 'load_css' ) ) {
 
 				array(
 					'handle' => 'styles',
-					'src'    => get_template_directory_uri() . '/dist/assets/css/app.min.css',
+					'src'    => get_theme_file_uri('/dist/assets/css/app.min.css'),
 					'deps'   => array()
 				)
 
@@ -54,7 +54,7 @@ if ( ! function_exists( 'voodookit_gutenberg_styles' ) ) {
 
 		$file = [
 			'handle' => 'gutenberg-css',
-			'src'    => get_template_directory_uri() . '/dist/assets/css/gutenberg.min.css',
+			'src'    => get_theme_file_uri('/dist/assets/css/gutenberg.min.css'),
 			'deps'   => false
 		];
 
@@ -86,7 +86,7 @@ if ( ! function_exists( 'load_javascript' ) ) {
 
 				array(
 					'handle' => 'app',
-					'src'    => get_template_directory_uri() . '/dist/assets/js/app.min.js',
+					'src'    => get_theme_file_uri('/dist/assets/js/app.min.js'),
 					'deps'   => array(),
 				)
 
