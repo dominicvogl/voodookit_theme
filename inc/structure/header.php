@@ -11,7 +11,7 @@ if ( ! function_exists( 'voodookit_before_header' ) ) {
 
 	function voodookit_before_header    () {
 		echo
-			'<header class="row full-width align-bottom">';
+			'<header class="page-header main-header row full-width align-bottom">';
 	}
 
 }
