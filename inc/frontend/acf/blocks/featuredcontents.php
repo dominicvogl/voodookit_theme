@@ -29,7 +29,7 @@ $block_classes = trim(implode(' ', $block_classes), ' ');
 	if(is_array($features)) {
 		foreach($features as $feature) {
 			echo
-				'<div class="column small-12 medium-6 large-3">
+				'<div class="column small-6 large-3">
 					<div class="feature-item">
 						<span class="feature-content">'.$feature['content'].'</span>
 						<span class="feature-title">'.$feature['label'].'</span>
