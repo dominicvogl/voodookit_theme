@@ -308,3 +308,54 @@ function get_slug()
 
 	return $slug;
 }
+
+
+/**
+ * get icon from sprite with name
+ */
+
+if(! function_exists('voodookit_get_icon') ) {
+
+	function voodookit_get_icon($iconslug) {
+
+		if(empty($iconslug)) {
+			return;
+		}
+
+		$path = get_stylesheet_directory_uri() . "/dist/assets/svg/sprite-symbol.svg#" . $iconslug;
+
+		?>
+		<svg class="sprite sprite--<?php echo $iconslug; ?>">
+			<use xlink:href="<?php echo $path ?>"></use>
+		</svg>
+		<?php
+	}
+
+}
+
+/**
+ *
+ */
+
+if(! function_exists('voodookit_get_button') ) {
+
+	function voodookit_get_button($post) {
+
+		if(!is_object($post)) {
+			return;
+		}
+
+		$args = [
+			"link" => get_permalink($post),
+			"label" => $post->post_title
+		];
+
+		?>
+		<div class="button-wrapper">
+			<a class="button" href="<?php echo $args['link'] ?>" title="<?php echo $args['label'] ?>"><?php _e('get more', 'voodookit'); ?></a>
+		</div>
+
+		<?php
+	}
+
+}

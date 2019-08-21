@@ -37,15 +37,18 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 			setup_postdata($post);
 			?>
 
-			<div id="post-<?php echo $post->ID; ?>" class="card">
-				<div class="card-divider">
-					<h3><?php echo get_the_title($post->ID); ?></h3>
+			<article id="post-<?php echo $post->ID; ?>" class="card">
+				<div class="card-image-wrapper">
+					<?php echo get_the_post_thumbnail($post->ID, 'voodookit-carousel'); ?>
+					<div class="card-divider">
+						<h3 class="card-title"><?php echo get_the_title($post); ?></h3>
+					</div>
 				</div>
-				<?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
 				<div class="card-section">
-					<?php echo get_the_excerpt(); ?>
+					<?php the_content(''); ?>
+					<?php voodookit_get_button($post); ?>
 				</div>
-			</div>
+			</article>
 
 			<?php
 		}
