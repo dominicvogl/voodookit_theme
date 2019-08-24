@@ -39,7 +39,8 @@ if ( ! function_exists( 'voodookit_footer_nav' ) ) {
 		wp_nav_menu([
 			'container' => 'nav',
 			'container_class' => 'column small-12 large-6 navigation footer-nav',
-			'menu' => 'footer-nav'
+			'menu' => 'footer-nav',
+			'theme_location' => 'footer'
 		]);
 
 	}
