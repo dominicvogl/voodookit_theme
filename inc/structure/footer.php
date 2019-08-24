@@ -70,11 +70,17 @@ if ( ! function_exists( 'voodookit_footer_logo' ) ) {
 
 	function voodookit_footer_logo() {
 
-		if( ! get_theme_mod( 'evolution_footer_logo' )) {
+		if( get_theme_mod( 'evolution_footer_logo' )) {
+			$logo_src = get_theme_mod( 'evolution_footer_logo' );
+		}
+		elseif ( get_theme_mod( 'evolution_logo' )) {
+			$logo_src = get_theme_mod( 'evolution_logo' );
+		}
+		else {
 			return;
 		}
 
-		$logo_src = esc_url( get_theme_mod( 'evolution_footer_logo' ) );
+		$logo_src = esc_url( $logo_src );
 		list ( $logo_size ) = getimagesize( $logo_src );
 
 		echo
