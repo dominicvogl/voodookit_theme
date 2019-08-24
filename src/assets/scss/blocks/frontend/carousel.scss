@@ -1,4 +1,4 @@
-.card-carousel {
+.slick--card-carousel {
 
 	.slick-slide {
 		max-width: 75vw;
@@ -8,7 +8,7 @@
 
 @include breakpoint(medium) {
 
-	.card-carousel {
+	.slick--card-carousel {
 		.card {
 
 		}
