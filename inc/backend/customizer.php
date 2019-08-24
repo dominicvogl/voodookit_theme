@@ -93,7 +93,7 @@ function evolution_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'evolution_footer_logo', array(
-		'label'    => esc_html__( 'Upload Logo', 'evolution' ),
+		'label'    => esc_html__( 'Upload additional footer logo (uses main logo from header by default)', 'evolution' ),
 		'section'  => 'evolution_footer_options',
 		'priority' => 11,
 	) ) );
