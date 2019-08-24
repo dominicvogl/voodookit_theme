@@ -49,10 +49,10 @@ add_action( 'voodookit_do_main', 'voodookit_do_after_main_loop', 10 );
  * Footer
  */
 
-add_action( 'voodookit_do_footer', 'voodookit_footer', 10 );
-add_action( 'voodookit_do_social', 'voodookit_social', 10 );
-add_action( 'voodookit_do_footer_nav', 'voodookit_footer_nav', 10 );
-add_action( 'voodookit_do_copyright', 'voodookit_copyright', 10 );
+add_action( 'voodookit_do_footer', 'voodookit_footer_logo', 5 );
+add_action( 'voodookit_do_footer', 'voodookit_social', 10 );
+add_action( 'voodookit_do_footer', 'voodookit_footer_nav', 15 );
+add_action( 'voodookit_do_footer', 'voodookit_copyright', 20 );
 
 
 

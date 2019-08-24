@@ -5,7 +5,16 @@
  * @package Voodookit
  */
 
-do_action('voodookit_do_footer');
+?>
+
+<footer class="mod inner">
+	<div class="row">
+		<?php do_action('voodookit_do_before_footer'); ?>
+		<?php do_action('voodookit_do_footer'); ?>
+	</div>
+</footer>
+
+<?php
 
 echo '</div>'; // slideout-panel
 
