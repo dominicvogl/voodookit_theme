@@ -66,18 +66,25 @@ if (! function_exists('voodookit_copyright') ) {
 
 }
 
-
-if(! function_exists('voodookit_footer_logo') ) {
-
-	/**
-	 * Wrap the logo for the footer in the default grid
-	 */
+if ( ! function_exists( 'voodookit_footer_logo' ) ) {
 
 	function voodookit_footer_logo() {
 
-		echo '<div class="column small-12.large-6">';
-		do_action('voodookit_do_logo');
-		echo '</div>';
+		if( ! get_theme_mod( 'evolution_footer_logo' )) {
+			return;
+		}
+
+		$logo_src = esc_url( get_theme_mod( 'evolution_footer_logo' ) );
+		list ( $logo_size ) = getimagesize( $logo_src );
+
+		echo
+			'<div class="column small-12 large-6">
+				<div class="logo">
+					<a href="'.get_home_url().'" target="_self">
+						<img src="' . $logo_src . '" width="'.$logo_size[0].'" height="'.$logo_size[1].'" />
+					</a>
+				</div>
+			</div>';
 
 	}
 

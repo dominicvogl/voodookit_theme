@@ -7,7 +7,7 @@
 
 ?>
 
-<footer class="mod inner">
+<footer class="mod mod-inner">
 	<div class="row">
 		<?php do_action('voodookit_do_before_footer'); ?>
 		<?php do_action('voodookit_do_footer'); ?>

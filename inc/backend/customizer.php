@@ -87,6 +87,16 @@ function evolution_customize_register( $wp_customize ) {
         'capability' => 'edit_theme_options',
         'priority' => 1
     ));
+	$wp_customize->add_setting( 'evolution_footer_logo', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_url_raw'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'evolution_footer_logo', array(
+		'label'    => esc_html__( 'Upload Logo', 'evolution' ),
+		'section'  => 'evolution_footer_options',
+		'priority' => 11,
+	) ) );
 
     // Die Eingabemöglichkeit erstellen
     $wp_customize->add_control(new WP_Customize_Control(
