@@ -11,9 +11,7 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 	function voodookit_setup() {
 
 		// Load template translations
-		load_theme_textdomain( 'voodookit', get_template_directory() . '/languages' );
-
-		apply_filters( 'override_load_textdomain', true, 'voodookit', get_template_directory() . '/languages/de_DE.mo' );
+		load_theme_textdomain( 'voodookit', get_stylesheet_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -57,6 +55,9 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 }
 
 add_action( 'init', 'voodookit_setup' );
+
+
+
 
 
 /**
