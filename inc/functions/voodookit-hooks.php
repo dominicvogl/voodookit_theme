@@ -51,6 +51,7 @@ add_action( 'voodookit_do_main', 'voodookit_do_after_main_loop', 10 );
 
 add_action( 'voodookit_do_footer', 'voodookit_footer_logo', 5 );
 add_action( 'voodookit_do_footer', 'voodookit_social', 10 );
+add_action( 'voodookit_do_footer', 'voodookit_contact', 12 );
 add_action( 'voodookit_do_footer', 'voodookit_footer_nav', 15 );
 add_action( 'voodookit_do_footer', 'voodookit_copyright', 20 );
 
