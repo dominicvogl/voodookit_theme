@@ -86,9 +86,18 @@ if ( ! function_exists( 'voodookit_navigation_mobile' ) ) {
 		wp_nav_menu(
 			[
 				'container' => 'nav',
-				'container_class' => '',
-				'menu_class' => 'navigation menu',
+				'container_class' => 'navigation-mobile',
+				'menu_class' => 'js-accordion-menu navigation vertical menu accordion-menu',
 				'theme_location' => 'primary'
+			]
+		);
+
+		wp_nav_menu(
+			[
+				'container' => 'nav',
+				'container_class' => 'navigation-mobile secondary',
+				'menu_class' => 'js-accordion-menu navigation vertical menu accordion-menu',
+				'theme_location' => 'footer'
 			]
 		);
 
