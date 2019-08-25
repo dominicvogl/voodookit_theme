@@ -107,6 +107,7 @@ if ( ! function_exists('voodookit_slideout_toggler') ) {
 					<div class="button-bars">
 						<span class="bar"></span>
 						<span class="bar"></span>
+						<span class="bar"></span>
 					</div>
 				</div>
 			</div>';
