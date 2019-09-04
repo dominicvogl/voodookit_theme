@@ -56,81 +56,73 @@ if ( ! function_exists( 'acf_block_get_blocks' ) ) {
 		// check function exists
 		if ( function_exists( 'acf_register_block' ) ) {
 
-			// register a carousel slider block
-			$carousel = [
-				'name'            => 'carousel',
-				'title'           => __( 'Carousel / Slider' ),
-				'description'     => __( 'A slick slider block.' ),
-				'render_callback' => 'acf_block_render_callback',
-				'category'        => 'common',
-				'icon'            => 'admin-comments',
-				'keywords'        => [ 'carousel', 'slider', 'images' ],
-			];
+			$blocks = array(
+				// register a carousel slider block
+				[
+					'name'            => 'carousel',
+					'title'           => __( 'Carousel / Slider' ),
+					'icon'            => 'admin-comments',
+				],
+				// register a post newsfeed
+				[
+					'name'            => 'postfeed',
+					'title'           => __( 'Post Feed' ),
+					'icon'            => 'schedule',
+				],
 
-			// register a post newsfeed
-			$postfeed = [
-				'name'            => 'postfeed',
-				'title'           => __( 'Post Feed' ),
-				'description'     => __( 'Post Feed as Cards' ),
-				'render_callback' => 'acf_block_render_callback',
-				'category'        => 'common',
-				'icon'            => 'schedule',
-				'keywords'        => [ 'carousel', 'feed', 'news', 'posts' ],
-			];
+				// register a post newsfeed
+				[
+					'name'            => 'postfeedcarousel',
+					'title'           => __( 'Post Feed Carousel' ),
+					'icon'            => 'schedule',
+				],
 
-			// register a post newsfeed
-			$postfeedcarousel = [
-				'name'            => 'postfeedcarousel',
-				'title'           => __( 'Post Feed Carousel' ),
-				'description'     => __( 'Post Feed as Cards in Carousel' ),
-				'render_callback' => 'acf_block_render_callback',
-				'category'        => 'common',
-				'icon'            => 'schedule',
-				'keywords'        => [ 'carousel', 'feed', 'news', 'posts' ],
-			];
+				// register a post newsfeed
+				[
+					'name'            => 'featuredcontents',
+					'title'           => __( 'Featured Text or Numbers' ),
+					'icon'            => 'lightbulb',
+				],
 
-			// register a post newsfeed
-			$featuredcontents = [
-				'name'            => 'featuredcontents',
-				'title'           => __( 'Featured Text or Numbers' ),
-				'description'     => __( 'Feature some contents in the Frontend' ),
-				'render_callback' => 'acf_block_render_callback',
-				'category'        => 'common',
-				'icon'            => 'lightbulb',
-				'keywords'        => [ 'content', 'feature' ],
-			];
+				// register a post newsfeed
+				[
+					'name'            => 'introwithimage',
+					'title'           => __( 'Intro Header with CTA' ),
+					'icon'            => 'carrot',
+				],
 
-			// register a post newsfeed
-			$voodookit_acf_block_intro_with_image = [
-				'name'            => 'introwithimage',
-				'title'           => __( 'Intro Header with CTA' ),
-				'description'     => __( 'Intro Header with Images, Content and CTA' ),
-				'render_callback' => 'acf_block_render_callback',
-				'category'        => 'common',
-				'icon'            => 'carrot',
-				'keywords'        => [ 'intro', 'feature', 'cta', 'content' ],
-			];
-
-			// register a post newsfeed
-			$voodookit_acf_block_image_and_content = [
-				'name'            => 'imageandcontent',
-				'title'           => __( 'Image with Content' ),
-				'description'     => __( 'Block Element with Images and Contents together' ),
-				'render_callback' => 'acf_block_render_callback',
-				'category'        => 'common',
-				'icon'            => 'gallery',
-				'keywords'        => [ 'intro', 'feature', 'cta', 'content' ],
-			];
+				// register a post newsfeed
+				[
+					'name'            => 'imageandcontent',
+					'title'           => __( 'Image with Content' ),
+					'icon'            => 'gallery',
+				]
+			);
 
 
-			return [
-				$carousel,
-				$postfeed,
-				$postfeedcarousel,
-				$featuredcontents,
-				$voodookit_acf_block_intro_with_image
-			];
+			return return_acf_blocks($blocks);
 		}
+	}
+
+	function return_acf_blocks( $blocks ) {
+
+		$returningBlocks = array();
+
+		foreach($blocks as $block) {
+
+			$returningBlocks[] = array(
+				'name'            => $block['name'],
+				'title'           => $block['title'],
+				'description'     => $block['title'],
+				'render_callback' => 'acf_block_render_callback',
+				'category'        => 'common',
+				'icon'            => $block['icon'],
+				'keywords'        => [ 'acf', 'content'],
+			);
+		}
+
+		return $returningBlocks;
+
 	}
 
 }
