@@ -111,6 +111,17 @@ if ( ! function_exists( 'acf_block_get_blocks' ) ) {
 				'keywords'        => [ 'intro', 'feature', 'cta', 'content' ],
 			];
 
+			// register a post newsfeed
+			$voodookit_acf_block_image_and_content = [
+				'name'            => 'imageandcontent',
+				'title'           => __( 'Image with Content' ),
+				'description'     => __( 'Block Element with Images and Contents together' ),
+				'render_callback' => 'acf_block_render_callback',
+				'category'        => 'common',
+				'icon'            => 'gallery',
+				'keywords'        => [ 'intro', 'feature', 'cta', 'content' ],
+			];
+
 
 			return [
 				$carousel,

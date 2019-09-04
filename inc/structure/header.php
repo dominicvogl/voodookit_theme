@@ -70,7 +70,7 @@ if ( ! function_exists( 'voodookit_navigation' ) ) {
 			[
 				'container' => 'nav',
 				'container_class' => 'column small-9 show-for-large',
-				'menu_class' => 'navigation menu align-right',
+				'menu_class' => 'navigation desktop menu align-right',
 				'theme_location' => 'primary'
 			]
 		);
