@@ -8,6 +8,7 @@
 
 // get image field (array)
 $fields = [
+	'title' => get_field('title'),
 	'content' => get_field('content'),
 	'image' => get_field('image'),
 	'call_to_action' => get_field('call_to_action')
@@ -45,17 +46,23 @@ $block_classes = trim(implode(' ', $block_classes), ' ');
 	<?php
 	if(is_array($fields)) {
 
-		echo
-		'<div class="row">
-			<div class="column">
-				<div class="intro-content">'.$fields['content'].'</div>				
-				<div class="button-wrap">
-					<a class="button" href="'.$fields['call_to_action']['target_url'].'">'.voodookit_acf_block_get_btn_label($fields['call_to_action']['label']).'</a>
-				</div>
-			</div>
+		echo '<div class="row"><div class="column">';
+		if($fields['title']) {
+			echo '<div class="intro-title">'.$fields['title'].'</div>';
+		}
 
-		</div>';
+		if($fields['content']) {
+			echo '<div class="intro-content">'.$fields['content'].'</div>';
+		}
+
+		if($fields['call_to_action']) {
+			echo
+				'<div class="button-wrap">
+					<a class="button" href="'.$fields['call_to_action']['target_url'].'">'.voodookit_acf_block_get_btn_label($fields['call_to_action']['label']).'</a>
+				</div>';
+		}
+
+		echo '</div></div>';
 	}
 	?>
-
 </section>
