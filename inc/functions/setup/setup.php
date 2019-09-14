@@ -33,7 +33,7 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 
 		// add more image sizes for template
 		add_image_size( 'voodookit-slider', 1270, 1270 );
-		add_image_size( 'voodookit-carousel', 420, 420 );
+		add_image_size( 'voodookit-carousel', 800, 450, true );
 
 		// register and use wp_nav_menu() for navigation
 		register_nav_menus( array(

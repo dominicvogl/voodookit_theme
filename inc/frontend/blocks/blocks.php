@@ -12,12 +12,14 @@ if(! function_exists('voodookit_wrapping_core_blocks') ) {
 
 	function voodookit_wrapping_core_blocks( $block_content, $block ) {
 
-		$classes = ['row', 'column'];
+		$classes = [];
+//		$classes = ['row', 'column'];
 
 		// list of blocks to wrap
 		$listOfBlocks = [
 			'core/heading',
-			'core/paragraph'
+			'core/paragraph',
+			'core/list'
 		];
 
 		// check if current block is in the list
@@ -26,7 +28,7 @@ if(! function_exists('voodookit_wrapping_core_blocks') ) {
 		}
 
 		// add core blocknames as mod classes to the array
-		$classes[] = 'mod-' . str_replace( '/', '', strstr( $block['blockName'], '/' ) );
+		$classes[] = 'block-' . str_replace( '/', '', strstr( $block['blockName'], '/' ) );
 
 		// transform array to string for usage in html
 		$classes   = implode( ' ', $classes );
