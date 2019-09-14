@@ -18,6 +18,13 @@ $feature-item-small-font-size: 0.85em !default;
 	font-size: $feature-item-small-font-size;
 }
 
+.feature-icon {
+	img {
+		max-height: 120px;
+		margin-bottom: map_get($grid-column-gutter, small);
+	}
+}
+
 .feature-content {
 	line-height: 1.2em;
 	font-size: $feature-item-font-size;
