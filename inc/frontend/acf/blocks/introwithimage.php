@@ -55,10 +55,15 @@ $block_classes = trim(implode(' ', $block_classes), ' ');
 			echo '<div class="intro-content">'.$fields['content'].'</div>';
 		}
 
+		$target = $fields['call_to_action']['target_url'];
+		if($fields['call_to_action']['is_anker']) {
+			$target = '#' . $fields['call_to_action']['anker_id'];
+		}
+
 		if($fields['call_to_action']) {
 			echo
 				'<div class="button-wrap">
-					<a class="button" href="'.$fields['call_to_action']['target_url'].'">'.voodookit_acf_block_get_btn_label($fields['call_to_action']['label']).'</a>
+					<a class="button" href="'.$target.'">'.voodookit_acf_block_get_btn_label($fields['call_to_action']['label']).'</a>
 				</div>';
 		}
 

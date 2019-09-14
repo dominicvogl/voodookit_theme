@@ -88,7 +88,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "70",
                         "class": "",
                         "id": ""
                     },
@@ -99,15 +99,42 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_5d7d0bb9f9d5f",
+                    "label": "Ist Anker?",
+                    "name": "is_anker",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_5d553b4b75439",
                     "label": "Ziel",
                     "name": "target_url",
                     "type": "page_link",
                     "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5d7d0bb9f9d5f",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
-                        "width": "66",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -116,6 +143,33 @@
                     "allow_null": 0,
                     "allow_archives": 1,
                     "multiple": 0
+                },
+                {
+                    "key": "field_5d7d0bfbf9d60",
+                    "label": "Anker \/ Element",
+                    "name": "anker_id",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5d7d0bb9f9d5f",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "#",
+                    "prepend": "Element",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -137,5 +191,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1567625034
+    "modified": 1568476802
 }
