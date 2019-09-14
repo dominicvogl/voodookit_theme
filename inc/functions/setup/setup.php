@@ -99,6 +99,33 @@ if ( ! function_exists( 'voodookit_mime_types' ) ) {
 add_filter( 'upload_mimes', 'voodookit_mime_types' );
 
 
+
+if(! function_exists('wp_check_filetype_and_ext')) {
+
+	function kb_ignore_upload_ext($checked, $file, $filename, $mimes){
+
+		if(!$checked['type']){
+			$wp_filetype = wp_check_filetype( $filename, $mimes );
+			$ext = $wp_filetype['ext'];
+			$type = $wp_filetype['type'];
+			$proper_filename = $filename;
+
+			if($type && 0 === strpos($type, 'image/') && $ext !== 'svg'){
+				$ext = $type = false;
+			}
+
+			$checked = compact('ext','type','proper_filename');
+		}
+
+		return $checked;
+	}
+
+}
+
+add_filter('wp_check_filetype_and_ext', 'kb_ignore_upload_ext', 10, 4);
+
+
+
 /**
  * Deactivate the wordpress autosave
  */
