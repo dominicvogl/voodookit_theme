@@ -89,10 +89,10 @@ add_filter( 'wp_headers', 'remove_x_pingback' );
 
 if ( ! function_exists( 'voodookit_mime_types' ) ) {
 
-	function voodookit_mime_types( $mimes ) {
-		$mimes['svg'] = 'image/svg+xml';
+	function voodookit_mime_types( $mime_types ) {
+		$mime_types['svg'] = 'image/svg+xml';
 
-		return $mimes;
+		return $mime_types;
 	}
 }
 
@@ -122,7 +122,7 @@ if(! function_exists('wp_check_filetype_and_ext')) {
 
 }
 
-add_filter('wp_check_filetype_and_ext', 'kb_ignore_upload_ext', 10, 4);
+//add_filter('wp_check_filetype_and_ext', 'kb_ignore_upload_ext', 10, 4);
 
 
 
