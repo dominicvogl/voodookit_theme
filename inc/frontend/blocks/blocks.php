@@ -19,7 +19,8 @@ if(! function_exists('voodookit_wrapping_core_blocks') ) {
 		$listOfBlocks = [
 			'core/heading',
 			'core/paragraph',
-			'core/list'
+			'core/list',
+			'core/html',
 		];
 
 		// check if current block is in the list
