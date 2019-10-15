@@ -31,6 +31,11 @@ if(! function_exists('voodookit_wrapping_core_blocks') ) {
 		// add core blocknames as mod classes to the array
 		$classes[] = 'block-' . str_replace( '/', '', strstr( $block['blockName'], '/' ) );
 
+		// add extra class when is core/html
+		if($block['blockName'] === 'core/html') {
+			$classes[] = 'is-style-fixed-width-paragraph';
+		}
+
 		// transform array to string for usage in html
 		$classes   = implode( ' ', $classes );
 
