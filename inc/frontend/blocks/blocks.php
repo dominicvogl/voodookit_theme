@@ -29,7 +29,8 @@ if(! function_exists('voodookit_wrapping_core_blocks') ) {
 		}
 
 		// add core blocknames as mod classes to the array
-		$classes[] = 'block-' . str_replace( '/', '', strstr( $block['blockName'], '/' ) );
+		$prefix = str_replace( '/', '', strstr( $block['blockName'], '/' ) );
+		$classes[] = 'block-' . $prefix;
 
 		// add extra class when is core/html
 		if($block['blockName'] === 'core/html') {
@@ -38,6 +39,11 @@ if(! function_exists('voodookit_wrapping_core_blocks') ) {
 
 		// transform array to string for usage in html
 		$classes   = implode( ' ', $classes );
+
+		// add data attribute to block on headlines for anker navigation
+		if($block['blockName'] === 'core/heading') {
+			return "<div class='$classes' data-anchor='$prefix'>$block_content</div>";
+		}
 
 		// wrap the stuff up, then return
 		return "<div class='$classes'>$block_content</div>";
