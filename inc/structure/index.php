@@ -55,6 +55,8 @@ if ( ! function_exists( 'voodookit_do_main_loop' ) ) {
 				// the_acf_modules();
 			}
 
+			wp_reset_postdata();
+
 		}
 	}
 

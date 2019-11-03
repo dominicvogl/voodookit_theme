@@ -46,6 +46,7 @@ const initTogglerPadding = (toggler) => {
 	});
 };
 
+
 // Init functions
 initTogglerPadding(toggler);
 
@@ -53,36 +54,3 @@ initTogglerPadding(toggler);
 toggler.addEventListener('click', function() {
 	slideout.toggle();
 });
-
-/**
- * set the height of the slideout
- * @param height
- */
-
-
-
-
-// const fixedHeader = document.querySelector('.js-fixed-header');
-//
-// // if fixed header is in usage
-// slideout.on('translate', function(translated) {
-// 	fixedHeader.style.transform = 'translateX(' + translated + 'px)';
-// });
-//
-// slideout.on('beforeopen', function () {
-// 	fixedHeader.style.transition = 'transform 300ms ease';
-// 	fixedHeader.style.transform = 'translateX(256px)';
-// });
-//
-// slideout.on('beforeclose', function () {
-// 	fixedHeader.style.transition = 'transform 300ms ease';
-// 	fixedHeader.style.transform = 'translateX(0px)';
-// });
-//
-// slideout.on('open', function () {
-// 	fixedHeader.style.transition = '';
-// });
-//
-// slideout.on('close', function () {
-// 	fixedHeader.style.transition = '';
-// });
