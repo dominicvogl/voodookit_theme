@@ -6,10 +6,38 @@
  * @package Voodookit
  */
 
-function voodookit_remove_wp_ver_css_js( $src ) {
-	if ( strpos( $src, 'ver=' ) )
-		$src = remove_query_arg( 'ver', $src );
-	return $src;
+/**
+ * move javascripf files the save way to the footer
+ */
+
+if( ! function_exists('voodookit_footer_enqueue_scripts') ) {
+
+	function voodookit_footer_enqueue_scripts() {
+		remove_action('wp_head', 'wp_print_scripts');
+		remove_action('wp_head', 'wp_print_head_scripts', 9);
+		remove_action('wp_head', 'wp_enqueue_scripts', 1);
+		add_action('wp_footer', 'wp_print_scripts', 5);
+		add_action('wp_footer', 'wp_enqueue_scripts', 5);
+		add_action('wp_footer', 'wp_print_head_scripts', 5);
+	}
+
+}
+
+add_action('wp_enqueue_scripts', 'voodookit_footer_enqueue_scripts');
+
+
+/**
+ * remove version query tag at the end of js and css files when they are embedded
+ */
+
+if( ! function_exists('voodookit_remove_wp_ver_css_js') ) {
+
+	function voodookit_remove_wp_ver_css_js( $src ) {
+		if ( strpos( $src, 'ver=' ) )
+			$src = remove_query_arg( 'ver', $src );
+		return $src;
+	}
+
 }
 
 add_filter( 'style_loader_src', 'voodookit_remove_wp_ver_css_js', 9999 );
