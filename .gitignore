@@ -1,5 +1,6 @@
 ## ignore folders
 
+node_modules
 core
 /custom/languages/
 /custom/upgrade/
