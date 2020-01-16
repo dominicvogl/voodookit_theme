@@ -1,0 +1,24 @@
+@import "settings/var";
+@import "settings/settings";
+@import "settings/foundation";
+
+@include foundation-everything
+
+@import '../../../node_modules/slick-slider/slick/slick.scss';
+@import "components/grid";
+@import "components/basis";
+@import "components/header";
+@import "components/logo";
+@import "components/sprites";
+@import "components/footer";
+@import "components/navigation/desktop";
+@import "components/navigation/mobile";
+@import "components/navigation/footer";
+@import "components/slideout";
+@import "components/toggler";
+@import "components/social";
+
+@import "blocks/frontend/carousel";
+@import "blocks/frontend/postfeed";
+@import "blocks/frontend/featuredcontents";
+@import "blocks/frontend/introwithimage";

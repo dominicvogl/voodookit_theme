@@ -1,12 +1,16 @@
 ## ignore folders
 
+# general folders
 node_modules
+bower_components
+
+# wordpress specific
 core
-/custom/languages/
-/custom/upgrade/
-/custom/uploads/
-/custom/plugins/
-!/custom/plugins/acf-to-json/
+custom/languages/
+custom/upgrades/
+custom/uploads/
+custom/plugins/
+
 
 ## ignore Files
 

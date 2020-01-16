@@ -1,0 +1,7 @@
+$svg-sprite-size: 50px !default;
+
+svg.sprite {
+	fill: $brand-primary;
+	width: $svg-sprite-size;
+	height: $svg-sprite-size;
+}

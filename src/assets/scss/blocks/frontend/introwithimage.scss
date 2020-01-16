@@ -1,0 +1,12 @@
+$intro-content-margin: 30px !default;
+$intro-content-color: $white;
+
+.intro-block {
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.intro-content {
+	margin: $intro-content-margin 0;
+	color: $intro-content-color;
+}

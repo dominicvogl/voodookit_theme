@@ -1,0 +1,22 @@
+$gutenberg-editor-width: 1200px !default;
+$gutenberg-editor-sidebar-width: 480px !default;
+
+.edit-post-visual-editor {
+	.editor-block-list__block {
+		margin: 0 auto;
+		max-width: $gutenberg-editor-width;
+	}
+}
+
+.edit-post-layout.is-sidebar-opened {
+	.edit-post-layout__content {
+		margin-right: $gutenberg-editor-sidebar-width;
+	}
+}
+
+.edit-post-layout.is-sidebar-opened {
+	.edit-post-plugin-sidebar__sidebar-layout,
+	.edit-post-sidebar {
+		width: $gutenberg-editor-sidebar-width;
+	}
+}

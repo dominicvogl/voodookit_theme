@@ -1,0 +1,41 @@
+// Mixins
+@mixin mod(
+	$arg: margin,
+	$gutter: map_get($grid-column-gutter, medium),
+	$gutter-bottom: $gutter
+) {
+	@if $arg == 'padding' {
+		padding: {
+			top: ($gutter);
+			bottom: ($gutter-bottom);
+		}
+	}
+	@else {
+		margin: {
+			top: ($gutter * 2);
+			bottom: ($gutter-bottom * 2);
+		}
+	}
+}
+
+
+// selectors
+body {
+	width: 100%;
+	height: 100%;
+}
+
+.mod {
+	@include mod;
+}
+
+.mod-inner {
+	@include mod('padding');
+
+}
+
+footer {
+	&.mod {
+		@include mod( $gutter-bottom: 0 );
+	}
+}

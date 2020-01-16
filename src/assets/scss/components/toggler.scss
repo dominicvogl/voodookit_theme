@@ -1,0 +1,35 @@
+$toggler-border-radius: rem-calc(15) !default;
+$toggler-color: #fff !default;
+$toggler-background: map_get($foundation-palette, primary) !default;
+
+.toggler-wrapper {
+	background: $toggler-background;
+	color: $toggler-color;
+	position: fixed;
+	z-index: 100;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.toggle-button {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	font-size: 1.2em;
+	padding: rem-calc(5 0);
+
+	.button-bars {
+		margin-left: rem-calc(10);
+	}
+
+	.bar {
+		display: block;
+		background: $toggler-color;
+		margin: rem-calc(5 0);
+		height: rem-calc(3);
+		width: rem-calc(28);
+	}
+}

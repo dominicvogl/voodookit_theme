@@ -1,0 +1,12 @@
+$card-gutter-width: (map_get($grid-column-gutter, small) / 2) !default;
+
+.card-loop {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -($card-gutter-width);
+
+	.card {
+		flex: 1 1 calc(380px + 10px);
+		margin: $card-gutter-width 10px;
+	}
+}
