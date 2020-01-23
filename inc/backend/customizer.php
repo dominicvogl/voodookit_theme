@@ -150,4 +150,32 @@ function evolution_customize_register( $wp_customize ) {
 		'priority' => 2,
 	) );
 }
+
 add_action( 'customize_register', 'evolution_customize_register' );
+
+
+if(!function_exists('evolution_get_logo_src')) {
+
+	function evolution_get_logo_src() {
+
+		if( get_theme_mod( 'evolution_footer_logo' )) {
+			$logo_src = get_theme_mod( 'evolution_footer_logo' );
+		}
+		elseif ( get_theme_mod( 'evolution_logo' )) {
+			$logo_src = get_theme_mod( 'evolution_logo' );
+		}
+		else {
+			return NULL;
+		}
+
+		$logo_src = esc_url( $logo_src );
+		$logo_size= getimagesize( $logo_src );
+
+		return array(
+			'logo_src' => $logo_src,
+			'logo_sizes' => $logo_size
+		);
+
+	}
+
+}
