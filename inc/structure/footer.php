@@ -28,7 +28,8 @@ if(! function_exists('voodookit_footer') ) {
 						<a href="<?php echo get_home_url(); ?>"><img src="<?php echo esc_url($logo['logo_src']); ?>" width="<?php echo $logo['logo_sizes'][0]; ?>" height="<?php echo esc_attr($logo['logo_sizes'][1]); ?>" alt="<?php _e('Logo of: ','voodookit'); ?><?php echo esc_attr(bloginfo('name')); ?>"></a>
 					</div>
 
-					<!-- Address Block @todo make editable via backend, later-->
+					<?php // @todo make editable via backend, later ?>
+					<!-- Address Block -->
 					<address class="footer-address">
 						<p><strong>Catalyst-Interactive</strong><br>Sterntalerring 58<br>95447 Bayreuth, Germany</p>
 						<?php voodookit_get_icon('phone-square'); ?> <a href="tel:+491718387615">+49 (0) 171 83 87 615</a><br>
@@ -70,17 +71,16 @@ if(! function_exists('voodookit_footer') ) {
  * Render template copyright
  */
 
-if (! function_exists('voodookit_copyright') ) {
+if (!function_exists('voodookit_copyright')) {
 
 	function voodookit_copyright() {
 
-		if(get_theme_mod('evolution_footer_hide') === true) {
-			return;
-		}
-
+		if (get_theme_mod('evolution_footer_hide') === true) return;
 		?>
+
 		<div class="column small-12">
 			<div class="footer-copyright text-center">
+				<?php // @todo make editable via backend, later ?>
 				<p><?php _e('This framework was made with Wordpress, Voodookit and'); ?> <?php voodookit_get_icon('heart-full'); ?> <?php _e('by'); ?> <a href="//dominicvogl.de" target="_blank"><?php _e('Author', 'voodookit'); ?></a></p>
 			</div>
 		</div>
