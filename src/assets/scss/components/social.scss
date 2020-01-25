@@ -1,5 +1,4 @@
 .social-links {
-	@include mod(map_get($grid-column-gutter, small) / 2);
 	margin: {
 		left: 0;
 		right: 0;

@@ -3,67 +3,66 @@
  * This is Voodookit!
  *
  * @package Voodookit
- * @since 1.0.0
+ * @since 1.0.1
+ * @verson 1.1
  */
-
-
-if ( ! function_exists( 'voodookit_social' ) ) {
-
-	function voodookit_social() {
-		?>
-
-		<div class="column small-12 large-6">
-			<ul class="social-links">
-				<li><a href="#">FB</a></li>
-				<li><a href="#">IG</a></li>
-				<li><a href="#">PI</a></li>
-				<li><a href="#">WA</a></li>
-				<li><a href="#">TE</a></li>
-			</ul>
-		</div>
-
-		<?php
-
-	}
-
-}
-
-/**
- * Renders footer navigation with wp_nav_menu();
- */
-
-if ( ! function_exists( 'voodookit_footer_nav' ) ) {
-
-	function voodookit_footer_nav() {
-
-		wp_nav_menu([
-			'container' => 'nav',
-			'container_class' => 'column small-12 navigation footer-nav',
-			'menu' => 'footer-nav',
-			'theme_location' => 'footer'
-		]);
-
-	}
-
-}
 
 
 /**
- * Render rezeptor contact block
+ * Render footer template and all the stuff
  */
 
-if(! function_exists('voodookit_contact') ) {
+if(! function_exists('voodookit_footer') ) {
 
-	function voodookit_contact() {
+	function voodookit_footer() {
+
+		$logo = evolution_get_logo_src();
 		?>
-		<address class="footer-address column small-12 large-8">
+
+		<footer class="mod mod-inner">
 			<div class="row">
-				<p class="column small-12 large-6"><strong>eRezeptor GmbH</strong><br>Bärenschanzstrasse 131<br>90429 Nürnberg, Germany</p>
-				<p class="column small-12 large-6"><?php voodookit_get_icon('phone-square'); ?><a href="tel:+4991137656488">+49 911 376564 88</a><br>+49 911 376564 99<br><?php voodookit_get_icon('envelope-square'); ?><a href="mailto:contact@erezeptor.com" target="_blank">contact@erezeptor.com</a></p>
-			</div>
-		</address>
-		<?php
 
+				<div class="column small-12 large-4">
+
+					<div class="footer--logo logo">
+						<a href="<?php echo get_home_url(); ?>"><img src="<?php echo esc_url($logo['logo_src']); ?>" width="<?php echo $logo['logo_sizes'][0]; ?>" height="<?php echo esc_attr($logo['logo_sizes'][1]); ?>" alt="<?php _e('Logo of: ','voodookit'); ?><?php echo esc_attr(bloginfo('name')); ?>"></a>
+					</div>
+
+					<?php // @todo make editable via backend, later ?>
+					<!-- Address Block -->
+					<address class="footer-address">
+						<p><strong>Catalyst-Interactive</strong><br>Sterntalerring 58<br>95447 Bayreuth, Germany</p>
+						<?php voodookit_get_icon('phone-square'); ?> <a href="tel:+491718387615">+49 (0) 171 83 87 615</a><br>
+						<?php voodookit_get_icon('envelope-square'); ?> <a href="mailto:hello@dominicvogl.de" target="_blank">hello@dominicvogl.de</a>
+					</address>
+				</div>
+
+				<div class="column small-12 large-4">
+					<ul class="footer--social-links social-links">
+						<li><a href="#">FB</a></li>
+						<li><a href="#">IG</a></li>
+						<li><a href="#">PI</a></li>
+						<li><a href="#">WA</a></li>
+						<li><a href="#">TE</a></li>
+					</ul>
+				</div>
+
+				<div class="column small-12 large-4">
+					<?php
+					wp_nav_menu(array(
+						'container' => 'nav',
+						'container_class' => 'footer--nav navigation',
+						'menu' => 'footer-nav',
+						'menu_class' => 'menu vertical',
+						'theme_location' => 'footer'
+					));
+					?>
+				</div>
+
+			</div>
+		</footer>
+
+		<?php
 	}
 
 }
@@ -72,14 +71,17 @@ if(! function_exists('voodookit_contact') ) {
  * Render template copyright
  */
 
-if (! function_exists('voodookit_copyright') ) {
+if (!function_exists('voodookit_copyright')) {
 
 	function voodookit_copyright() {
 
+		if (get_theme_mod('evolution_footer_hide') === true) return;
 		?>
+
 		<div class="column small-12">
 			<div class="footer-copyright text-center">
-				<p><?php _e('This framework was made with Wordpress, Voodookit and love by'); ?> <a href="//dominicvogl.de" target="_blank"><?php _e('Author', 'voodookit'); ?></a></p>
+				<?php // @todo make editable via backend, later ?>
+				<p><?php _e('This framework was made with Wordpress, Voodookit and'); ?> <?php voodookit_get_icon('heart-full'); ?> <?php _e('by'); ?> <a href="//dominicvogl.de" target="_blank"><?php _e('Author', 'voodookit'); ?></a></p>
 			</div>
 		</div>
 		<?php
@@ -88,32 +90,15 @@ if (! function_exists('voodookit_copyright') ) {
 
 }
 
-if ( ! function_exists( 'voodookit_footer_logo' ) ) {
 
-	function voodookit_footer_logo() {
+/**
+ * prepared but currently not used function for adding something over the footer
+ */
 
-		if( get_theme_mod( 'evolution_footer_logo' )) {
-			$logo_src = get_theme_mod( 'evolution_footer_logo' );
-		}
-		elseif ( get_theme_mod( 'evolution_logo' )) {
-			$logo_src = get_theme_mod( 'evolution_logo' );
-		}
-		else {
-			return;
-		}
+if (! function_exists('voodookit_before_footer') ) {
 
-		$logo_src = esc_url( $logo_src );
-		list ( $logo_size ) = getimagesize( $logo_src );
-
-		echo
-			'<div class="column small-12 large-4">
-				<div class="logo">
-					<a href="'.get_home_url().'" target="_self">
-						<img src="' . $logo_src . '" width="'.$logo_size[0].'" height="'.$logo_size[1].'" />
-					</a>
-				</div>
-			</div>';
-
+	function voodookit_before_footer() {
+		return NULL;
 	}
 
 }

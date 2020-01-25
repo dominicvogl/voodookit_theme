@@ -1,6 +1,6 @@
 {
 	"name": "voodookit",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Performant & flexible Wordpress Framework",
 	"main": "index.php",
 	"scripts": {

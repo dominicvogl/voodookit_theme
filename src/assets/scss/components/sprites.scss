@@ -1,7 +1,8 @@
-$svg-sprite-size: 50px !default;
+$svg-sprite-size: 1rem !default;
 
 svg.sprite {
 	fill: $brand-primary;
 	width: $svg-sprite-size;
 	height: $svg-sprite-size;
+	transform: translateY(0.0625rem);
 }
