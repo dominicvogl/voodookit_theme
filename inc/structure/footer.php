@@ -31,6 +31,7 @@ if(! function_exists('voodookit_footer') ) {
 					<?php // @todo make editable via backend, later ?>
 					<!-- Address Block -->
 					<address class="footer-address">
+						<h3><?php _e('contact us', 'voodookit'); ?></h3>
 						<p><strong>Catalyst-Interactive</strong><br>Sterntalerring 58<br>95447 Bayreuth, Germany</p>
 						<?php voodookit_get_icon('phone-square'); ?> <a href="tel:+491718387615">+49 (0) 171 83 87 615</a><br>
 						<?php voodookit_get_icon('envelope-square'); ?> <a href="mailto:hello@dominicvogl.de" target="_blank">hello@dominicvogl.de</a>
@@ -38,6 +39,13 @@ if(! function_exists('voodookit_footer') ) {
 				</div>
 
 				<div class="column small-12 large-4">
+					<h3><?php _e('business hours', 'voodookit'); ?></h3>
+					Mo. - Fr. 9am - 6pm<br>
+					Sa./So. from 8am - 6pm opened
+
+					<hr>
+
+					<h3><?php _e('social media', 'voodookit'); ?></h3>
 					<ul class="footer--social-links social-links">
 						<li><a href="#">FB</a></li>
 						<li><a href="#">IG</a></li>
@@ -48,6 +56,7 @@ if(! function_exists('voodookit_footer') ) {
 				</div>
 
 				<div class="column small-12 large-4">
+					<h3><?php _e('navigation', 'voodookit'); ?></h3>
 					<?php
 					wp_nav_menu(array(
 						'container' => 'nav',
