@@ -1,8 +1,26 @@
+$slide-title-bg: #f07779 !default;
+
 .slick--card-carousel {
 
 	.slick-slide {
 		max-width: 75vw;
 		margin-right: map_get($grid-column-gutter, small);
+	}
+}
+
+.slick-slider {
+	.slick-slide {
+		position: relative;
+
+		.slide-title {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: $slide-title-bg;
+			font-size: 1.4em;
+			padding: 0.5rem 1rem;
+		}
 	}
 }
 
@@ -19,3 +37,4 @@
 	}
 
 }
+

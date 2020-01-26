@@ -1,5 +1,13 @@
+$global-width: 1300px !default;
+
 .row {
 	&.full-width {
 		max-width: inherit;
 	}
+}
+
+.fixed-width {
+	max-width: $global-width;
+	margin: 0 auto;
+	@debug $global-width;
 }

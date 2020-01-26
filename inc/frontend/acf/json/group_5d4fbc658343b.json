@@ -3,6 +3,25 @@
     "title": "Block: Slider",
     "fields": [
         {
+            "key": "field_5e2d81a4084e8",
+            "label": "Feste Breite?",
+            "name": "fixed_width",
+            "type": "true_false",
+            "instructions": "Breite des Elements \/ Moduls begrenzen",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5d4fbc6ab7cdc",
             "label": "Slider \/ Carousel",
             "name": "block_carousel",
@@ -84,5 +103,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565506717
+    "modified": 1580041007
 }
