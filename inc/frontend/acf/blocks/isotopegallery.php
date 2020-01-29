@@ -55,7 +55,7 @@ if(is_wp_error($categories)) {
 
 					<figure class="item-image">
 						<?php
-						echo '<div class="'.$itemClass.'"><div class="item-overlay"><span class="icon icon-zoom"></span></div>'.wp_get_attachment_image_lazyload($imageData->ID, 'medium', false, array("class" => "intristic-item, lazyload")).'</div>';
+						echo '<div class="'.$itemClass.'"><div class="item-overlay"><span class="icon icon-zoom"></span></div>'.wp_get_attachment_image_lazyload($imageData->ID, 'medium', false, array("class" => "intristic-item lazyload")).'</div>';
 
 						echo '<div class="item--caption">';
 						if(!empty($imageData->post_title)) {

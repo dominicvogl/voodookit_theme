@@ -1,15 +1,11 @@
-const $grid = $('.masonry').masonry({
-	// set itemSelector so .grid-sizer is not used in layout
-	itemSelector: '.grid-item',
-	// use element for option
-	columnWidth: '.grid-sizer',
-	percentPosition: true
-});
+import $ from 'jquery';
+import jQueryBridget from 'jquery-bridget';
+import Masonry from 'masonry-layout';
 
-$grid.on( 'layoutComplete', function() {
-	// Your settings
-});
+// make Masonry a jQuery plugin
+jQueryBridget( 'masonry', Masonry, $ );
 
-$grid.imagesLoaded().progress( function() {
-	$grid.masonry('layout');
+// now you can use $().masonry()
+$('.grid').masonry({
+	columnWidth: 200,
 });

@@ -39,6 +39,7 @@
 	"dependencies": {
 		"feature.js": "^1.1.0",
 		"jquery": "^3.4.1",
+		"jquery-bridget": "^2.0.1",
 		"masonry-layout": "^4.2.2",
 		"slick-slider": "^1.8.2",
 		"slideout": "^1.0.1",

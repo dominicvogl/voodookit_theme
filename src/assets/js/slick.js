@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import 'slick-slider'
 
 $('.js-slick-slider').each(function() {
