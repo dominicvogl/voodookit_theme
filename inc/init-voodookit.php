@@ -47,6 +47,7 @@ require_once( VOODOOKIT_BACKEND_DIR . '/editor.php' );
 
 // load frontend stuff
 require_once( VOODOOKIT_FRONTEND_DIR . '/head.php' );
+require_once( VOODOOKIT_FRONTEND_DIR . '/images.php' );
 // extend core blocks
 require_once( VOODOOKIT_FRONTEND_DIR . '/blocks/blocks.php' );
 // load acf settings
