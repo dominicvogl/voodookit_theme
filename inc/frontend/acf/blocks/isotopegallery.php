@@ -7,8 +7,8 @@
  */
 
 // get image field (array)
-$carousel = get_field('block_carousel');
-$fixed_width = get_field('fixed_width');
+$gallery = get_field('gallery');
+if(empty($gallery)) return;
 
 // create name attribute
 $name = str_replace( 'acf/', '', $block['name'] );
@@ -19,37 +19,61 @@ $id = $name . '-' . $block['id'];
 // create align class ("alignwide") from block setting ("wide")
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 
-$classlist = array(
-	'js-slick-slider',
-	'slick-slider',
-	'mod'
-);
+$image_size = 'medium';
 
-$classlist = implode(' ', $classlist);
-
+$categories = get_category(get_query_var('cat'));
+if(is_wp_error($categories)) {
+	$categories = get_category(1);
+}
 ?>
+
 <section id="<?php echo $id; ?>" class="<?php echo $name; ?> <?php echo $align_class; ?>">
 
-	<div class="row <?php echo voodookit_check_fixed_width(); ?>">
-		<div class="column small-12">
+	<div class="grid masonry">
+		<div class="grid-sizer"></div>
 
-			<?php
-			if(is_array($carousel)) {
-				echo '<div class="'.esc_attr($classlist).'">';
+		<?php
 
-				foreach($carousel as $slide) {
-					echo
-						'<div>
-							<span class="slide-title">'.$slide['title'].'</span>
-							'.wp_get_attachment_image($slide['image']['id'], 'voodookit-slider', false, ['class' => 'slide-image']).'
-						</div>';
-				}
+		foreach ($gallery as $image) {
+			setup_postdata($image);
 
-				echo '</div>';
+			$imageData = get_post($image['id']);
+			$imageSrc = wp_get_attachment_metadata($imageData->ID);
+			$itemClass = 'item-image-wrap intristic intristic-hoch';
+
+			$gridClass = 'grid-item';
+			if($imageSrc['width'] > $imageSrc['height']) {
+				// $gridClass .= ' grid-item--width2';
+				$itemClass = 'item-image-wrap intristic intristic-quer';
 			}
+
 			?>
 
-		</div>
+			<div class="<?php echo $gridClass; ?>">
+
+				<a href="<?php echo wp_get_attachment_image_src($imageData->ID, 'large')[0]; ?>" <?php if( !empty($imageData->post_title) ) { echo ' title="'.$imageData->post_title.'"'  ; } ?> class="swipebox" rel="gallery-<?php echo $categories->slug ?>-<?php echo $categories->term_id ?>">
+
+					<figure class="item-image">
+						<?php
+						echo '<div class="'.$itemClass.'"><div class="item-overlay"><span class="icon icon-zoom"></span></div>'.wp_get_attachment_image_lazyload($imageData->ID, 'medium', false, array("class" => "intristic-item, lazyload")).'</div>';
+
+						echo '<div class="item--caption">';
+						if(!empty($imageData->post_title)) {
+							echo '<h3>'.$imageData->post_title.'</h3>';
+						}
+						echo '</div>';
+
+						?>
+					</figure>
+
+				</a>
+
+			</div>
+
+			<?php
+		}
+		?>
+
 	</div>
 
 </section>
