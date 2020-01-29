@@ -47,7 +47,7 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 						</div>
 					</div>
 					<div class="card-section">
-						<?php the_content(''); ?>
+						<?php echo get_the_excerpt($post); ?>
 						<?php voodookit_get_button($post); ?>
 					</div>
 				</article>
