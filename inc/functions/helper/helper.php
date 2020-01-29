@@ -359,3 +359,19 @@ if(! function_exists('voodookit_get_button') ) {
 	}
 
 }
+
+
+if(! function_exists('voodookit_check_fixed_width')) {
+
+	function voodookit_check_fixed_width () {
+
+		$fixed_width = get_field('fixed_width');
+
+		if($fixed_width === false) {
+			return 'full-width';
+		}
+
+		return NULL;
+	}
+
+}

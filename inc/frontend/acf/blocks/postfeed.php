@@ -33,7 +33,7 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 	<?php
 	if(is_array($posts)) {
 
-		echo '<div class="mod card-loop row">';
+		echo '<div class="mod row">';
 		foreach($posts as $post) {
 			setup_postdata($post);
 			?>
