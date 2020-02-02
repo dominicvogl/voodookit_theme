@@ -2,7 +2,9 @@
 
 	$(function() {
 
-		var lazyLoad = $('body').find('.lazyload');
+		var body = $('body');
+
+		var lazyLoad = body.find('.lazyload');
 		if(lazyLoad.length > 0) {
 
 			// console.log('lazyload elemente gefunden');
@@ -12,9 +14,9 @@
 
 		}
 
-		if(Modernizr.touchevents) {
+		if(feature.touch) {
 
-			var dataLazy = $('body').find('img[data-lazy]');
+			var dataLazy = body.find('img[data-lazy]');
 			if(dataLazy.length > 0) {
 
 				// console.log('lazyload elemente gefunden');

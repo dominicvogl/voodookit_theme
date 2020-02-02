@@ -86,7 +86,8 @@ const jsFileList = [
 
 	// Own stuff
 	src + 'assets/js/feature.js',
-	// src + 'assets/js/lazyload.js',
+	src + 'assets/js/lazyload.js',
+	// src + 'assets/js/lazyload-vanilla.js',
 	src + 'assets/js/masonry.js',
 	src + 'assets/js/slick.js',
 	src + 'assets/js/slideout.js',

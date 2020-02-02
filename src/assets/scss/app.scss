@@ -1,13 +1,19 @@
+// settings
 @import "settings/var";
 @import "settings/settings";
 @import "settings/foundation";
 
-
-@include foundation-everything
-
+// mixins
 @import "mixins/mixins";
 
+// foundation
+@include foundation-everything
+
+// vendors
 @import '../../../node_modules/slick-slider/slick/slick.scss';
+@import '../../../node_modules/lazyloadxt/dist/jquery.lazyloadxt.fadein';
+
+// own components
 @import "components/grid";
 @import "components/basis";
 @import "components/header";
@@ -23,6 +29,7 @@
 @import "components/toggler";
 @import "components/social";
 
+// own gutenberg blocks
 @import "blocks/frontend/carousel";
 @import "blocks/frontend/postfeed";
 @import "blocks/frontend/featuredcontents";
