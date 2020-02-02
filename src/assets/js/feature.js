@@ -1,4 +1,4 @@
-import 'feature.js';
+// import 'feature.js';
 
 /**
  * Feature Detection Script

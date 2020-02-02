@@ -1,49 +1,32 @@
-import LazyLoad from "vanilla-lazyload";
+(function($){
 
-addEventListener('DOMContentLoaded', function() {
+	$(function() {
 
-	console.log('D00M is ready');
+		var lazyLoad = $('body').find('.lazyload');
+		if(lazyLoad.length > 0) {
 
-	function logElementEvent(eventName, element) {
-		console.log(
-			Date.now(),
-			eventName,
-			element.getAttribute("data-src")
-		);
-	}
+			// console.log('lazyload elemente gefunden');
+			lazyLoad.lazyLoadXT({
+				// optionen
+			})
 
-	const callback_enter = function(element) {
-		logElementEvent("🔑 ENTERED", element);
-	};
-	const callback_exit = function(element) {
-		logElementEvent("🚪 EXITED", element);
-	};
-	const callback_reveal = function(element) {
-		logElementEvent("👁️ REVEALED", element);
-	};
-	const callback_loaded = function(element) {
-		logElementEvent("👍 LOADED", element);
-	};
-	const callback_error = function(element) {
-		logElementEvent("💀 ERROR", element);
-		element.src =
-			"https://via.placeholder.com/440x560/?text=Error+Placeholder";
-	};
-	const callback_finish = function() {
-		logElementEvent("✔️ FINISHED", document.documentElement);
-	};
+		}
 
-	const lazyLoadInstance = new LazyLoad({
+		if(Modernizr.touchevents) {
 
-		elements_selector: ".lazyload",
-		use_native: true,
-		load_delay: 200,
-		callback_enter: callback_enter,
-		callback_exit: callback_exit,
-		callback_reveal: callback_reveal,
-		callback_loaded: callback_loaded,
-		callback_error: callback_error,
-		callback_finish: callback_finish
-		// ... more custom settings?
-	});
-});
+			var dataLazy = $('body').find('img[data-lazy]');
+			if(dataLazy.length > 0) {
+
+				// console.log('lazyload elemente gefunden');
+				dataLazy.lazyLoadXT({
+					// optionen
+					srcAttr: 'data-lazy'
+				});
+
+			}
+
+		}
+
+	})
+
+})(jQuery);

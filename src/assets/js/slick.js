@@ -1,4 +1,4 @@
-import 'slick-slider'
+// import 'slick-slider'
 
 $('.js-slick-slider').each(function() {
 
