@@ -79,7 +79,7 @@ const jsFileList = [
 	//sourcePath + 'bower-components/foundation-sites/assets/js/foundation.tooltip.js',
 
 	// src + 'bower-components/slick/slick/slick.js',
-	// src + 'bower-components/swipebox/src/assets/js/jquery.swipebox.js',
+	'./node_modules/swipebox/src/js/jquery.swipebox.js',
 	'./node_modules/slideout/dist/slideout.js',
 	'./node_modules/masonry-layout/dist/masonry.pkgd.js',
 	'./node_modules/imagesloaded/imagesloaded.js',
@@ -89,6 +89,7 @@ const jsFileList = [
 	src + 'assets/js/lazyload.js',
 	// src + 'assets/js/lazyload-vanilla.js',
 	src + 'assets/js/masonry.js',
+	src + 'assets/js/swipebox.js',
 	src + 'assets/js/slick.js',
 	src + 'assets/js/slideout.js',
 ];

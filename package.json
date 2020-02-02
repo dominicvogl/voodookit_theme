@@ -37,16 +37,15 @@
 		"node-sass": "^4.13.1"
 	},
 	"dependencies": {
-		"ev-emitter": "^1.1.1",
 		"feature.js": "^1.1.1",
 		"imagesloaded": "^4.1.4",
 		"jquery": "^3.4.1",
-		"jquery-bridget": "^2.0.1",
 		"lazyloadxt": "^1.1.0",
 		"masonry": "0.0.2",
 		"masonry-layout": "^4.2.2",
 		"slick-slider": "^1.8.2",
 		"slideout": "^1.0.1",
+		"swipebox": "^1.4.6",
 		"vanilla-lazyload": "^12.4.0"
 	}
 }
