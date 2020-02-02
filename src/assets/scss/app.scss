@@ -2,7 +2,10 @@
 @import "settings/settings";
 @import "settings/foundation";
 
+
 @include foundation-everything
+
+@import "mixins/mixins";
 
 @import '../../../node_modules/slick-slider/slick/slick.scss';
 @import "components/grid";
@@ -12,6 +15,7 @@
 @import "components/sprites";
 @import "components/footer";
 @import "components/masonry";
+@import "components/swipebox";
 @import "components/navigation/desktop";
 @import "components/navigation/mobile";
 @import "components/navigation/footer";

@@ -37,7 +37,9 @@
 		"node-sass": "^4.9.0"
 	},
 	"dependencies": {
+		"ev-emitter": "^1.1.1",
 		"feature.js": "^1.1.0",
+		"imagesloaded": "^4.1.4",
 		"jquery": "^3.4.1",
 		"jquery-bridget": "^2.0.1",
 		"masonry-layout": "^4.2.2",

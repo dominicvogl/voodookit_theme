@@ -50,7 +50,7 @@ const gulpScss = () => {
 
 const gulpJs = () => {
 	gulp.src(src + 'assets/js/*.js')
-		.pipe(sourcemaps.init()) // start sourcemap
+		// .pipe(sourcemaps.init()) // start sourcemap
 		.pipe(plumber()) // prevent gulp crash on error event
 		.pipe(concat('app.js')) // define filename after merging all files
 		.pipe(babel({
@@ -59,9 +59,9 @@ const gulpJs = () => {
 		.pipe(browserify({
 			insertGlobal: true
 		})) // Use fileimports from node modules
-		.pipe(uglify()) // minify javascript
+		// .pipe(uglify()) // minify javascript
 		.pipe(rename({suffix: '.min'})) // add sufficx
-		.pipe(sourcemaps.write('.')) // write sourcemap
+		// .pipe(sourcemaps.write('.')) // write sourcemap
 		.pipe(gulp.dest(dist + 'assets/js')) // define destination folder
 		.pipe(browserSync.stream());
 };
