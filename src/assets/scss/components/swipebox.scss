@@ -144,7 +144,7 @@ html.swipebox-html.swipebox-touch {
 #swipebox-prev,
 #swipebox-next,
 #swipebox-close {
-	background-image: url(../assets/img/icons.png);
+	background-image: url(../svg/icons.svg);
 	background-repeat: no-repeat;
 	border: none!important;
 	text-decoration: none!important;
@@ -319,13 +319,13 @@ html.swipebox-html.swipebox-touch {
 	opacity: 0;
 	@include transition(all 300ms);
 
-	.icon {
+	.sprite {
 		@include xy-center;
 		font-size: rem-calc(80);
 	}
 }
 
-.no-touchevents {
+.no-touch {
 	.swipebox {
 		display: block;
 		overflow: hidden;
