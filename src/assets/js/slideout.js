@@ -1,5 +1,5 @@
-import { MediaQuery } from 'foundation-sites';
-import Slideout from 'slideout';
+// import { MediaQuery } from 'foundation-sites';
+// import Slideout from 'slideout';
 
 let toggler = document.querySelector('.js-toggle-slideout');
 let slideout;

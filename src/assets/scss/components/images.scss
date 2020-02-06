@@ -1,0 +1,34 @@
+.intristic {
+	position: relative;
+	height: 0;
+	width: 100%;
+	padding-top: 100%;
+	background: {
+		color: $black;
+		image: url("../img/img-placeholder.png");
+		position: center;
+		size: auto;
+		repeat: no-repeat;
+	}
+
+	$aspect-ratio-x: 2;
+	$aspect-ratio-y: 3;
+
+	&.intristic-quer {
+		$ratio: ($aspect-ratio-x / $aspect-ratio-y);
+		padding-top: percentage($ratio);
+	}
+
+	&.intristic-hoch {
+		$ratio: ($aspect-ratio-y / $aspect-ratio-x);
+		padding-top: percentage($ratio);
+	}
+}
+
+.intristic-item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
