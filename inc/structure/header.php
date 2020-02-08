@@ -30,7 +30,7 @@ if ( ! function_exists( 'voodookit_header' ) ) {
 
 	function voodookit_header() {
 
-		echo '<div class="column small-12 large-3">';
+		echo '<div class="column small-12  medium-3">';
 		do_action('voodookit_do_logo');
 		echo '</div>';
 
@@ -44,13 +44,17 @@ if ( ! function_exists( 'voodookit_logo' ) ) {
 
 	function voodookit_logo() {
 
+		// check if logo was added in the wordpress backend
 		if( ! get_theme_mod( 'evolution_logo' )) {
+			echo 'Logo';
 			return;
 		}
 
+		// get urls from logo and image sizes
 		$logo_src = esc_url( get_theme_mod( 'evolution_logo' ) );
 		list ( $logo_size ) = getimagesize( $logo_src );
 
+		// echo html for logo rendering
 		echo
 			'<div class="logo">
 				<a href="'.get_home_url().'" target="_self">
@@ -69,7 +73,7 @@ if ( ! function_exists( 'voodookit_navigation' ) ) {
 		wp_nav_menu(
 			[
 				'container' => 'nav',
-				'container_class' => 'column small-9 show-for-large',
+				'container_class' => 'column small-12 medium-9 show-for-medium',
 				'menu_class' => 'menu desktop horizontal align-right',
 				'theme_location' => 'primary'
 			]
