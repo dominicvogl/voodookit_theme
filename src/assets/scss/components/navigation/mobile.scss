@@ -9,14 +9,7 @@ $navigation-gap: 30px !default;
 
 	&.secondary {
 		font-size: 85%;
-
 	}
 }
 
-.menu.mobile {
-	list-style: none;
-
-	.sub-menu {
-		list-style: none;
-	}
-}
+.menu.mobile {}

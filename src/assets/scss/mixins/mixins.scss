@@ -93,6 +93,12 @@
 	transform: translate(-50%, -50%);
 }
 
+@mixin no-list-style() {
+	list-style: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+
 
 @mixin rem-fallback($property, $values, $base-value: $rem-base){
 	#{$property}: #{$values}px;
