@@ -1,4 +1,5 @@
 $slideout-width: 256px !default;
+$slideout-bg: #ebebeb !default;
 
 .slideout-menu {
 	position: fixed;
@@ -11,7 +12,7 @@ $slideout-width: 256px !default;
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
 	display: none;
-	background-color: map_get($foundation-palette, secondary);
+	background-color: $slideout-bg;
 
 	.logo {
 		margin: map_get($grid-column-gutter, small) auto;

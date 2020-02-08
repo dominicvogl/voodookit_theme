@@ -1,0 +1,22 @@
+$navigation-gap: 30px !default;
+
+.navigation-mobile {
+	+ .navigation-mobile {
+		margin-top: $navigation-gap;
+		border-top: 1px solid #909090;
+		padding-top: $navigation-gap;
+	}
+
+	&.secondary {
+		font-size: 85%;
+
+	}
+}
+
+.menu.mobile {
+	list-style: none;
+
+	.sub-menu {
+		list-style: none;
+	}
+}

@@ -26,6 +26,7 @@ if ( ! function_exists( 'voodookit_logo' ) ) {
 	function voodookit_logo() {
 
 		if( ! get_theme_mod( 'evolution_logo' )) {
+			echo '<div class="callout alert">Logo required!</div>';
 			return;
 		}
 
@@ -68,7 +69,7 @@ if ( ! function_exists( 'voodookit_navigation_mobile' ) ) {
 			[
 				'container' => 'nav',
 				'container_class' => 'navigation-mobile',
-				'menu_class' => 'js-accordion-menu navigation vertical menu accordion-menu',
+				'menu_class' => 'js-accordion-menu menu mobile vertical accordion-menu',
 				'theme_location' => 'primary'
 			]
 		);
@@ -77,7 +78,7 @@ if ( ! function_exists( 'voodookit_navigation_mobile' ) ) {
 			[
 				'container' => 'nav',
 				'container_class' => 'navigation-mobile secondary',
-				'menu_class' => 'js-accordion-menu navigation vertical menu accordion-menu',
+				'menu_class' => 'js-accordion-menu menu mobile vertical accordion-menu',
 				'theme_location' => 'footer'
 			]
 		);
