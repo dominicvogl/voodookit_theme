@@ -1,6 +1,6 @@
-(function($){
+(function ($) {
 
-	$(function() {
+	$(function () {
 
 		var $grid = $('.masonry').masonry({
 			// set itemSelector so .grid-sizer is not used in layout
@@ -10,11 +10,11 @@
 			percentPosition: true
 		});
 
-		$grid.on( 'layoutComplete', function() {
+		$grid.on('layoutComplete', function () {
 			// Your settings
 		});
 
-		$grid.imagesLoaded().progress( function() {
+		$grid.imagesLoaded().progress(function () {
 			$grid.masonry('layout');
 		});
 
