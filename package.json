@@ -39,7 +39,7 @@
 	"dependencies": {
 		"feature.js": "^1.1.1",
 		"imagesloaded": "^4.1.4",
-		"jquery": "^2.2.4",
+		"jquery": "^3.4.1",
 		"lazyloadxt": "^1.1.0",
 		"masonry": "0.0.2",
 		"masonry-layout": "^4.2.2",
