@@ -1,3 +1,11 @@
+// variables
+$slide-title-bg: #f07779 !default;
+$slide-title-color: #fff !default;
+$slide-arrow-bg: #fff !default;
+$slide-arrow-color: #f0f !default;
+
+
+// styles
 .slick--card-carousel {
 
 	.slick-slide {
@@ -6,12 +14,58 @@
 	}
 }
 
+.slick-slider {
+	.slick-slide {
+		position: relative;
+
+		.slide-title {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: $slide-title-bg;
+			color: $slide-title-color;
+			font-size: 1.4em;
+			padding: 0.5rem 1rem;
+		}
+	}
+}
+
+// Arrow styles
+
+.slick-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translate3d(0, -50%, 0);
+	background: $slide-arrow-bg;
+	transition: background-color 200ms ease-in-out;
+	border-radius: 2rem;
+	z-index: 99;
+	padding: 10px;
+
+	svg.sprite {
+		fill: $slide-arrow-color;
+		width: 2rem;
+		height: 2rem;
+	}
+
+	&.slick-prev {
+		left: 10px;
+	}
+
+	&.slick-next {
+		right: 10px;
+	}
+
+	&:hover {
+		cursor: pointer;
+		background-color: transparentize($slide-arrow-bg, 0.3);
+	}
+}
+
 @include breakpoint(medium) {
 
 	.slick--card-carousel {
-		.card {
-
-		}
 
 		.slick-slide {
 			max-width: 50vw;
@@ -19,3 +73,4 @@
 	}
 
 }
+

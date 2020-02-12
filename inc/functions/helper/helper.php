@@ -316,7 +316,7 @@ function get_slug()
 
 if(! function_exists('voodookit_get_icon') ) {
 
-	function voodookit_get_icon($iconslug) {
+	function voodookit_get_icon($iconslug, $echo = true) {
 
 		if(empty($iconslug)) {
 			return;
@@ -324,11 +324,17 @@ if(! function_exists('voodookit_get_icon') ) {
 
 		$path = get_stylesheet_directory_uri() . "/dist/assets/svg/sprite-symbol.svg#" . $iconslug;
 
-		?>
-		<svg class="sprite sprite--<?php echo $iconslug; ?>">
-			<use xlink:href="<?php echo $path ?>"></use>
-		</svg>
-		<?php
+		$html =
+			'<svg class="sprite sprite--'.$iconslug.'">
+				<use xlink:href="'.$path.'"></use>
+			</svg>';
+
+		if($echo) {
+			echo $html;
+		}
+
+		return $html;
+
 	}
 
 }
@@ -356,6 +362,22 @@ if(! function_exists('voodookit_get_button') ) {
 		</div>
 
 		<?php
+	}
+
+}
+
+
+if(! function_exists('voodookit_check_fixed_width')) {
+
+	function voodookit_check_fixed_width () {
+
+		$fixed_width = get_field('fixed_width');
+
+		if($fixed_width === false) {
+			return 'full-width';
+		}
+
+		return NULL;
 	}
 
 }

@@ -7,35 +7,16 @@
  */
 
 
-if ( ! function_exists( 'voodookit_before_header' ) ) {
-
-	function voodookit_before_header    () {
-		echo
-			'<header class="page-header main-header row full-width align-bottom">';
-	}
-
-}
-
-if ( ! function_exists( 'voodookit_after_header' ) ) {
-
-	function voodookit_after_header() {
-		echo
-			'</header>';
-	}
-
-}
-
-
 if ( ! function_exists( 'voodookit_header' ) ) {
 
 	function voodookit_header() {
 
-		echo '<div class="column small-12  medium-3">';
+		echo '<header class="page-header main-header row full-width align-middle">';
+		echo '<div class="column small-12 large-3">';
 		do_action('voodookit_do_logo');
 		echo '</div>';
-
 		do_action('voodookit_do_navigation');
-
+		echo '</header>';
 	}
 
 }
@@ -44,17 +25,14 @@ if ( ! function_exists( 'voodookit_logo' ) ) {
 
 	function voodookit_logo() {
 
-		// check if logo was added in the wordpress backend
 		if( ! get_theme_mod( 'evolution_logo' )) {
-			echo 'Logo';
+			echo '<div class="callout alert">Logo required!</div>';
 			return;
 		}
 
-		// get urls from logo and image sizes
 		$logo_src = esc_url( get_theme_mod( 'evolution_logo' ) );
 		list ( $logo_size ) = getimagesize( $logo_src );
 
-		// echo html for logo rendering
 		echo
 			'<div class="logo">
 				<a href="'.get_home_url().'" target="_self">
@@ -70,14 +48,15 @@ if ( ! function_exists( 'voodookit_navigation' ) ) {
 
 	function voodookit_navigation() {
 
+		echo '<nav role="navigation" class="column small-9 show-for-large menu desktop horizontal">';
 		wp_nav_menu(
 			[
-				'container' => 'nav',
-				'container_class' => 'column small-12 medium-9 show-for-medium',
-				'menu_class' => 'menu desktop horizontal align-right',
+				'container' => '',
+				'menu_class' => 'menu desktop horizontal',
 				'theme_location' => 'primary'
 			]
 		);
+		echo '</nav>';
 
 	}
 
@@ -91,7 +70,7 @@ if ( ! function_exists( 'voodookit_navigation_mobile' ) ) {
 			[
 				'container' => 'nav',
 				'container_class' => 'navigation-mobile',
-				'menu_class' => 'js-accordion-menu navigation vertical menu accordion-menu',
+				'menu_class' => 'js-accordion-menu menu mobile vertical accordion-menu',
 				'theme_location' => 'primary'
 			]
 		);
@@ -100,7 +79,7 @@ if ( ! function_exists( 'voodookit_navigation_mobile' ) ) {
 			[
 				'container' => 'nav',
 				'container_class' => 'navigation-mobile secondary',
-				'menu_class' => 'js-accordion-menu navigation vertical menu accordion-menu',
+				'menu_class' => 'js-accordion-menu menu mobile vertical accordion-menu',
 				'theme_location' => 'footer'
 			]
 		);

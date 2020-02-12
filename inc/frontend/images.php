@@ -266,3 +266,172 @@ function wp_get_attachment_meta($attachment_id)
 		'title' => $attachment->post_title
 	);
 }
+
+if ( function_exists('add_theme_support') ) {
+	add_theme_support( 'post-thumbnails' );
+
+	add_image_size( 'square-large', 800, 800, true);
+	add_image_size( 'thumbnail-wide', 600, 400, true);
+	add_image_size( 'thumbnail-high', 300, 400, true);
+	add_image_size( 'medium-large', 800, 800 );
+}
+
+//function alter_att_attributes_wpse_102079($attr) {
+//	$attr['data-lazy'] = $attr['src'];
+//	return $attr;
+//}
+//add_filter( 'wp_get_attachment_image_attributes', 'alter_att_attributes_wpse_102079');
+
+/**
+ * @param $ID
+ *
+ * @return bool|string
+ */
+
+function get_image_caption($ID) {
+
+	if(empty($ID))
+		return false;
+
+	$attachment = get_post($ID);
+
+	$post_title = '';
+	if($attachment->post_title) {
+		$post_title = $attachment->post_title;
+	}
+	elseif($attachment->post_excerpt) {
+		$post_title = $attachment->post_excerpt;
+	}
+	elseif($attachment->post_content) {
+		$post_title = $attachment->post_excerpt;
+	}
+
+	return $post_title;
+
+}
+
+
+function the_post_image($post) {
+
+	if(has_post_thumbnail()) {
+
+		?>
+		<div class="article--image-wrap">
+
+			<?php if(!is_single()) {?>
+			<a href="<?php the_permalink($post->ID); ?>" title="<?php echo $post->post_title; ?>">
+				<?php } ?>
+				<div class="<?php echo get_intrinsic_placeholder_classes($post->ID); ?>">
+					<?php echo wp_get_attachment_image_lazyload(get_post_thumbnail_id($post->ID), 'medium-large', false, array("class" => "intristic-item")); ?>
+				</div>
+				<div class="article--overlay">
+					<span><?php _e('read article' , 'Voodookit'); ?></span>
+				</div>
+				<?php if(!is_single()) {?>
+			</a>
+		<?php } ?>
+
+		</div>
+
+		<?php
+	}
+
+}
+
+function get_intrinsic_placeholder_classes($postID) {
+
+	$imageSrc = wp_get_attachment_metadata(get_post_thumbnail_id($postID));
+
+	$itemClass = 'item-image-wrap intristic intristic-hoch';
+
+	if($imageSrc['width'] > $imageSrc['height']) {
+		$itemClass = 'item-image-wrap intristic intristic-quer';
+	}
+
+	return $itemClass;
+
+}
+
+function wp_get_attachment_image_lazyload($attachment_id, $size = 'thumbnail', $icon = false, $attr = '') {
+	$html  = '';
+	$image = wp_get_attachment_image_src( $attachment_id, $size, $icon );
+//		$placeholder = wp_get_attachment_image_src($attachment_id, 'tiny');
+
+	if ( $image ) {
+		list( $src, $width, $height ) = $image;
+		$hwstring   = image_hwstring( $width, $height );
+		$size_class = $size;
+		if ( is_array( $size_class ) ) {
+			$size_class = join( 'x', $size_class );
+		}
+		$attachment   = get_post( $attachment_id );
+		$default_attr = array(
+			// 'src'	=> $placeholder[0],
+			'class' => "attachment-$size_class size-$size_class lazyload intristic-item",
+			'alt'   => trim( strip_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) ),
+			// Use Alt field first
+		);
+
+		if ( empty( $default_attr['alt'] ) ) {
+			$default_attr['alt'] = trim( strip_tags( $attachment->post_excerpt ) );
+		} // If not, Use the Caption
+		if ( empty( $default_attr['alt'] ) ) {
+			$default_attr['alt'] = trim( strip_tags( $attachment->post_title ) );
+		} // Finally, use the title
+
+		$attr = wp_parse_args( $attr, $default_attr );
+
+		// Generate 'srcset' and 'sizes' if not already present.
+		if ( empty( $attr['data-srcset'] ) ) {
+			$image_meta = get_post_meta( $attachment_id, '_wp_attachment_metadata', true );
+
+			if ( is_array( $image_meta ) ) {
+				$size_array = array( absint( $width ), absint( $height ) );
+				$srcset     = wp_calculate_image_srcset( $size_array, $src, $image_meta, $attachment_id );
+				$sizes      = wp_calculate_image_sizes( $size_array, $src, $image_meta, $attachment_id );
+
+				if ( $srcset && ( $sizes || ! empty( $attr['sizes'] ) ) ) {
+					$attr['data-srcset'] = $srcset;
+
+					if ( empty( $attr['sizes'] ) ) {
+						$attr['sizes'] = $sizes;
+					}
+				}
+			}
+		}
+
+		/**
+		 * Filter the list of attachment image attributes.
+		 *
+		 * @since 2.8.0
+		 *
+		 * @param array $attr Attributes for the image markup.
+		 * @param WP_Post $attachment Image attachment post.
+		 * @param string|array $size Requested size. Image size or array of width and height values
+		 *                                 (in that order). Default 'thumbnail'.
+		 */
+
+		$attr = apply_filters( 'wp_get_attachment_image_attributes', $attr, $attachment, $size );
+		$attr = array_map( 'esc_attr', $attr );
+		$html = rtrim( "<img $hwstring" );
+		foreach ( $attr as $name => $value ) {
+			$html .= " $name=" . '"' . $value . '"';
+		}
+		$html .= ' />';
+	}
+
+	return $html;
+}
+
+function is_img_landscape($ID, $size) {
+
+	$img_src = wp_get_attachment_image_src( $ID, $size);
+
+	if($img_src[1] > $img_src[2]) {
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}

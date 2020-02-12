@@ -96,6 +96,13 @@ if ( ! function_exists( 'acf_block_get_blocks' ) ) {
 					'name'            => 'imageandcontent',
 					'title'           => __( 'Image with Content' ),
 					'icon'            => 'gallery',
+				],
+
+				// register isotope Gallery
+				[
+					'name'            => 'isotopegallery',
+					'title'           => __( 'Isotope Image Gallery' ),
+					'icon'            => 'gallery',
 				]
 			);
 

@@ -1,9 +1,26 @@
+// global settings
+$global-zindex: 10;
+$basic-animation-speed: 250ms;
+
 // brand colors
 $brand-primary: #0098a9;
 $brand-secondary: #cd4600;
 
+// slider
+$slide-title-bg: $brand-primary;
+$slide-title-color: #fff;
+$slide-arrow-bg: #fff;
+$slide-arrow-color: $brand-primary;
+
 // header
-$header-background: #555555;
+$header-background: #cdcdcd;
+$header-border-radius: 0px;
+
 
 // footer
-$footer-background: $header-background;
+$footer-background: #3d3d3d;
+
+// navigation
+$nav-animation-speed: 150ms;
+$nav-drop-bg: #fff;
+$nav-item-color: #000;
