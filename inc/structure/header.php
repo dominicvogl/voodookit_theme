@@ -11,7 +11,7 @@ if ( ! function_exists( 'voodookit_header' ) ) {
 
 	function voodookit_header() {
 
-		echo '<header class="page-header main-header row full-width align-bottom">';
+		echo '<header class="page-header main-header row full-width align-middle">';
 		echo '<div class="column small-12 large-3">';
 		do_action('voodookit_do_logo');
 		echo '</div>';
