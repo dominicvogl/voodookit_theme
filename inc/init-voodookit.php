@@ -59,6 +59,9 @@ require_once( VOODOOKIT_ACF_BLOCKS . '/acf-gutenberg-blocks.php' );
 require_once( VOODOOKIT_HELPER_DIR . '/helper.php' );
 // load shortcodes
 require_once( VOODOOKIT_HELPER_DIR . '/shortcodes.php' );
+// load custom nav walker
+require_once( VOODOOKIT_HELPER_DIR . '/nav-walker.php' );
+
 
 // load structure
 require_once ( VOODOOKIT_STRUCTURE_DIR . '/slideout.php');

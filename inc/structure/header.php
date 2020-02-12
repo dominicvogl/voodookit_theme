@@ -48,14 +48,15 @@ if ( ! function_exists( 'voodookit_navigation' ) ) {
 
 	function voodookit_navigation() {
 
+		echo '<nav role="navigation" class="column small-9 show-for-large menu desktop horizontal">';
 		wp_nav_menu(
 			[
-				'container' => 'nav',
-				'container_class' => 'column small-9 show-for-large',
-				'menu_class' => 'menu desktop horizontal align-right',
+				'container' => '',
+				'menu_class' => 'menu desktop horizontal',
 				'theme_location' => 'primary'
 			]
 		);
+		echo '</nav>';
 
 	}
 
