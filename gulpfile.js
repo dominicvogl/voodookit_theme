@@ -178,7 +178,7 @@ const gulpWatch = () => {
 
 	// watch some files
 	gulp.watch([src + 'assets/scss/**/*.scss'], ['scss']);
-	gulp.watch([src + 'assets/assets/js/*.js'], ['js']);
+	gulp.watch([src + 'assets/js/*.js'], ['js']);
 	gulp.watch([src + 'assets/svg/*.svg'], ['svg']);
 
 };
