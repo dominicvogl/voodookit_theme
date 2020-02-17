@@ -54,7 +54,7 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 
 }
 
-add_action( 'init', 'voodookit_setup' );
+add_action( 'init', 'voodookit_setup', 10);
 
 
 
