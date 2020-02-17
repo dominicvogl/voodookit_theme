@@ -295,18 +295,21 @@ function get_terms_str($taxonomy)
  * @return string
  */
 
-function get_slug()
-{
+if (!function_exists('voodookit_get_post_slug')) {
 
-	global $post;
-	$slug = '';
+	function voodookit_get_post_slug()
+	{
 
-	$post_data = get_post($post->ID, ARRAY_A);
-	if ($post_data) {
-		$slug = $post_data['post_name'];
+		global $post;
+		$slug = '';
+
+		$post_data = get_post($post->ID, ARRAY_A);
+		if ($post_data) {
+			$slug = $post_data['post_name'];
+		}
+
+		return $slug;
 	}
-
-	return $slug;
 }
 
 
@@ -314,22 +317,23 @@ function get_slug()
  * get icon from sprite with name
  */
 
-if(! function_exists('voodookit_get_icon') ) {
+if (!function_exists('voodookit_get_icon')) {
 
-	function voodookit_get_icon($iconslug, $echo = true) {
+	function voodookit_get_icon($iconslug, $echo = true)
+	{
 
-		if(empty($iconslug)) {
-			return;
+		if (empty($iconslug)) {
+			$iconslug = 'default';
 		}
 
 		$path = get_stylesheet_directory_uri() . "/dist/assets/svg/sprite-symbol.svg#" . $iconslug;
 
 		$html =
-			'<svg class="sprite sprite--'.$iconslug.'">
-				<use xlink:href="'.$path.'"></use>
+			'<svg class="sprite sprite--' . $iconslug . '">
+				<use xlink:href="' . $path . '"></use>
 			</svg>';
 
-		if($echo) {
+		if ($echo) {
 			echo $html;
 		}
 
@@ -338,6 +342,7 @@ if(! function_exists('voodookit_get_icon') ) {
 	}
 
 }
+
 
 /**
  *
