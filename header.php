@@ -23,4 +23,5 @@ do_action('voodookit_do_slideout');
 echo '<div class="js-slideout-panel">';
 
 // render site header with logo an desktop navigation
+do_action('voodookit_do_before_header');
 do_action('voodookit_do_header');
