@@ -40,6 +40,7 @@ if (class_exists('ACF')) {
 			unset($paths[0]);
 
 			// append path
+			$paths[] = get_template_directory() . '/' . VOODOOKIT_ACF_DIR . '/json';
 			$paths[] = get_stylesheet_directory() . '/' . VOODOOKIT_ACF_DIR . '/json';
 
 			// return
