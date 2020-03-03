@@ -21,8 +21,7 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 
 $classlist = array(
 	'js-slick-slider',
-	'slick-slider',
-	'mod'
+	'slick-slider'
 );
 
 $classlist = implode(' ', $classlist);
