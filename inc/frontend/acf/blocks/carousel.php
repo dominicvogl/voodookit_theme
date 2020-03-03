@@ -40,7 +40,9 @@ $classlist = implode(' ', $classlist);
 				foreach($carousel as $slide) {
 					echo
 						'<div>
-							<span class="slide-title">'.$slide['title'].'</span>
+							<div class="slide-title">
+								<span>'.$slide['title'].'</span>
+							</div>
 							'.wp_get_attachment_image($slide['image']['id'], 'voodookit-slider', false, ['class' => 'slide-image']).'
 						</div>';
 				}
