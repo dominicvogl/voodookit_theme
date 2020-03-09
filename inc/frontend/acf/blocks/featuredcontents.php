@@ -9,6 +9,7 @@
 // get image field (array)
 $features = get_field('featuredcontents');
 
+
 // create name attribute
 $block_classes = [
 	str_replace( 'acf/', '', $block['name'] ),
@@ -30,10 +31,13 @@ $block_classes = trim(implode(' ', $block_classes), ' ');
 		foreach($features as $feature) {
 			echo
 				'<div class="column small-6 large-3">
-					<div class="feature-item">
-						<span class="feature-content">'.$feature['content'].'</span>
+					<div class="feature-item">';
+						if($feature['icon'] !== false) {
+							echo '<span class="feature-icon">'.wp_get_attachment_image($feature['icon']['id'], 'full', true).'</span>';
+						}
+			echo
+						'<span class="feature-content">'.$feature['content'].'</span>
 						<span class="feature-title">'.$feature['label'].'</span>
-						<span class="feature-icon">'.$feature['icon'].'</span>
 					</div>
 				</div>';
 		}

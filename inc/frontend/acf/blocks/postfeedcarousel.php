@@ -32,7 +32,7 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 	if(is_array($posts)) {
 
 		echo '<div class="mod">';
-		echo '<div class="js-postloop-carousel card-carousel">';
+		echo '<div class="js-postloop-carousel slick--card-carousel">';
 		foreach($posts as $post) {
 			setup_postdata($post);
 			?>

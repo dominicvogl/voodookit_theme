@@ -69,7 +69,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "70",
                         "class": "",
                         "id": ""
                     },
@@ -85,10 +85,18 @@
                     "name": "target_url",
                     "type": "page_link",
                     "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5d7d0bb9f9d5f",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
-                        "width": "66",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -97,8 +105,112 @@
                     "allow_null": 0,
                     "allow_archives": 1,
                     "multiple": 0
+                },
+                {
+                    "key": "field_5d7d0bb9f9d5f",
+                    "label": "Ist Anker?",
+                    "name": "is_anker",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_5d7d0bfbf9d60",
+                    "label": "Anker \/ Element",
+                    "name": "anker_id",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5d7d0bb9f9d5f",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "#",
+                    "prepend": "Element",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_5d700e04df35a",
+            "label": "Überschrift",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5d825da019821",
+            "label": "einfarbiger Hintergrund",
+            "name": "bg_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_5d825dc519822",
+            "label": "Icon im Hintergrund",
+            "name": "bg_icon",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -118,5 +230,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565867384
+    "modified": 1568824795
 }

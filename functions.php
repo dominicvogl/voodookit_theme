@@ -1,4 +1,11 @@
 <?php
+/**
+ * This is Voodookit
+ *
+ * @package Voodookit
+ * @since 1.0.0
+ */
+
 
 // Autoload Template Settings
 $path = get_template_directory() . '/inc/init-voodookit.php';

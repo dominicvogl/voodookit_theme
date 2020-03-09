@@ -7,35 +7,16 @@
  */
 
 
-if ( ! function_exists( 'voodookit_before_header' ) ) {
-
-	function voodookit_before_header    () {
-		echo
-			'<header class="page-header main-header row full-width align-bottom">';
-	}
-
-}
-
-if ( ! function_exists( 'voodookit_after_header' ) ) {
-
-	function voodookit_after_header() {
-		echo
-			'</header>';
-	}
-
-}
-
-
 if ( ! function_exists( 'voodookit_header' ) ) {
 
 	function voodookit_header() {
 
+		echo '<header class="page-header main-header row full-width align-middle">';
 		echo '<div class="column small-12 large-3">';
 		do_action('voodookit_do_logo');
 		echo '</div>';
-
 		do_action('voodookit_do_navigation');
-
+		echo '</header>';
 	}
 
 }
@@ -45,6 +26,7 @@ if ( ! function_exists( 'voodookit_logo' ) ) {
 	function voodookit_logo() {
 
 		if( ! get_theme_mod( 'evolution_logo' )) {
+			echo '<div class="callout alert">Logo required!</div>';
 			return;
 		}
 
@@ -66,14 +48,15 @@ if ( ! function_exists( 'voodookit_navigation' ) ) {
 
 	function voodookit_navigation() {
 
+		echo '<nav role="navigation" class="column small-9 show-for-large menu desktop horizontal">';
 		wp_nav_menu(
 			[
-				'container' => 'nav',
-				'container_class' => 'column small-9 show-for-large',
-				'menu_class' => 'navigation menu align-right',
+				'container' => '',
+				'menu_class' => 'menu desktop horizontal',
 				'theme_location' => 'primary'
 			]
 		);
+		echo '</nav>';
 
 	}
 
@@ -86,9 +69,18 @@ if ( ! function_exists( 'voodookit_navigation_mobile' ) ) {
 		wp_nav_menu(
 			[
 				'container' => 'nav',
-				'container_class' => '',
-				'menu_class' => 'navigation menu',
+				'container_class' => 'navigation-mobile',
+				'menu_class' => 'js-accordion-menu menu mobile vertical accordion-menu',
 				'theme_location' => 'primary'
+			]
+		);
+
+		wp_nav_menu(
+			[
+				'container' => 'nav',
+				'container_class' => 'navigation-mobile secondary',
+				'menu_class' => 'js-accordion-menu menu mobile vertical accordion-menu',
+				'theme_location' => 'footer'
 			]
 		);
 
@@ -105,6 +97,7 @@ if ( ! function_exists('voodookit_slideout_toggler') ) {
 				<div class="toggle-button">
 					<span class="button-label">'.__("Nav Menu", "voodookit").'</span>
 					<div class="button-bars">
+						<span class="bar"></span>
 						<span class="bar"></span>
 						<span class="bar"></span>
 					</div>

@@ -10,11 +10,13 @@
 $post_type = get_field('post_type');
 $post_num = get_field('post_num');
 
-$posts = get_posts([
-	'posts_per_page' => $post_num,
-	'post_type' => $post_type,
-	'orderby' => 'DESC'
-]);
+$posts = get_posts(
+	[
+		'posts_per_page' => $post_num,
+		'post_type' => $post_type,
+		'orderby' => 'DESC'
+	]
+);
 
 // create name attribute
 $name = str_replace( 'acf/', '', $block['name'] );
@@ -31,25 +33,28 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 	<?php
 	if(is_array($posts)) {
 
-		echo '<div class="mod">';
-		echo '<div class="card-loop">';
+		echo '<div class="mod row">';
 		foreach($posts as $post) {
 			setup_postdata($post);
 			?>
 
-			<div id="post-<?php echo $post->ID; ?>" class="card">
-				<div class="card-divider">
-					<h3><?php echo get_the_title($post->ID); ?></h3>
-				</div>
-				<?php echo get_the_post_thumbnail($post->ID, 'medium'); ?>
-				<div class="card-section">
-					<?php echo get_the_excerpt(); ?>
-				</div>
+			<div class="column small-12 medium-6 large-4">
+				<article id="post-<?php echo $post->ID; ?>" class="card">
+					<div class="card-image-wrapper">
+						<?php echo get_the_post_thumbnail($post->ID, 'voodookit-carousel'); ?>
+						<div class="card-divider">
+							<h3 class="card-title"><?php echo get_the_title($post); ?></h3>
+						</div>
+					</div>
+					<div class="card-section">
+						<?php echo get_the_excerpt($post); ?>
+						<?php voodookit_get_button($post); ?>
+					</div>
+				</article>
 			</div>
 
 			<?php
 		}
-		echo '</div>';
 		echo '</div>';
 
 		wp_reset_postdata();

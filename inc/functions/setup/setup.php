@@ -11,9 +11,7 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 	function voodookit_setup() {
 
 		// Load template translations
-		load_theme_textdomain( 'voodookit', get_template_directory() . '/languages' );
-
-		apply_filters( 'override_load_textdomain', true, 'voodookit', get_template_directory() . '/languages/de_DE.mo' );
+		load_theme_textdomain( 'voodookit', get_stylesheet_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -35,7 +33,7 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 
 		// add more image sizes for template
 		add_image_size( 'voodookit-slider', 1270, 1270 );
-		add_image_size( 'voodookit-carousel', 420, 420 );
+		add_image_size( 'voodookit-carousel', 800, 450, true );
 
 		// register and use wp_nav_menu() for navigation
 		register_nav_menus( array(
@@ -57,6 +55,9 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 }
 
 add_action( 'init', 'voodookit_setup' );
+
+
+
 
 
 /**
@@ -88,14 +89,41 @@ add_filter( 'wp_headers', 'remove_x_pingback' );
 
 if ( ! function_exists( 'voodookit_mime_types' ) ) {
 
-	function voodookit_mime_types( $mimes ) {
-		$mimes['svg'] = 'image/svg+xml';
+	function voodookit_mime_types( $mime_types ) {
+		$mime_types['svg'] = 'image/svg+xml';
 
-		return $mimes;
+		return $mime_types;
 	}
 }
 
 add_filter( 'upload_mimes', 'voodookit_mime_types' );
+
+
+
+if(! function_exists('wp_check_filetype_and_ext')) {
+
+	function kb_ignore_upload_ext($checked, $file, $filename, $mimes){
+
+		if(!$checked['type']){
+			$wp_filetype = wp_check_filetype( $filename, $mimes );
+			$ext = $wp_filetype['ext'];
+			$type = $wp_filetype['type'];
+			$proper_filename = $filename;
+
+			if($type && 0 === strpos($type, 'image/') && $ext !== 'svg'){
+				$ext = $type = false;
+			}
+
+			$checked = compact('ext','type','proper_filename');
+		}
+
+		return $checked;
+	}
+
+}
+
+//add_filter('wp_check_filetype_and_ext', 'kb_ignore_upload_ext', 10, 4);
+
 
 
 /**

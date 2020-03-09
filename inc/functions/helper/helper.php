@@ -331,10 +331,10 @@ if(! function_exists('voodookit_get_icon') ) {
 
 	/**
 	 * get icon from sprite with name
-	 * @return void
+	 * @return string|void
 	 */
 
-	function voodookit_get_icon($iconslug) {
+	function voodookit_get_icon($iconslug, $echo = true) {
 
 		if(empty($iconslug)) {
 			return;
@@ -342,11 +342,17 @@ if(! function_exists('voodookit_get_icon') ) {
 
 		$path = get_stylesheet_directory_uri() . "/dist/assets/svg/sprite-symbol.svg#" . $iconslug;
 
-		?>
-		<svg class="sprite sprite--<?php echo $iconslug; ?>">
-			<use xlink:href="<?php echo $path ?>"></use>
-		</svg>
-		<?php
+		$html =
+			'<svg class="sprite sprite--'.$iconslug.'">
+				<use xlink:href="'.$path.'"></use>
+			</svg>';
+
+		if($echo) {
+			echo $html;
+		}
+
+		return $html;
+
 	}
 
 }
@@ -381,6 +387,7 @@ if(! function_exists('voodookit_get_button') ) {
 
 }
 
+
 if(! function_exists('last_file_modification')) {
 
 	/**
@@ -389,14 +396,29 @@ if(! function_exists('last_file_modification')) {
 	 * @return string
 	 */
 
-	function last_file_modification($file = '') {
+	function last_file_modification($file = '')
+	{
 
-		if(file_exists( $file)) {
-			return date( 'YmdHi', filemtime( $file ) );
+		if (file_exists($file)) {
+			return date('YmdHi', filemtime($file));
 		}
 
-		return wp_get_theme()->get( 'Version' );
+		return wp_get_theme()->get('Version');
+	}
+}
 
+
+if(! function_exists('voodookit_check_fixed_width')) {
+
+	function voodookit_check_fixed_width () {
+
+		$fixed_width = get_field('fixed_width');
+
+		if($fixed_width === false) {
+			return 'full-width';
+		}
+
+		return NULL;
 	}
 
 }

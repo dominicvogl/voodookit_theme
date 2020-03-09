@@ -1,0 +1,103 @@
+.grid-sizer,
+.grid-item {
+	width: 100%;
+	padding: rem-calc(10) 0;
+}
+
+.grid-item--width2 {
+	width: 100%;
+}
+
+.grid-item {
+	.item-image {
+		position: relative;
+	}
+
+	img {
+		opacity: 0;
+		transform: translate3d(0,70px,0);
+
+		&.lazy-loaded {
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+}
+
+.item--caption {
+	$gap: map_get($grid-column-gutter, small) / 2;
+	$border: 2px solid transparentize(#fff, 0.5);
+	transition: border 300ms ease-in-out;
+
+	position: absolute;
+	top: $gap;
+	left: $gap;
+	right: $gap;
+	bottom: $gap;
+	border: $border;
+
+	h3 {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		font-size: rem-calc(11);
+		padding: rem-calc(7 10 8);
+		background: $black;
+		color: $white;
+		margin: 0;
+		text-transform: uppercase;
+		font-weight: bold;
+		//transform: rotate(-90deg);
+		transform-origin: 0 0;
+	}
+}
+
+.callout {
+	padding: map_get($grid-column-gutter, small);
+	margin: map_get($grid-column-gutter, medium) 0;
+	border: 2px solid $dark-gray;
+}
+
+.matching--item {
+	margin-bottom: map_get($grid-column-gutter, small);
+}
+
+@include breakpoint(medium) {
+	.item--caption {
+		$gap: map_get($grid-column-gutter, small) / 2;
+
+		top: $gap;
+		left: $gap;
+		right: $gap;
+		bottom: $gap;
+
+		h3 {
+			font-size: rem-calc(13);
+			padding: rem-calc(8 10 9);
+		}
+	}
+
+	.grid-sizer,
+	.grid-item {
+		width: 50%;
+	}
+
+	.grid-item {
+		padding: rem-calc(10);
+	}
+
+	.grid-item--width2 {
+		width: 50%;
+	}
+}
+
+@include breakpoint(xlarge) {
+	.grid-sizer,
+	.grid-item {
+		width: 33.333%;
+	}
+
+	.grid-item--width2 {
+		width: 33.333%;
+	}
+}

@@ -87,6 +87,16 @@ function evolution_customize_register( $wp_customize ) {
         'capability' => 'edit_theme_options',
         'priority' => 1
     ));
+	$wp_customize->add_setting( 'evolution_footer_logo', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_url_raw'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'evolution_footer_logo', array(
+		'label'    => esc_html__( 'Upload additional footer logo (uses main logo from header by default)', 'evolution' ),
+		'section'  => 'evolution_footer_options',
+		'priority' => 11,
+	) ) );
 
     // Die Eingabemöglichkeit erstellen
     $wp_customize->add_control(new WP_Customize_Control(
@@ -140,4 +150,32 @@ function evolution_customize_register( $wp_customize ) {
 		'priority' => 2,
 	) );
 }
+
 add_action( 'customize_register', 'evolution_customize_register' );
+
+
+if(!function_exists('evolution_get_logo_src')) {
+
+	function evolution_get_logo_src() {
+
+		if( get_theme_mod( 'evolution_footer_logo' )) {
+			$logo_src = get_theme_mod( 'evolution_footer_logo' );
+		}
+		elseif ( get_theme_mod( 'evolution_logo' )) {
+			$logo_src = get_theme_mod( 'evolution_logo' );
+		}
+		else {
+			return NULL;
+		}
+
+		$logo_src = esc_url( $logo_src );
+		$logo_size= getimagesize( $logo_src );
+
+		return array(
+			'logo_src' => $logo_src,
+			'logo_sizes' => $logo_size
+		);
+
+	}
+
+}
