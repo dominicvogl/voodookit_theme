@@ -7,34 +7,38 @@
 
 function varD($value)
 {
-
 	echo '<pre>';
 	var_dump($value);
 	echo '</pre>';
 
 }
 
-/**
- * Check Post-Format
- * @param $post_id
- * @param $format
- * @return bool
- */
 
-function is_post_format($post_id, $format)
-{
+if(! function_exists('is_post_format')) {
 
-	if (get_post_format($post_id) == $format) {
-		return true;
-	} else {
-		return false;
+	/**
+	 * Check Post-Format
+	 * @param $post_id
+	 * @param $format
+	 * @return bool
+	 */
+
+	function is_post_format($post_id, $format)
+	{
+
+		if (get_post_format($post_id) == $format) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
 }
 
 
 /**
- *  Check Page-Type
+ * Check Page-Type
  * @param $format
  * @return bool|null
  */
@@ -82,6 +86,7 @@ function is_post_type($post_type)
  * @param null $lang_variable
  * @param bool $strict_mode
  * @return string
+ * @deprecated
  */
 
 function get_lang_from_browser($allowed_languages, $default_language, $lang_variable = NULL, $strict_mode = TRUE)
@@ -151,6 +156,7 @@ function get_lang_from_browser($allowed_languages, $default_language, $lang_vari
  * Return post thumbnail image
  * @param $size
  * @return string|void
+ * @deprecated
  */
 
 function post_thumbnails($size)
@@ -168,7 +174,8 @@ function post_thumbnails($size)
 /**
  * Return alternative text of an image
  * @param $attachementID
- * @return mixed|string
+ * @return string
+ * @deprecated
  */
 
 function get_attachement_alt($attachementID)
@@ -186,6 +193,7 @@ function get_attachement_alt($attachementID)
 /**
  * Render list with post categorys
  * @return bool|string
+ * @deprecated
  */
 
 function get_post_category_names()
@@ -218,6 +226,7 @@ function get_post_category_names()
  * Get term id from taxonomy
  * @param $taxonomy
  * @return bool|string
+ * @deprecated
  */
 
 function get_term_id($taxonomy)
@@ -241,6 +250,7 @@ function get_term_id($taxonomy)
  * Cleanup Date format
  * @param $date
  * @return bool|string
+ * @deprecated
  */
 
 function get_converted_date($date)
@@ -268,6 +278,7 @@ function get_converted_date($date)
  * Render term strings for data filter
  * @param $taxonomy
  * @return array|string
+ * @deprecated
  */
 
 function get_terms_str($taxonomy)
@@ -290,31 +301,38 @@ function get_terms_str($taxonomy)
 }
 
 
-/**
- * Get Post Slug
- * @return string
- */
+if(! function_exists('get_slug')) {
 
-function get_slug()
-{
+	/**
+	 * Get Post Slug
+	 * @return string
+	 * @deprecated
+	 */
 
-	global $post;
-	$slug = '';
+	function get_slug()
+	{
 
-	$post_data = get_post($post->ID, ARRAY_A);
-	if ($post_data) {
-		$slug = $post_data['post_name'];
+		global $post;
+		$slug = '';
+
+		$post_data = get_post($post->ID, ARRAY_A);
+		if ($post_data) {
+			$slug = $post_data['post_name'];
+		}
+
+		return $slug;
 	}
 
-	return $slug;
 }
 
 
-/**
- * get icon from sprite with name
- */
 
 if(! function_exists('voodookit_get_icon') ) {
+
+	/**
+	 * get icon from sprite with name
+	 * @return void
+	 */
 
 	function voodookit_get_icon($iconslug) {
 
@@ -333,11 +351,14 @@ if(! function_exists('voodookit_get_icon') ) {
 
 }
 
-/**
- *
- */
+
 
 if(! function_exists('voodookit_get_button') ) {
+
+	/**
+	 * Render button with wrapper
+	 * @return void
+	 */
 
 	function voodookit_get_button($post) {
 
@@ -356,6 +377,26 @@ if(! function_exists('voodookit_get_button') ) {
 		</div>
 
 		<?php
+	}
+
+}
+
+if(! function_exists('last_file_modification')) {
+
+	/**
+	 * Returns the version number of the template or the last modification date of the file, if exits
+	 * @param string $file
+	 * @return string
+	 */
+
+	function last_file_modification($file = '') {
+
+		if(file_exists( $file)) {
+			return date( 'YmdHi', filemtime( $file ) );
+		}
+
+		return wp_get_theme()->get( 'Version' );
+
 	}
 
 }

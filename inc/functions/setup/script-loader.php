@@ -12,9 +12,9 @@
  * @since 1.0.0
  */
 
-if ( ! function_exists( 'load_css' ) ) {
+if ( ! function_exists( 'voodookit_load_css' ) ) {
 
-	function load_css() {
+	function voodookit_load_css() {
 
 		if ( ! is_admin() ) {
 
@@ -23,7 +23,8 @@ if ( ! function_exists( 'load_css' ) ) {
 				array(
 					'handle' => 'styles',
 					'src'    => get_theme_file_uri('/dist/assets/css/app.min.css'),
-					'deps'   => array()
+					'deps'   => array(),
+					'ver' => last_file_modification( get_theme_file_uri('/dist/assets/css/app.min.css') )
 				)
 
 			);
@@ -41,7 +42,7 @@ if ( ! function_exists( 'load_css' ) ) {
 
 }
 
-add_action( 'wp_enqueue_scripts', 'load_css' );
+add_action( 'wp_enqueue_scripts', 'voodookit_load_css' );
 
 
 /**
@@ -55,7 +56,8 @@ if ( ! function_exists( 'voodookit_gutenberg_styles' ) ) {
 		$file = [
 			'handle' => 'gutenberg-css',
 			'src'    => get_theme_file_uri('/dist/assets/css/gutenberg.min.css'),
-			'deps'   => false
+			'deps'   => false,
+			'ver' => last_file_modification( get_theme_file_uri('/dist/assets/css/gutenberg.min.css') )
 		];
 
 		wp_register_style( $file['handle'], $file['src'], $file['deps'] );
@@ -74,9 +76,9 @@ add_action( 'enqueue_block_editor_assets', 'voodookit_gutenberg_styles' );
  * @since 1.0.0
  */
 
-if ( ! function_exists( 'load_javascript' ) ) {
+if ( ! function_exists( 'voodookit_load_javascript' ) ) {
 
-	function load_javascript() {
+	function voodookit_load_javascript() {
 
 		if ( ! is_admin() ) {
 
@@ -88,6 +90,8 @@ if ( ! function_exists( 'load_javascript' ) ) {
 					'handle' => 'app',
 					'src'    => get_theme_file_uri('/dist/assets/js/app.min.js'),
 					'deps'   => array(),
+					'ver' => last_file_modification( get_theme_file_uri('/dist/assets/js/app.min.js') )
+
 				)
 
 			);
@@ -105,4 +109,4 @@ if ( ! function_exists( 'load_javascript' ) ) {
 
 }
 
-add_action( 'wp_footer', 'load_javascript' );
+add_action( 'wp_footer', 'voodookit_load_javascript' );
