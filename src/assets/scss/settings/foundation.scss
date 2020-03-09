@@ -112,6 +112,7 @@
 	@include foundation-slider;
 	@include foundation-switch;
 	@include foundation-table;
+
 	// Basic components
 	@include foundation-badge;
 	@include foundation-breadcrumbs;
@@ -124,23 +125,24 @@
 	// Containers
 	@include foundation-accordion;
 	@include foundation-media-object;
-	@include foundation-orbit;
+	//@include foundation-orbit;
 	@include foundation-responsive-embed;
 	@include foundation-tabs;
-	@include foundation-thumbnail;
+	//@include foundation-thumbnail;
+
 	// Menu-based containers
 	@include foundation-menu;
 	@include foundation-menu-icon;
-	@include foundation-accordion-menu;
-	@include foundation-drilldown-menu;
-	@include foundation-dropdown-menu;
+	//@include foundation-accordion-menu;
+	//@include foundation-drilldown-menu;
+	//@include foundation-dropdown-menu;
 
 	// Layout components
-	@include foundation-off-canvas;
+	//@include foundation-off-canvas;
 	@include foundation-reveal;
 	@include foundation-sticky;
-	@include foundation-title-bar;
-	@include foundation-top-bar;
+	//@include foundation-title-bar;
+	//@include foundation-top-bar;
 
 	// Helpers
 	@include foundation-float-classes;

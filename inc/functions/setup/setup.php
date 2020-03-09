@@ -32,7 +32,7 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 		add_theme_support( 'post-thumbnails' );
 
 		// add more image sizes for template
-		add_image_size( 'voodookit-slider', 1270, 1270 );
+		add_image_size( 'voodookit-slider', 1270, 715, true );
 		add_image_size( 'voodookit-carousel', 800, 450, true );
 
 		// register and use wp_nav_menu() for navigation
@@ -54,7 +54,7 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 
 }
 
-add_action( 'init', 'voodookit_setup' );
+add_action( 'init', 'voodookit_setup', 10);
 
 
 
