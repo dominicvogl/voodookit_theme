@@ -6,14 +6,14 @@
  * @package Voodookit
  * @author Dominic Vogl
  * @since 1.0.0
- * @version 1.2
+ * @version 2.0.0
  */
 
 
 /**
  * Define some Voodookit constants
  * @since 1.0.0
- * @version 1.2
+ * @version 2.0.0
  */
 
 define( 'VOODOOKIT_INC_DIR', '/inc' );

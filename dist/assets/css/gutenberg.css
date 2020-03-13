@@ -1,0 +1,21 @@
+.edit-post-visual-editor .editor-block-list__block {
+  margin: 0 auto;
+  max-width: 79.375rem; }
+
+.edit-post-layout.is-sidebar-opened .edit-post-layout__content {
+  margin-right: 480px; }
+
+.edit-post-layout.is-sidebar-opened .edit-post-plugin-sidebar__sidebar-layout,
+.edit-post-layout.is-sidebar-opened .edit-post-sidebar {
+  width: 480px; }
+
+.slick-slider {
+  display: flex; }
+  .slick-slider div {
+    flex: 1 1 auto;
+    max-width: 200px; }
+  .slick-slider .slide-title {
+    display: block; }
+  .slick-slider .slide-image {
+    max-width: 200px; }
+/*# sourceMappingURL=gutenberg.css.map */

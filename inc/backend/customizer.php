@@ -156,8 +156,10 @@ add_action( 'customize_register', 'evolution_customize_register' );
 
 if(!function_exists('evolution_get_logo_src')) {
 
+	//@todo rename function, voodookit adaption
 	function evolution_get_logo_src() {
 
+		//@todo rename name, mod, voodokit adaption
 		if( get_theme_mod( 'evolution_footer_logo' )) {
 			$logo_src = get_theme_mod( 'evolution_footer_logo' );
 		}

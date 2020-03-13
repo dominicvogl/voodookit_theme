@@ -16,6 +16,7 @@ if(! function_exists('voodookit_footer') ) {
 
 	function voodookit_footer() {
 
+		//@todo rename function, voodookit adaption
 		$logo = evolution_get_logo_src();
 		?>
 
