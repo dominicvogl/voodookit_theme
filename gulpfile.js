@@ -20,6 +20,7 @@ const buffer = require('vinyl-buffer');
 
 // Image Optimization workflow
 const imagemin = require('gulp-imagemin');
+const svgsprite = require('gulp-svg-sprite');
 
 // String replacement for cache custing task
 const replace = require('gulp-replace');
@@ -189,7 +190,8 @@ function jsDevTask() {
 
 	return src(['src/assets/_temp/js/app.js'], {sourcemaps: true})
 		.pipe(babel( {
-			presets: ['@babel/preset-env']
+			presets: ['@babel/preset-env'],
+			compact: false
 		} ))
 		.pipe(dest('dist/assets/js', {sourcemaps: '.'}));
 }
@@ -202,12 +204,12 @@ function jsDevTask() {
 
 function jsProdTask() {
 
-	return src(['app/_temp/js/app.js'], {sourcemaps: true})
+	return src(['src/assets/_temp/js/app.js'], {sourcemaps: true})
 		.pipe(babel( {
 			presets: ['@babel/preset-env']
 		} ))
 		.pipe(uglify())
-		.pipe(dest('dist', {sourcemaps: '.'}));
+		.pipe(dest('dist/assets/js', {sourcemaps: '.'}));
 
 }
 
@@ -274,8 +276,6 @@ function cacheBustTask() {
 function browserSyncServe(cb) {
 	browsersync.init({
 		proxy: "voodookit.loc",
-		target: "https://voodookit.loc/",
-		files: "**/*",
 		notify: true
 	});
 	cb();
@@ -289,6 +289,27 @@ function browserSyncServe(cb) {
 function browserSyncReload(cb) {
 	browsersync.reload();
 	cb();
+}
+
+
+/**
+ * Gulp generate SVG Sprite
+ */
+
+function svgTask() {
+
+	return src('**/*.svg', { cwd: 'src/assets/svg/' })
+		.pipe(svgsprite(
+			{
+				mode: {
+					'symbol': {
+						'dest': '.',
+						'sprite': 'sprite-symbol'
+					}
+				}
+			}
+		))
+		.pipe(dest('dist/assets/svg'));
 }
 
 
@@ -327,6 +348,11 @@ function watchTask() {
 		browserSyncReload
 	));
 
+	watch( 'src/assets/svg/**/*',
+	series(
+		svgTask
+	));
+
 }
 
 
@@ -337,7 +363,8 @@ function watchTask() {
 exports.default = series(
 	parallel(
 		imageminTask,
-		scssDevTask
+		scssDevTask,
+		svgTask
 	),
 	concatJsTask,
 	// browserifyTask,
@@ -357,10 +384,11 @@ exports.prod = series(
 	cleanImagesTask,
 	parallel(
 		imageminTask,
-		scssProdTask
+		scssProdTask,
+		svgTask
 	),
 	concatJsTask,
-	browserifyTask,
+	// browserifyTask,
 	jsProdTask,
 	// cacheBustTask,
 	cleanTask
