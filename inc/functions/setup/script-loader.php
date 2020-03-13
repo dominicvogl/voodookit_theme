@@ -60,14 +60,15 @@ if ( ! function_exists( 'load_css' ) ) {
 				array(
 					'handle' => 'styles',
 					'src'    => get_theme_file_uri('/dist/assets/css/app.css'),
-					'deps'   => array()
+					'deps'   => array(),
+					'ver'    => filemtime(get_theme_file_path('/dist/assets/css/app.css'))
 				)
 
 			);
 
 			foreach ( $files as $file ) {
 
-				wp_register_style( $file['handle'], $file['src'], $file['deps'] );
+				wp_register_style( $file['handle'], $file['src'], $file['deps'], $file['ver'] );
 				wp_enqueue_style( $file['handle'] );
 
 			}
@@ -131,8 +132,6 @@ if ( ! function_exists( 'load_javascript' ) ) {
 				)
 
 			);
-
-			var_dump($files);
 
 			foreach ( $files as $file ) {
 
