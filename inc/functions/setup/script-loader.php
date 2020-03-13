@@ -111,7 +111,7 @@ add_action( 'enqueue_block_editor_assets', 'voodookit_gutenberg_styles' );
  * Load Javascript files
  *
  * @since 1.0.0
- * @version 1.2.0
+ * @version 2.0.0
  */
 
 if ( ! function_exists( 'voodookit_load_javascript' ) ) {
