@@ -11,7 +11,7 @@
 document.documentElement.className = "js";
 
 // add message
-console.info("%cThis site was build with love " + "%c(https://dominicvogl.de)", "", "color: #2199e8");
+console.info("%cThis site was build with love by " + "%c(https://dominicvogl.de)", "", "color: #2199e8; background-color: #000");
 
 // check if svg is available in this browser
 if(feature.svg){

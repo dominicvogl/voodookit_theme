@@ -40,8 +40,8 @@ if( ! function_exists('voodookit_remove_wp_ver_css_js') ) {
 
 }
 
-add_filter( 'style_loader_src', 'voodookit_remove_wp_ver_css_js', 9999 );
-add_filter( 'script_loader_src', 'voodookit_remove_wp_ver_css_js', 9999 );
+//add_filter( 'style_loader_src', 'voodookit_remove_wp_ver_css_js', 9999 );
+//add_filter( 'script_loader_src', 'voodookit_remove_wp_ver_css_js', 9999 );
 
 /**
  * Load CSS Files
@@ -59,16 +59,16 @@ if ( ! function_exists( 'voodookit_load_css' ) ) {
 
 				array(
 					'handle' => 'styles',
-					'src'    => get_theme_file_uri('/dist/assets/css/app.min.css'),
+					'src'    => get_theme_file_uri('/dist/assets/css/app.css'),
 					'deps'   => array(),
-					'ver' => last_file_modification( get_theme_file_uri('/dist/assets/css/app.min.css') )
+					'ver' => last_file_modification( get_theme_file_uri('/dist/assets/css/app.css') )
 				)
 
 			);
 
 			foreach ( $files as $file ) {
 
-				wp_register_style( $file['handle'], $file['src'], $file['deps'] );
+				wp_register_style( $file['handle'], $file['src'], $file['deps'], $file['ver'] );
 				wp_enqueue_style( $file['handle'] );
 
 			}
@@ -92,12 +92,12 @@ if ( ! function_exists( 'voodookit_gutenberg_styles' ) ) {
 
 		$file = [
 			'handle' => 'gutenberg-css',
-			'src'    => get_theme_file_uri('/dist/assets/css/gutenberg.min.css'),
+			'src'    => get_theme_file_uri('/dist/assets/css/gutenberg.css'),
 			'deps'   => false,
-			'ver' => last_file_modification( get_theme_file_uri('/dist/assets/css/gutenberg.min.css') )
+			'ver' => last_file_modification( get_theme_file_uri('/dist/assets/css/gutenberg.css') )
 		];
 
-		wp_register_style( $file['handle'], $file['src'], $file['deps'] );
+		wp_register_style( $file['handle'], $file['src'], $file['deps'], $file['ver'] );
 		wp_enqueue_style( $file['handle'] );
 
 	}
@@ -111,6 +111,7 @@ add_action( 'enqueue_block_editor_assets', 'voodookit_gutenberg_styles' );
  * Load Javascript files
  *
  * @since 1.0.0
+ * @version 1.2.0
  */
 
 if ( ! function_exists( 'voodookit_load_javascript' ) ) {
@@ -125,17 +126,16 @@ if ( ! function_exists( 'voodookit_load_javascript' ) ) {
 
 				array(
 					'handle' => 'app',
-					'src'    => get_theme_file_uri('/dist/assets/js/app.min.js'),
+					'src'    => get_theme_file_uri('/dist/assets/js/app.js'),
 					'deps'   => array(),
-					'ver' => last_file_modification( get_theme_file_uri('/dist/assets/js/app.min.js') )
-
+					'ver' => last_file_modification( get_theme_file_uri('/dist/assets/js/app.js') )
 				)
 
 			);
 
 			foreach ( $files as $file ) {
 
-				wp_register_script( $file['handle'], $file['src'], $file['deps'] );
+				wp_register_script( $file['handle'], $file['src'], $file['deps'], $file['ver'], true );
 				wp_enqueue_script( $file['handle'] );
 
 			}
