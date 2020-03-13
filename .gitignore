@@ -10,18 +10,15 @@ custom/languages/
 custom/upgrades/
 custom/uploads/
 custom/plugins/
-dist/
 
 
 ## ignore Files
 
 .idea
 .DS_Store
-package-lock.json
 ._*
 .Spotlight-V100
 .Trashes
-ehthumbs.db
 Thumbs.db
 debug.log
 *.psd
