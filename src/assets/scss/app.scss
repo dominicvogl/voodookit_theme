@@ -10,9 +10,9 @@
 @include foundation-everything
 
 // vendors
-@import '../../../node_modules/slick-slider/slick/slick.scss';
-@import '../../../node_modules/lazyloadxt/dist/jquery.lazyloadxt.fadein';
-@import '../../../node_modules/swipebox/scss/swipebox';
+@import 'slick-slider/slick/slick.scss';
+@import 'lazyloadxt/dist/jquery.lazyloadxt.fadein';
+@import 'swipebox/scss/swipebox';
 
 // own components
 @import "components/grid";

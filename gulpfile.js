@@ -1,36 +1,52 @@
-/**
- * @function require
- * @type {Gulp}
- */
+// Load variables from gulp for easier use
+const { src, dest, watch, series, parallel } = require('gulp');
 
-const 	gulp = require('gulp'),
-	sass = require('gulp-sass'),
-	cleanCSS = require('gulp-clean-css'),
-	autoprefixer = require('gulp-autoprefixer'),
-	rename = require('gulp-rename'),
-	uglify = require('gulp-uglify'),
-	concat = require('gulp-concat'),
-	plumber = require('gulp-plumber'),
-	babel = require('gulp-babel'),
-	browserify = require('gulp-browserify'),
-	sourcemaps = require('gulp-sourcemaps'),
-	svgSprite = require('gulp-svg-sprite'),
-	browserSync = require('browser-sync');
+// SCSS Workflow
+const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const combineq = require('postcss-combine-media-query');
+const cssnano = require('cssnano');
 
-const 	src = './src/',
-	dist = './dist/';
+// Javascript workflow
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const babel = require('gulp-babel');
 
+// Browserify workflow
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+
+// Image Optimization workflow
+const imagemin = require('gulp-imagemin');
+
+// String replacement for cache custing task
+const replace = require('gulp-replace');
+
+// Browsersync
+const browsersync = require('browser-sync').create();
+
+// Roomcleaner
+const del = require('del');
+
+// define some folders
+const scssSrc = 'src/assets/scss';
+const jsSrc = 'src/assets/js';
+const imageSrc = 'src/assets/img';
+const svgSrc = 'img';
+const dist = 'dist';
 const jsFileList = [
 
 	// feature
 	'./node_modules/feature.js/feature.js',
 
 	// lazyload
-	// './node_modules/vanilla-lazyload/dist/lazyload.js',
+	// '/vanilla-lazyload/dist/lazyload.js',
 
 	// Jquery
 	'./node_modules/jquery/dist/jquery.js',
-	// './node_modules/jquery-migrate/dist/jquery-migrate.js',
+	// '/jquery-migrate/dist/jquery-migrate.js',
 
 	// Lazyload
 	'./node_modules/lazyloadxt/dist/jquery.lazyloadxt.js',
@@ -86,132 +102,266 @@ const jsFileList = [
 	'./node_modules/imagesloaded/imagesloaded.js',
 
 	// Own stuff
-	src + 'assets/js/feature.js',
-	src + 'assets/js/foundation.js',
-	src + 'assets/js/lazyload.js',
+	jsSrc + '/feature.js',
+	jsSrc + '/foundation.js',
+	jsSrc + '/lazyload.js',
 	// src + 'assets/js/lazyload-vanilla.js',
-	src + 'assets/js/masonry.js',
-	src + 'assets/js/swipebox.js',
-	src + 'assets/js/slick.js',
-	src + 'assets/js/slideout.js',
+	jsSrc + '/masonry.js',
+	jsSrc + '/swipebox.js',
+	jsSrc + '/slick.js',
+	jsSrc + '/slideout.js',
 ];
 
+
 /**
- * Compile and compress sass files into css file
- * @since 1.0.0
+ * Compile the SCSS files to CSS file
+ * @returns {*}
  */
 
-const gulpScss = () => {
-	gulp.src(src + 'assets/scss/*.scss')
-		.pipe(sourcemaps.init())
-		// .pipe(clean())
-		.pipe(plumber())
-		.pipe(sass())
-		.pipe(autoprefixer())
-		// .pipe(rename({basename: 'app'}))
-		// .pipe(gulp.dest(dist + 'assets/css'))
-		.pipe(cleanCSS())
-		.pipe(rename({suffix: '.min'}))
-		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(dist + 'assets/css'))
-		.pipe(browserSync.stream());
-};
+function scssDevTask() {
+
+	return src( [scssSrc + '/app.scss', scssSrc + '/gutenberg.scss'], {sourcemaps: true}) // export with sourcemaps
+		.pipe(sass({
+			includePaths: [ // include paths for compiling the files
+				'node_modules/'
+			]
+		})) // compile scss
+		.pipe(postcss([autoprefixer])) // use autoprefixer (browser support), combine mediaqueries to one query (great!) and remove the css from trash (comments, spaces, etc.)
+		.pipe(dest('dist/assets/css', { sourcemaps: '.'})); // target folder for the compiled file and sourcemaps
+}
 
 
 /**
- * Concat javascript files and compress them
- * @since 1.0.0
+ * compile scss files
+ * @returns {*}
  */
 
-console.log(jsFileList);
+function scssProdTask() {
 
-const gulpJs = () => {
-	gulp.src(jsFileList)
-		// .pipe(sourcemaps.init()) // start sourcemap
-		.pipe(plumber()) // prevent gulp crash on error event
-		.pipe(concat('app.js')) // define filename after merging all files
-		.pipe(babel({
-			presets: ['es2015']
-		})) // Use ES6 or ES7 and compile to "normal" javascript for browsercompatibility
-		// .pipe(browserify({
-		// 	insertGlobal: true
-		// })) // Use fileimports from node modules
-		// .pipe(uglify()) // minify javascript
-		.pipe(rename({suffix: '.min'})) // add suffix
-		// .pipe(sourcemaps.write('.')) // write sourcemap
-		.pipe(gulp.dest(dist + 'assets/js')) // define destination folder
-		.pipe(browserSync.stream());
-};
-
+	return src( [scssSrc + '/app.scss', scssSrc + '/gutenberg.scss'], {sourcemaps: true}) // export with sourcemaps
+		.pipe(sass({
+			includePaths: [ // include paths for compiling the files
+				'node_modules/'
+			]
+		})) // compile scss
+		.pipe(postcss([autoprefixer, combineq, cssnano])) // use autoprefixer (browser support), combine mediaqueries to one query (great!) and remove the css from trash (comments, spaces, etc.)
+		.pipe(dest('dist/assets/css', { sourcemaps: '.'})); // target folder for the compiled file and sourcemaps
+}
 
 
 /**
- * Gulp generate SVG Sprite
+ * put JS files together and export in temp folder
+ * @returns {*}
  */
 
-const gulpSvg = () => {
+function concatJsTask() {
 
-	gulp.src('**/*.svg', { cwd: src + 'assets/svg/' })
-		.pipe(plumber())
-		.pipe(svgSprite(
-			{
-				mode: {
-					'symbol': {
-						'dest': './assets/svg',
-						'sprite': 'sprite-symbol'
-					}
-				}
-			}
-		))
-		.on('error', function(error) {
-			/* Do some awesome error handling ... */
-		})
-		.pipe(gulp.dest(dist));
-
-};
+	return src(jsFileList, {
+		includePaths: [
+			'node_modules/'
+		]
+	})
+		.pipe(concat('app.js'))
+		.pipe(dest('src/assets/_temp/js'))
+}
 
 /**
- * Watch some files and their changes
+ * ?
+ * @returns {*}
  */
 
-const gulpWatch = () => {
+function browserifyTask() {
 
-	// watch some files
-	gulp.watch([src + 'assets/scss/**/*.scss'], ['scss']);
-	gulp.watch([src + 'assets/js/*.js'], ['js']);
-	gulp.watch([src + 'assets/svg/*.svg'], ['svg']);
-
-};
+	return browserify(['src/assets/_temp/js/app.js'])
+		.bundle()
+		.pipe(source('app.js'))
+		.pipe(buffer())
+		.pipe(dest('src/assets/_temp/js'))
+}
 
 
 /**
- * Default gulp task
+ * Developement Task: Convert to ES5 via Babel and export
+ * @returns {*}
  */
 
-const gulpDefault = () => {
+function jsDevTask() {
 
-	// Initial compiling of files
-	gulpScss();
-	gulpJs();
-	gulpSvg();
-	// gulpHTML();
-
-	// Start browsersync server
-	// browserSync.init({
-	//     server: './dist' // define folder to watch
-	// }); // start server for effective developing
-
-	gulpWatch();
-};
+	return src(['src/assets/_temp/js/app.js'], {sourcemaps: true})
+		.pipe(babel( {
+			presets: ['@babel/preset-env']
+		} ))
+		.pipe(dest('dist/assets/js', {sourcemaps: '.'}));
+}
 
 
 /**
- * Define all the gulp tasks
+ * Production Task: Convert to ES5 via Babel, uglify scripts and export
+ * @returns {*}
  */
 
-gulp.task('scss', gulpScss);
-gulp.task('js', gulpJs);
-// gulp.task('html', gulpHTML);
-gulp.task('svg', gulpSvg);
-gulp.task('watch', gulpWatch());
-gulp.task('default', gulpDefault());
+function jsProdTask() {
+
+	return src(['app/_temp/js/app.js'], {sourcemaps: true})
+		.pipe(babel( {
+			presets: ['@babel/preset-env']
+		} ))
+		.pipe(uglify())
+		.pipe(dest('dist', {sourcemaps: '.'}));
+
+}
+
+
+/**
+ * optimize images from folder
+ * @returns {*}
+ */
+
+function imageminTask() {
+
+	return src([imageSrc + '/**/*', '!_processed/'])
+		.pipe(imagemin([
+				imagemin.gifsicle({interlaced: true}),
+				imagemin.mozjpeg({quality: 85, progressive: true}),
+				imagemin.optipng({optimizationLevel: 5}),
+				imagemin.svgo({
+					plugins: [
+						{removeViewBox: true},
+						{cleanupIDs: false}
+					]
+				})
+			]),
+			{ verbose: true	}
+		)
+		.pipe(dest('dist/assets/img/'));
+
+}
+
+
+/**
+ * Cleanup some temporary files
+ * @returns {Promise<string[]> | *}
+ */
+
+function cleanTask() {
+
+	return del(['src/assets/_temp/'] );
+}
+
+function cleanImagesTask() {
+
+	return del(['dist/assets/img/'] );
+}
+
+/**
+ * generate hash for js and css files --> cache busting / prepend file caching while developement
+ * @returns {*}
+ */
+
+function cacheBustTask() {
+
+	let cbNumber = new Date().getTime();
+	return src('index.html')
+		.pipe(replace(/cb=\d+/g, 'cb=' + cbNumber))
+		.pipe(dest('.'))
+}
+
+/**
+ * serve a browsersync server
+ * @param cb
+ */
+
+function browserSyncServe(cb) {
+	browsersync.init({
+		proxy: "voodookit.loc",
+		target: "https://voodookit.loc/",
+		files: "**/*",
+		notify: true
+	});
+	cb();
+}
+
+/**
+ * reload the browser via browsersync
+ * @param cb
+ */
+
+function browserSyncReload(cb) {
+	browsersync.reload();
+	cb();
+}
+
+
+/**
+ * watcher tasks which is looking for changes
+ */
+
+function watchTask() {
+
+	// reload when the html file changes
+	// watch('*.html', browserSyncReload);
+
+	// run tasks, when scss changes
+	watch( [scssSrc + '/**/*.scss'],
+	series(
+		scssDevTask,
+		// cacheBustTask,
+		browserSyncReload
+	));
+
+	// recompile js when there is a change
+	watch( [jsSrc + '/**/*.js'],
+	series(
+		concatJsTask,
+		// browserifyTask,
+		jsDevTask,
+		// cacheBustTask,
+		cleanTask,
+		browserSyncReload
+	));
+
+	// optimize images if they change
+	watch( imageSrc + '/.*',
+	series(
+		imageminTask,
+		browserSyncReload
+	));
+
+}
+
+
+/**
+ * export the function for usage with gulp default task
+ */
+
+exports.default = series(
+	parallel(
+		imageminTask,
+		scssDevTask
+	),
+	concatJsTask,
+	// browserifyTask,
+	jsDevTask,
+	// cacheBustTask,
+	cleanTask,
+	browserSyncServe,
+	watchTask
+);
+
+
+/**
+ * exports gulp task for production without browsersync and so on
+ */
+
+exports.prod = series(
+	cleanImagesTask,
+	parallel(
+		imageminTask,
+		scssProdTask
+	),
+	concatJsTask,
+	browserifyTask,
+	jsProdTask,
+	// cacheBustTask,
+	cleanTask
+);
