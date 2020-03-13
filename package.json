@@ -40,6 +40,7 @@
 		"camelcase": "^5.3.1",
 		"cssnano": "^4.1.10",
 		"del": "^5.1.0",
+		"feature.js": "1.1.1",
 		"foundation-sites": "^6.6.1",
 		"gulp": "^4.0.2",
 		"gulp-babel": "^8.0.0",
@@ -48,18 +49,18 @@
 		"gulp-postcss": "^8.0.0",
 		"gulp-replace": "^1.0.0",
 		"gulp-sass": "^4.0.2",
+		"gulp-svg-sprite": "^1.5.0",
 		"gulp-uglify": "^3.0.2",
-		"postcss-combine-media-query": "^1.0.0",
-		"slick-slider": "^1.8.2",
-		"vinyl-buffer": "^1.0.1",
-		"vinyl-source-stream": "^2.0.0",
-		"feature.js": "1.1.1",
 		"imagesloaded": "4.1.4",
 		"jquery": "2.2.4",
 		"lazyloadxt": "1.1.0",
 		"masonry-layout": "4.2.2",
+		"postcss-combine-media-query": "^1.0.0",
+		"slick-slider": "^1.8.2",
 		"slideout": "^1.0.1",
 		"swipebox": "^1.4.6",
-		"vanilla-lazyload": "12.4.0"
+		"vanilla-lazyload": "12.4.0",
+		"vinyl-buffer": "^1.0.1",
+		"vinyl-source-stream": "^2.0.0"
 	}
 }
