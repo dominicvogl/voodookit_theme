@@ -10,6 +10,7 @@ custom/languages/
 custom/upgrades/
 custom/uploads/
 custom/plugins/
+dist/
 
 
 ## ignore Files
