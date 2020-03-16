@@ -31,12 +31,11 @@ if ( ! function_exists( 'voodookit_logo' ) ) {
 		}
 
 		$logo_src = esc_url( get_theme_mod( 'evolution_logo' ) );
-		list ( $logo_size ) = getimagesize( $logo_src );
 
 		echo
 			'<div class="logo">
 				<a href="'.get_home_url().'" target="_self">
-					<img src="' . $logo_src . '" width="'.$logo_size[0].'" height="'.$logo_size[1].'" />
+					' . wp_get_attachment_image( attachment_url_to_postid($logo_src), 'full' ) . '
 				</a>
 			</div>';
 

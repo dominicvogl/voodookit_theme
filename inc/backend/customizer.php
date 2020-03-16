@@ -154,10 +154,10 @@ function evolution_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'evolution_customize_register' );
 
 
-if(!function_exists('evolution_get_logo_src')) {
+if(!function_exists( 'voodookit_get_logo_src' )) {
 
 	//@todo rename function, voodookit adaption
-	function evolution_get_logo_src() {
+	function voodookit_get_logo_src() {
 
 		//@todo rename name, mod, voodokit adaption
 		if( get_theme_mod( 'evolution_footer_logo' )) {
@@ -171,7 +171,7 @@ if(!function_exists('evolution_get_logo_src')) {
 		}
 
 		$logo_src = esc_url( $logo_src );
-		$logo_size= getimagesize( $logo_src );
+		$logo_size = wp_get_attachment_metadata( attachment_url_to_postid($logo_src) );
 
 		return array(
 			'logo_src' => $logo_src,

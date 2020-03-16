@@ -17,7 +17,6 @@ if(! function_exists('voodookit_footer') ) {
 	function voodookit_footer() {
 
 		//@todo rename function, voodookit adaption
-		$logo = evolution_get_logo_src();
 		?>
 
 		<footer class="mod mod-inner">
@@ -26,7 +25,9 @@ if(! function_exists('voodookit_footer') ) {
 				<div class="column small-12 large-4">
 
 					<div class="footer--logo logo">
-						<a href="<?php echo get_home_url(); ?>"><img src="<?php echo esc_url($logo['logo_src']); ?>" width="<?php echo $logo['logo_sizes'][0]; ?>" height="<?php echo esc_attr($logo['logo_sizes'][1]); ?>" alt="<?php _e('Logo of: ','voodookit'); ?><?php echo esc_attr(bloginfo('name')); ?>"></a>
+						<a href="<?php echo get_home_url(); ?>">
+							<?php echo wp_get_attachment_image( attachment_url_to_postid( voodookit_get_logo_src()['logo_src'] ), 'full' ) ?>
+						</a>
 					</div>
 
 					<?php // @todo make editable via backend, later ?>
