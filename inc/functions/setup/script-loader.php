@@ -7,7 +7,7 @@
  */
 
 /**
- * move javascripf files the save way to the footer
+ * move javascript files the save way to the footer
  */
 
 if( ! function_exists('voodookit_footer_enqueue_scripts') ) {
@@ -33,8 +33,10 @@ add_action('wp_enqueue_scripts', 'voodookit_footer_enqueue_scripts');
 if( ! function_exists('voodookit_remove_wp_ver_css_js') ) {
 
 	function voodookit_remove_wp_ver_css_js( $src ) {
-		if ( strpos( $src, 'ver=' ) )
+		if ( strpos( $src, 'ver=' ) ) {
 			$src = remove_query_arg( 'ver', $src );
+		}
+
 		return $src;
 	}
 
@@ -59,9 +61,9 @@ if ( ! function_exists( 'voodookit_load_css' ) ) {
 
 				array(
 					'handle' => 'styles',
-					'src'    => get_theme_file_uri('/dist/assets/css/app.css'),
+					'src'    => get_asset('app.css')['path'],
 					'deps'   => array(),
-					'ver' => last_file_modification( get_theme_file_uri('/dist/assets/css/app.css') )
+					'ver' => get_asset('app.css')['version']
 				)
 
 			);
@@ -92,9 +94,9 @@ if ( ! function_exists( 'voodookit_gutenberg_styles' ) ) {
 
 		$file = [
 			'handle' => 'gutenberg-css',
-			'src'    => get_theme_file_uri('/dist/assets/css/gutenberg.css'),
+			'src'    => get_asset('gutenberg.css')['path'],
 			'deps'   => false,
-			'ver' => last_file_modification( get_theme_file_uri('/dist/assets/css/gutenberg.css') )
+			'ver' => get_asset('gutenberg.css')['version']
 		];
 
 		wp_register_style( $file['handle'], $file['src'], $file['deps'], $file['ver'] );
@@ -121,14 +123,14 @@ if ( ! function_exists( 'voodookit_load_javascript' ) ) {
 		if ( ! is_admin() ) {
 
 			wp_deregister_script( 'jquery' );
-
+			
 			$files = array(
 
 				array(
 					'handle' => 'app',
-					'src'    => get_theme_file_uri('/dist/assets/js/app.js'),
+					'src'    => get_asset('app.js')['path'],
 					'deps'   => array(),
-					'ver' => last_file_modification( get_theme_file_uri('/dist/assets/js/app.js') )
+					'ver' => get_asset('app.js')['version']
 				)
 
 			);

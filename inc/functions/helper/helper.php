@@ -119,6 +119,41 @@ if(! function_exists('last_file_modification')) {
 }
 
 
+if (!function_exists('get_asset')) {
+
+	/**
+	 * load files from template or child template (current stylesheet directory)
+	 * @param $file
+	 * @return array
+	 * @since 1.2.1
+	 * @version 1.2.1
+	 */
+
+	function get_asset($file)
+	{
+		$data = array(
+			'path' => '',
+			'version' => ''
+		);
+
+		$asset = substr(strstr($file, '.'), strlen('.'));
+		$path = '/dist/assets/'. $asset .'/' . $file;
+
+		if ( file_exists(get_stylesheet_directory() . $path ) ) {
+			$data['path'] = get_stylesheet_directory_uri() . $path;
+		}
+
+		if( !empty( last_file_modification( get_stylesheet_directory() . $path ) ) ) {
+			$data['version'] = last_file_modification( get_stylesheet_directory() . $path );
+		}
+
+		return $data;
+	}
+
+}
+
+
+
 if(! function_exists('voodookit_check_fixed_width')) {
 
 	function voodookit_check_fixed_width () {
@@ -130,6 +165,25 @@ if(! function_exists('voodookit_check_fixed_width')) {
 		}
 
 		return NULL;
+	}
+
+}
+
+
+if(!function_exists('voodookit_add_action')) {
+
+	function voodookit_add_action($tag, $function, $priority) {
+
+		var_dump(has_action($tag, $function));
+
+		if(has_action($tag, $function)) {
+			remove_action($tag, $function, $priority);
+			add_action($tag, $function, $priority);
+
+			return;
+		}
+
+		add_action($tag, $function, $priority);
 	}
 
 }
