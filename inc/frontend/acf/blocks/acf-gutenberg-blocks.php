@@ -45,7 +45,7 @@ if ( ! function_exists( 'acf_block_render_callback' ) ) {
 
 /**
  * Building array for the blocks to create
- *
+ * @return array
  * @since 1.0.0
  */
 
@@ -79,6 +79,13 @@ if ( ! function_exists( 'acf_block_get_blocks' ) ) {
 
 				// register a post newsfeed
 				[
+					'name'            => 'callout',
+					'title'           => __( 'Callout' ),
+					'icon'            => 'lightbulb',
+				],
+
+				// register a post newsfeed
+				[
 					'name'            => 'featuredcontents',
 					'title'           => __( 'Featured Text or Numbers' ),
 					'icon'            => 'lightbulb',
@@ -102,6 +109,13 @@ if ( ! function_exists( 'acf_block_get_blocks' ) ) {
 				[
 					'name'            => 'isotopegallery',
 					'title'           => __( 'Isotope Image Gallery' ),
+					'icon'            => 'gallery',
+				],
+
+				// register isotope Gallery
+				[
+					'name'            => 'coverimagewithtext',
+					'title'           => __( 'Full width Image with Text' ),
 					'icon'            => 'gallery',
 				]
 			);
