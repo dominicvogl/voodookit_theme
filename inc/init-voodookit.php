@@ -66,6 +66,7 @@ voodookit_load_template_file( VOODOOKIT_HELPER_DIR . '/nav-walker.php' );
 voodookit_load_template_file( VOODOOKIT_STRUCTURE_DIR . '/slideout.php');
 voodookit_load_template_file( VOODOOKIT_STRUCTURE_DIR . '/header.php');
 voodookit_load_template_file( VOODOOKIT_STRUCTURE_DIR . '/index.php');
+voodookit_load_template_file(VOODOOKIT_STRUCTURE_DIR . '/sidebar.php');
 voodookit_load_template_file(VOODOOKIT_STRUCTURE_DIR . '/footer.php');
 
 // load hooks
