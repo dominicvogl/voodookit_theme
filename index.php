@@ -10,7 +10,11 @@
 get_header();
 
 do_action( 'voodookit_do_before_main' );
+?>
 
-do_action( 'voodookit_do_main' );
+<main>
+	<?php do_action( 'voodookit_do_main' ); ?>
+</main>
 
+<?php
 get_footer();

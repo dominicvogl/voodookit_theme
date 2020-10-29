@@ -14,7 +14,7 @@ if ( ! function_exists( 'voodookit_do_before_main_loop' ) ) {
 	 */
 
 	function voodookit_do_before_main_loop() {
-		echo '<main>';
+		return;
 	}
 
 }
@@ -27,7 +27,7 @@ if ( ! function_exists( 'voodookit_do_after_main_loop' ) ) {
 	 */
 
 	function voodookit_do_after_main_loop() {
-		echo '</main>';
+		return;
 	}
 
 }
