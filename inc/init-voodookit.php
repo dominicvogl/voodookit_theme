@@ -43,6 +43,7 @@ voodookit_load_template_file( VOODOOKIT_BACKEND_DIR . '/editor.php' );
 // load frontend stuff
 voodookit_load_template_file( VOODOOKIT_FRONTEND_DIR . '/head.php' );
 voodookit_load_template_file( VOODOOKIT_FRONTEND_DIR . '/images.php' );
+voodookit_load_template_file( VOODOOKIT_FRONTEND_DIR . '/navigation.php' );
 
 // extend core blocks
 voodookit_load_template_file( VOODOOKIT_FRONTEND_DIR . '/blocks/blocks.php' );

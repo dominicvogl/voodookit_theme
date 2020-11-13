@@ -50,7 +50,11 @@ if ( ! function_exists( 'voodookit_do_main_loop' ) ) {
 					the_title('<h1>', '</h1>');
 				}
 
-				the_content();
+				?>
+				<div class="page--content-wrapper">
+					<?php the_content(); ?>
+				</div>
+				<?php
 
 				// the_acf_modules();
 			}

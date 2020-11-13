@@ -21,6 +21,8 @@ add_action( 'voodookit_do_navigation_mobile', 'voodookit_navigation_mobile', 10 
 
 // header and wrapper of them
 add_action( 'voodookit_do_header', 'voodookit_header', 10 );
+// add breadcrumb
+add_action( 'voodookit_do_header', 'voodookit_navigation_breadcrumb', 15 );
 // logo
 add_action( 'voodookit_do_logo', 'voodookit_logo', 10 );
 // slideout toggler
