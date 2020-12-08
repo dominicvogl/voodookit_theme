@@ -343,27 +343,33 @@ if (!function_exists('voodookit_get_icon')) {
 
 }
 
-
-/**
- *
- */
-
 if(! function_exists('voodookit_get_button') ) {
 
-	function voodookit_get_button($post) {
+	/**
+	 * render button with individual options
+	 * @version 0.1.2
+	 * @since 0.1
+	 * @author Dominic Vogl <dominic.vogl@cat-ia.de>
+	 * @return void
+	 */
+
+	function voodookit_get_button($post, $args = array()) {
 
 		if(!is_object($post)) {
 			return;
 		}
 
-		$args = [
+		$defaults = [
 			"link" => get_permalink($post),
-			"label" => $post->post_title
+			"label" => $post->post_title,
+			'class' => 'button'
 		];
+
+		$args = array_merge($defaults, $args);
 
 		?>
 		<div class="button-wrapper">
-			<a class="button" href="<?php echo $args['link'] ?>" title="<?php echo $args['label'] ?>"><?php _e('get more', 'voodookit'); ?></a>
+			<a class="<?php echo $args['class'] ?>" href="<?php echo $args['link'] ?>" title="<?php echo $args['label'] ?>"><?php _e('get more', 'voodookit'); ?></a>
 		</div>
 
 		<?php
