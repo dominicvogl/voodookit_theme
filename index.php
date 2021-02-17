@@ -10,11 +10,11 @@
 get_header();
 
 do_action( 'voodookit_do_before_main' );
-?>
 
-<main>
-	<?php do_action( 'voodookit_do_main' ); ?>
-</main>
+if( !gutenberg_block_exists('acf/introwithimage' )) {
+	do_action('voodookit_do_nav_breadcrumb');
+}
 
-<?php
+do_action( 'voodookit_do_main' );
+
 get_footer();

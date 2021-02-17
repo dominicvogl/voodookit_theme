@@ -1,0 +1,185 @@
+$twoteaser-element-gap: rem-calc(60) !default;
+$minimal-breakpoint: map_get($breakpoints, medium) / 2 !default;
+
+// https://blog.kulturbanause.de/2016/12/fliessend-skalierende-texte-und-schriftgroessen-mit-css-calc/
+$twoteaser-flex-font-size: calc(45px + (70 - 45) * ((100vw - 320px) / (1600 - 320))) !default;
+
+@mixin inverted_styles() {
+	color: $white;
+	padding: 0;
+}
+
+
+.twoteaser {
+
+	blockquote {
+		margin: 0;
+
+		p {
+			font-size: rem-calc(16);
+			line-height: 1.65em;
+			margin: 0;
+		}
+	}
+
+	.row {
+		@include breakpoint(medium) {
+			background: $hoffmeister-blue;
+			background: linear-gradient(180deg, #{$hoffmeister-blue} 0%, #{$hoffmeister-blue-light} 75%, #{$hoffmeister-blue} 100%);
+		}
+
+		&.full-width {
+			max-width: 100%;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.teaser_group {
+	position: relative;
+	padding-bottom: map_get($grid-column-gutter, small);
+	background: $hoffmeister-blue;
+	background: linear-gradient(180deg, #{$hoffmeister-blue} 0%, #{$hoffmeister-blue-light} 75%, #{$hoffmeister-blue} 100%);
+	flex-flow: column;
+
+	&:last-child {
+		.teaser_group--content,
+		.teaser_group--cta,
+		.teaser_group--headline {
+			margin-right: auto;
+			margin-left: 0;
+			text-align: left;
+		}
+	}
+
+	&.inverted {
+
+		.teaser_group--content {
+			background: none;
+			@include inverted_styles();
+
+			blockquote,
+			blockquote p {
+				@include inverted_styles();
+			}
+		}
+	}
+
+	@include breakpoint(medium) {
+		background: none;
+
+		&:first-child {
+			.teaser_group--content {
+				text-align: right;
+			}
+		}
+	}
+
+	@include breakpoint(large) {
+		padding-top: inherit;
+		padding-bottom: inherit;
+		display: flex;
+
+		&:first-child {
+			justify-content: flex-end;
+
+			.teaser_image {
+				text-align: right;
+			}
+
+			.teaser_content,
+			.teaser_group--overlay {
+				padding-right: 25px;
+			}
+		}
+
+		&:last-child {
+			justify-content: flex-start;
+
+			.teaser_content,
+			.teaser_group--overlay {
+				padding-left: 25px;
+			}
+		}
+	}
+
+}
+
+.teaser_content {
+	margin: $twoteaser-element-gap / 2.4;
+	min-height: 250px;
+}
+
+.teaser_group--overlay {
+	display: none;
+}
+
+.teaser_group--headline {
+	color: rgba(255, 255, 255, 0.4);
+	text-transform: uppercase;
+	display: none;
+}
+
+.teaser_image {
+	position: relative;
+}
+
+.teaser_group--cta {
+	margin: ($twoteaser-element-gap / 3) 0;
+
+	.button {
+		margin-bottom: 0;
+	}
+}
+
+
+
+@include breakpoint(large) {
+
+
+	.teaser_group--content {
+		max-width: 70%;
+		background-color: rgba(255, 255, 255, 0.7);
+		padding: map_get($grid-column-gutter, medium);
+		margin-left: auto;
+
+		h3 {
+			display: none;
+		}
+	}
+
+	.teaser_group--overlay {
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		background: none;
+		padding-top: map_get($grid-column-gutter, small);
+		padding-bottom: map_get($grid-column-gutter, small);
+	}
+
+	.teaser_group--headline {
+		display: block;
+		font-size: $twoteaser-flex-font-size;
+		word-break: break-all;
+		font-weight: 400;
+		text-align: right;
+	}
+
+	.teaser_group--cta {
+		text-align: right;
+		margin-top: $twoteaser-element-gap / 2;
+		margin-bottom: 0;
+	}
+}
+
+@include breakpoint(xlarge) {
+	.teaser_group--content {
+		max-width: 50%;
+	}
+}

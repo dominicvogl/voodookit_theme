@@ -16,7 +16,7 @@ if(! function_exists('voodookit_footer') ) {
 
 	function voodookit_footer() {
 
-		$logo = evolution_get_logo_src();
+		$logo = voodookit_get_logo_src();
 		?>
 
 		<footer class="mod mod-inner">
@@ -108,6 +108,17 @@ if (! function_exists('voodookit_before_footer') ) {
 
 	function voodookit_before_footer() {
 		return NULL;
+	}
+
+}
+
+
+if(! function_exists('voo_scrollToTop_button')) {
+
+	function voo_scrollToTop_button() {
+
+		echo '<button class="js-scroll-to-top button-scroll-to-top"><span class="icon icon-keyboard_arrow_top"></span></button>';
+
 	}
 
 }

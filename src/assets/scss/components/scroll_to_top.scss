@@ -1,0 +1,46 @@
+/**
+ * Define variables for the button component
+ */
+$scroll-btn-distance: 50px !default;
+$scroll-btn-font-size: 1.3em !default;
+$scroll-btn-background: #345345 !default;
+$scroll-btn-color: #fff !default;
+
+
+/**
+ * Define styles for the button component
+ */
+
+.button-scroll-to-top {
+	position: fixed;
+	bottom: $scroll-btn-distance;
+	right: $scroll-btn-distance;
+	padding: $scroll-btn-distance / 4;
+	font-size: $scroll-btn-font-size;
+	line-height: 1em;
+	background-color: $scroll-btn-background;
+	z-index: 9999999;
+	color: $scroll-btn-color;
+	opacity: 0;
+	transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+	will-change: transform;
+	transform: translate3d(0, 20px, 0);
+
+	&.fade-in {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+
+	@include breakpoint(medium) {
+		padding: $scroll-btn-distance / 2;
+	}
+
+	@media (hover: hover) {
+		transition: background-color 250ms ease-in-out;
+		cursor: pointer;
+
+		&:hover {
+			background-color: lighten($scroll-btn-background, 20%)
+		}
+	}
+}

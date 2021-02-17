@@ -37,7 +37,7 @@ $block_classes = trim(implode(' ', $block_classes), ' ');
 						}
 			echo
 						'<span class="feature-content">'.$feature['content'].'</span>
-						<span class="feature-title">'.$feature['label'].'</span>
+						<span class="feature-title">'.esc_html($feature['label']).'</span>
 					</div>
 				</div>';
 		}

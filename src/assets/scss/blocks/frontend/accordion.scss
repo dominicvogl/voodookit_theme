@@ -1,0 +1,64 @@
+.accordion-headline {
+	padding-top: rem-calc(15);
+	padding-bottom: rem-calc(6);
+	padding-right: 130px;
+	border-bottom: 1px solid $medium-gray;
+	color: $dark-gray;
+	font-size: 1.2em;
+
+	.open & {
+		color: $brand-primary;
+	}
+}
+
+.accordion-show-details {
+	$accordion-translate: translate3d(0,10px,0);
+	$accordion-detail-color: $medium-gray;
+
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 0.70em;
+	color: $accordion-detail-color;
+
+	&:after {
+		font-size: rem-calc(28);
+		transition: transform 300ms ease-in-out;
+		transform: $accordion-translate rotate(90deg);
+		color: $accordion-detail-color;
+		display: inline-block;
+	}
+
+	.open & {
+		$active-color: $brand-primary;
+
+		color: $active-color;
+		transition: color 300ms ease-in-out;
+
+		&:after {
+			transform: $accordion-translate rotate(270deg);
+			color: $active-color;
+		}
+	}
+}
+
+.accordion-content {
+	padding-top: rem-calc(20);
+}
+
+.accordion-item {
+	width: 100%;
+
+	@media (hover: hover) {
+
+		.accordion-headline,
+		.accordion-show-details {
+			transition: color 200ms ease-in-out;
+
+			&:hover {
+				color: $hoffmeister-red;
+			}
+		}
+	}
+}

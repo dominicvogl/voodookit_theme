@@ -1,6 +1,14 @@
 @import 'settings/var';
 @import 'settings/settings';
 
+// Gutenberg Blocks
+// Frontend
+@import 'blocks/frontend/googlemaps';
+
+// Backend
 @import 'blocks/backend/settings';
 @import 'blocks/backend/gutenberg';
 @import 'blocks/backend/carousel';
+@import 'blocks/backend/accordion';
+@import 'blocks/backend/tableofcontents';
+@import "blocks/frontend/block-styles";

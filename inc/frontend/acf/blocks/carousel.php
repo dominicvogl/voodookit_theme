@@ -27,7 +27,7 @@ $classlist = array(
 $classlist = implode(' ', $classlist);
 
 ?>
-<section id="<?php echo $id; ?>" class="<?php echo $name; ?> <?php echo $align_class; ?>">
+<section id="<?php echo $id; ?>" class="<?php echo esc_attr($name); ?> <?php echo esc_attr($align_class); ?>">
 
 	<div class="row <?php echo voodookit_check_fixed_width(); ?>">
 		<div class="column small-12">
@@ -40,7 +40,7 @@ $classlist = implode(' ', $classlist);
 					echo
 						'<div>
 							<div class="slide-title">
-								<span>'.$slide['title'].'</span>
+								<span>'.esc_html($slide['title']).'</span>
 							</div>
 							'.wp_get_attachment_image($slide['image']['id'], 'voodookit-slider', false, ['class' => 'slide-image']).'
 						</div>';

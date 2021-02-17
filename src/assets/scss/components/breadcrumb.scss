@@ -1,0 +1,15 @@
+$breadcrumbs-margin: 30px !default;
+
+.topper {
+	margin-top: $global-margin;
+	margin-bottom: $global-margin * 1.5;
+}
+
+.breadcrumbs {
+	.icon-keyboard_arrow_right {
+		font-size: rem-calc(18);
+		transform: translate3d(0, 4px, 0);
+		display: inline-block;
+	}
+
+}

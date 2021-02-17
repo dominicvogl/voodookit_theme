@@ -1,7 +1,81 @@
 $footer-background: #808080 !default;
-$footer-font-color: #fff !default;
+$footer-font-color: #a3a3a3 !default;
+$footer-link-color: #a3a3a3 !default;
+$footer-link-color--hover: #fff !default;
 
 footer {
 	background: $footer-background;
 	color: $footer-font-color;
+
+	a {
+		color: $footer-link-color;
+
+		&:hover {
+			color: $footer-link-color--hover;
+		}
+	}
+}
+
+@include breakpoint(medium) {
+	.footer--logo {
+		text-align: left;
+	}
+}
+
+
+@include breakpoint(large) {
+	.footer--logo {
+		img {
+			margin-left: 2px;
+		}
+	}
+}
+
+.footer--seo {
+	margin-top: 2em;
+
+	p {
+		line-height: 1.4em;
+	}
+}
+
+.copyright-navigation {
+	@include breakpoint(large) {
+		.menu {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+
+			li {
+				&:not(:last-child) {
+					margin-right: rem-calc(8);
+				}
+			}
+		}
+	}
+}
+
+.footer-address {
+	font-style: normal;
+
+	table {
+		border-spacing: 0;
+
+		td {
+			padding: 0;
+			line-height: $paragraph-lineheight + em;
+			white-space: nowrap;
+
+			&:first-child {
+				padding-right: 10px;
+			}
+		}
+	}
+}
+
+.footer-copyright {
+	font-size: rem-calc(15);
+	border-top: 1px solid #707070;
+	margin-top: map_get($grid-column-gutter, small);
+	padding-top: map_get($grid-column-gutter, small);
 }

@@ -12,7 +12,14 @@
 
 </head>
 
-<body <?php body_class('voodookit'); ?> data-slideout-ignore>
+<?php
+$body_classes[] = 'voodookit';
+if(WP_DEBUG) {
+	$body_classes[] = 'debug';
+}
+?>
+
+<body <?php body_class(implode(' ', $body_classes)); ?> data-slideout-ignore>
 
 <!-- Module, Navigation + Logo -->
 

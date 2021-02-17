@@ -1,5 +1,9 @@
 $intro-content-margin: 30px !default;
-$intro-content-color: $white;
+$intro-content-color: #fff !default;
+
+.introwithimage {
+	position: relative;
+}
 
 .intro-block {
 	background-size: cover;
@@ -9,4 +13,105 @@ $intro-content-color: $white;
 .intro-content {
 	margin: $intro-content-margin 0;
 	color: $intro-content-color;
+	font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1200 - 320)));;
+	line-height: 1.55em;
 }
+
+.intro-image {
+	width: 100%;
+	height: auto;
+}
+
+.intro-overlay {
+	// background: $hoffmeister-blue-light;
+	// padding: $global-margin / 2;
+
+	.intro-title {
+		margin-bottom: 0;
+	}
+
+	@include breakpoint(large) {
+		position: absolute;
+		background: none;
+		padding: 0;
+		top: 50%;
+		transform: translate3d(0, -50%, 0);
+		left: 0;
+		width: 100%;
+
+	}
+}
+
+.intro-overlay--content {
+
+	.innerbox & {
+		width: 100%;
+		background-color: $hoffmeister-blue;
+		background-image: url('../img/Hofmeister_bg_3000x1800px.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		padding: map_get($grid-margin-gutters, small) * 2;
+
+		.intro-content {
+			margin-top: 0;
+		}
+
+		.button {
+			margin-bottom: 0;
+		}
+
+		@include breakpoint(large) {
+			max-width: 60vw;
+		}
+
+		@include breakpoint(xxlarge) {
+			max-width: 30vw;
+		}
+	}
+
+
+}
+
+%font-headline-settings {
+	line-height: 1em;
+}
+
+.intro-title {
+	font-size: rem-calc(30);
+	font-weight: normal;
+	color: $intro-content-color;
+	text-shadow: $headline-text-shadow;
+	@extend %font-headline-settings;
+
+	//&:after {
+	//	content: "";
+	//	display: block;
+	//	background: $hoffmeister-red;
+	//	width: 190px;
+	//	height: 7px;
+	//	margin: rem-calc(15) 0;
+	//}
+
+	@include breakpoint(medium) {
+		font-size: rem-calc(70);
+		transform: translateX(-6px);
+	}
+
+	@include breakpoint(large) {
+		font-size: rem-calc(90);
+	}
+}
+
+.intro-subtitle {
+	color: $white;
+	font-size: rem-calc(15);
+	font-weight: 600;
+	text-transform: uppercase;
+
+	@extend %font-headline-settings;
+
+	@include breakpoint(medium) {
+		font-size: rem-calc(16);
+	}
+}
+

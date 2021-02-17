@@ -3,22 +3,16 @@ $toggler-color: #fff !default;
 $toggler-background: map_get($foundation-palette, primary) !default;
 
 .toggler-wrapper {
-	background: $toggler-background;
 	color: $toggler-color;
-	position: fixed;
-	z-index: 100;
-	bottom: 0;
-	left: 0;
-	right: 0;
 }
 
 .toggle-button {
 	display: flex;
 	flex: 1 1 auto;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
 	font-weight: bold;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	padding: rem-calc(5 0);
 
 	.button-bars {

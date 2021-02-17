@@ -1,0 +1,87 @@
+// variables
+$slide-title-bg: #f07779 !default;
+$slide-title-color: #fff !default;
+$slide-arrow-bg: #fff !default;
+$slide-arrow-color: #f0f !default;
+$slide-arrow-bg-circle: 50px !default;
+
+
+// styles
+.slick--card-carousel {
+
+	.slick-slide {
+		max-width: 75vw;
+		margin-right: map_get($grid-column-gutter, small);
+	}
+}
+
+.slick-slider {
+	.slick-slide {
+		position: relative;
+
+		.slide-title {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: $slide-title-bg;
+			color: $slide-title-color;
+			font-size: 1.4em;
+			padding: 0.5rem 1rem;
+		}
+	}
+}
+
+// Arrow styles
+
+.slick-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translate3d(0, -50%, 0);
+	transition: color 200ms ease-in-out;
+	font-size: 8em;
+	z-index: 99;
+	line-height: 0.7em;
+	color: $slide-arrow-bg;
+	outline: none;
+
+	&:after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		background-color: rgba(0,0,0,0.65);
+		border-radius: $slide-arrow-bg-circle * 2;
+		@include square($slide-arrow-bg-circle * 1.8);
+		@include position-abs(-3px, 0, 0, 16px);
+		backdrop-filter: blur(5px);
+	}
+
+	&.slick-prev {
+		left: 0;
+	}
+
+	&.slick-next {
+		right: 0;
+
+		&:after {
+			left: 14px;
+		}
+	}
+
+	&:hover {
+		cursor: pointer;
+		color: transparentize($slide-arrow-bg, 0.3);
+	}
+}
+
+@include breakpoint(medium) {
+
+	.slick--card-carousel {
+
+		.slick-slide {
+			max-width: 50vw;
+		}
+	}
+
+}
+

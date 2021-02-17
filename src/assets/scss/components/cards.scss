@@ -1,0 +1,47 @@
+.downloadcenter {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.dl--card {
+	display: flex;
+	flex-wrap: wrap;
+	flex-basis: calc(960px * 999 - 100% * 999);
+	//margin: map_get($grid-column-gutter, small);
+	background-color: $light-gray;
+
+	> * {
+		flex: 1 1 300px;
+	}
+}
+
+.dl--content {
+	align-self: center;
+	text-align: center;
+	padding: map_get($grid-column-gutter, small);
+}
+
+.dl--description,
+.dl--caption {
+	display: block;
+	margin-bottom: $global-margin;
+}
+
+.dl--description {
+	font-size: 1.1em;
+}
+
+.dl--image {
+	img {
+		min-width: 300px;
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+.dl--button-wrapper {}
+
+.dl--filesize {
+	color: $dark-gray;
+}

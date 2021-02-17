@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Voodookit\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-05 20:11+0000\n"
-"PO-Revision-Date: 2019-08-10 19:04+0200\n"
+"PO-Revision-Date: 2021-02-04 16:20+0100\n"
 "Last-Translator: Dominic Vogl <dv@cat-ia.de>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -11,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.4.2\n"
 
 # Navigation name
 msgid "Main Navigation"
@@ -26,3 +26,42 @@ msgstr "Dominic Vogl"
 
 msgid "This framework was made with Wordpress, Voodookit and love by"
 msgstr ""
+
+msgid "tel"
+msgstr "Telefon"
+
+msgid "mail"
+msgstr "E-Mail"
+
+msgid "fax"
+msgstr "Telefax"
+
+msgid "navigation"
+msgstr "Navigation"
+
+msgid "address"
+msgstr "Adresse"
+
+msgid "contact"
+msgstr "Kontakt"
+
+msgid "2021 Carpentry Hoffmann - made by"
+msgstr "2021 Zimmerrei Hoffmann -"
+
+msgid "you are here: "
+msgstr "Sie sind hier: "
+
+msgid "get more"
+msgstr "mehr erfahren"
+
+msgid "filesize "
+msgstr "Dateigröße: "
+
+msgid "kb"
+msgstr "KB"
+
+msgid "show details"
+msgstr "Details anzeigen"
+
+msgid "download file now"
+msgstr "Datei herunterladen"

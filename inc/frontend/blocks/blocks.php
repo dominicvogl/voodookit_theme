@@ -21,6 +21,9 @@ if(! function_exists('voodookit_wrapping_core_blocks') ) {
 			'core/paragraph',
 			'core/list',
 			'core/html',
+			'core/buttons',
+			'core/quote',
+			'contact-form-7/contact-form-selector'
 		];
 
 		// check if current block is in the list
@@ -52,3 +55,21 @@ if(! function_exists('voodookit_wrapping_core_blocks') ) {
 }
 
 add_filter( 'render_block', 'voodookit_wrapping_core_blocks', 10, 3);
+
+
+
+if(!function_exists('voodookit_allowed_block_types')) {
+
+	function voodookit_allowed_block_types( $allowed_block_types, $post ) {
+		if ( $post->post_type === 'libro' ) {
+			return array(
+				'core/paragraph',
+				'core/image',
+				'core/list'
+			);
+		}
+		return $allowed_block_types;
+	}
+}
+
+//add_filter( 'allowed_block_types', 'voodookit_allowed_block_types', 10, 2 );

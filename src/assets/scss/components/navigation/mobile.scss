@@ -1,15 +1,45 @@
 $navigation-gap: 30px !default;
 
 .navigation-mobile {
+	margin: $basic-gap;
+
+	a {
+		color: $white;
+		font-size: 1.1em;
+		line-height: 1.25em;
+		margin-top: 0.8em;
+		display: block;
+	}
+
+	// if multiple navigations are in row / column
 	+ .navigation-mobile {
 		margin-top: $navigation-gap;
 		border-top: 1px solid #909090;
-		padding-top: $navigation-gap;
+		padding-top: ($navigation-gap - 5px);
 	}
 
 	&.secondary {
 		font-size: 85%;
 	}
-}
 
-.menu.mobile {}
+	.current-menu-item {
+		a {
+			color: $hoffmeister-red-dark;
+		}
+	}
+
+	&.socials {
+		display: flex;
+		list-style: none;
+
+		li {
+			&:not(:first-child) {
+				margin-left: 15px;
+			}
+		}
+
+		a {
+			font-size: 1.8em;
+		}
+	}
+}

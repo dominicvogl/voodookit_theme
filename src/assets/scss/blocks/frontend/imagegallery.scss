@@ -1,0 +1,45 @@
+.imagegallery {
+	ul {
+		list-style: none;
+	}
+
+	li {
+		margin-top: $global-margin/ 2;
+		margin-bottom: $global-margin / 2;
+		//display: block;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+}
+
+.swipebox {
+	position: relative;
+	overflow: hidden;
+
+	img {
+		will-change: transform;
+		transition: transform 250ms ease-in-out, filter 250ms ease-in-out;
+	}
+
+	&:hover {
+		img {
+			transform: scale(1.05);
+			filter: blur(2px);
+		}
+	}
+
+	.image--overlay {
+		position: absolute;
+		bottom: $global-margin;
+		left: 0;
+		right: 0;
+		text-align: center;
+		color: $white;
+		word-break: break-word;
+		margin: 0 $global-margin / 2;
+	}
+}

@@ -11,11 +11,18 @@ if ( ! function_exists( 'voodookit_header' ) ) {
 
 	function voodookit_header() {
 
-		echo '<header class="page-header main-header row full-width align-middle">';
-		echo '<div class="column small-12 large-3">';
+		echo '<header class="page-header main-header">';
+		echo '<div class="row align-middle">';
+
+		echo '<div class="column small-9 medium-3">';
 		do_action('voodookit_do_logo');
 		echo '</div>';
+		echo '<div class="column small-3 hide-for-medium">';
+		do_action('voodookit_do_slideout_toggler');
+		echo '</div>';
 		do_action('voodookit_do_navigation');
+
+		echo '</div>';
 		echo '</header>';
 	}
 
@@ -31,12 +38,11 @@ if ( ! function_exists( 'voodookit_logo' ) ) {
 		}
 
 		$logo_src = esc_url( get_theme_mod( 'evolution_logo' ) );
-		list ( $logo_size ) = getimagesize( $logo_src );
 
 		echo
 			'<div class="logo">
 				<a href="'.get_home_url().'" target="_self">
-					<img src="' . $logo_src . '" width="'.$logo_size[0].'" height="'.$logo_size[1].'" />
+					' . wp_get_attachment_image( attachment_url_to_postid($logo_src), 'full' ) . '
 				</a>
 			</div>';
 
@@ -48,15 +54,22 @@ if ( ! function_exists( 'voodookit_navigation' ) ) {
 
 	function voodookit_navigation() {
 
-		echo '<nav role="navigation" class="column small-9 show-for-large menu desktop horizontal">';
-		wp_nav_menu(
-			[
-				'container' => '',
-				'menu_class' => 'menu desktop horizontal',
-				'theme_location' => 'primary'
-			]
-		);
-		echo '</nav>';
+		?>
+		<nav role="navigation" class="column small-9 medium-9 show-for-medium">
+			<ul class="menu desktop horizontal">
+
+			<?php
+			wp_nav_menu(
+				[
+					'container' => '',
+					'items_wrap' => '%3$s',
+					'theme_location' => 'primary'
+				]
+			);
+			?>
+			</ul>
+		</nav>
+		<?php
 
 	}
 
@@ -80,9 +93,12 @@ if ( ! function_exists( 'voodookit_navigation_mobile' ) ) {
 				'container' => 'nav',
 				'container_class' => 'navigation-mobile secondary',
 				'menu_class' => 'js-accordion-menu menu mobile vertical accordion-menu',
-				'theme_location' => 'footer'
+				'theme_location' => 'copyright'
 			]
 		);
+
+		?>
+		<?php
 
 	}
 
@@ -93,9 +109,8 @@ if ( ! function_exists('voodookit_slideout_toggler') ) {
 	function voodookit_slideout_toggler() {
 
 		echo
-			'<div class="toggler-wrapper hide-for-large js-toggle-slideout">
+			'<div class="toggler-wrapper js-toggle-slideout">
 				<div class="toggle-button">
-					<span class="button-label">'.__("Nav Menu", "voodookit").'</span>
 					<div class="button-bars">
 						<span class="bar"></span>
 						<span class="bar"></span>

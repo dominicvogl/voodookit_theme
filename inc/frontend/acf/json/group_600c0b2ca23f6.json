@@ -1,0 +1,42 @@
+{
+    "key": "group_600c0b2ca23f6",
+    "title": "Block: Google Maps API",
+    "fields": [
+        {
+            "key": "field_600c0c163798f",
+            "label": "Google Maps",
+            "name": "google_maps_api",
+            "type": "google_map",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "",
+            "center_lng": "",
+            "zoom": 12,
+            "height": 500
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/google-maps"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1611404951
+}

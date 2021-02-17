@@ -1,0 +1,50 @@
+{
+    "key": "group_6014396eb46a2",
+    "title": "Seitenüberschrift",
+    "fields": [
+        {
+            "key": "field_601439765bb4e",
+            "label": "Ausrichtung Seitenüberschrift",
+            "name": "alignment_headline",
+            "type": "select",
+            "instructions": "In welche Richtung soll der Seitentitel ausgerichtet werden. Links, rechts oder mittig?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "links",
+                "right": "rechts",
+                "center": "mittig"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1611953453
+}

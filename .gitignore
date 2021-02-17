@@ -1,27 +1,17 @@
 ## ignore folders
-
-# general folders
+.idea
+.vscode
 node_modules
 bower_components
 
-# wordpress specific
-core
-custom/languages/
-custom/upgrades/
-custom/uploads/
-custom/plugins/
-
-
 ## ignore Files
-
-.idea
 .DS_Store
-package-lock.json
 ._*
 .Spotlight-V100
 .Trashes
 ehthumbs.db
 Thumbs.db
+package-lock.json
 debug.log
 *.psd
 *.ai

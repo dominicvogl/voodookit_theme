@@ -267,20 +267,53 @@ function wp_get_attachment_meta($attachment_id)
 	);
 }
 
-if ( function_exists('add_theme_support') ) {
-	add_theme_support( 'post-thumbnails' );
 
-	add_image_size( 'square-large', 800, 800, true);
-	add_image_size( 'thumbnail-wide', 600, 400, true);
-	add_image_size( 'thumbnail-high', 300, 400, true);
-	add_image_size( 'medium-large', 800, 800 );
+if ( !function_exists('set_image_sizes')) {
+
+	/**
+	 * add image sizes in loop
+	 */
+
+	function set_image_sizes() {
+
+		if ( function_exists('add_theme_support') ) {
+			add_theme_support( 'post-thumbnails' );
+
+			$sizes = [
+				[
+					"name" => "square-large",
+					"width" => 800,
+					"height" => 800,
+					"crop" => true
+				],
+				[
+					"name" => "thumbnail-wide",
+					"width" => 600,
+					"height" => 400,
+					"crop" => true
+				],
+				[
+					"name" => "thumbnail-high",
+					"width" => 300,
+					"height" => 400,
+					"crop" => true
+				],
+				[
+					"name" => "medium-large",
+					"width" => 800,
+					"height" => 800,
+					"crop" => true
+				]
+			];
+
+			foreach($sizes as $size) {
+				add_image_size($size['name'], $size['width'], $size['height'], $size['crop']);
+			}
+		}
+	}
 }
 
-//function alter_att_attributes_wpse_102079($attr) {
-//	$attr['data-lazy'] = $attr['src'];
-//	return $attr;
-//}
-//add_filter( 'wp_get_attachment_image_attributes', 'alter_att_attributes_wpse_102079');
+
 
 /**
  * @param $ID
@@ -290,24 +323,20 @@ if ( function_exists('add_theme_support') ) {
 
 function get_image_caption($ID) {
 
-	if(empty($ID))
-		return false;
+	if(empty($ID)) {
+		return '';
+	}
 
 	$attachment = get_post($ID);
 
-	$post_title = '';
 	if($attachment->post_title) {
-		$post_title = $attachment->post_title;
+		return $attachment->post_title;
 	}
 	elseif($attachment->post_excerpt) {
-		$post_title = $attachment->post_excerpt;
-	}
-	elseif($attachment->post_content) {
-		$post_title = $attachment->post_excerpt;
+		return $attachment->post_excerpt;
 	}
 
-	return $post_title;
-
+	return '';
 }
 
 

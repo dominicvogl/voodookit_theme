@@ -6,14 +6,14 @@
  * @package Voodookit
  * @author Dominic Vogl
  * @since 1.0.0
- * @version 1.2
+ * @version 2.0.0
  */
 
 
 /**
  * Define some Voodookit constants
  * @since 1.0.0
- * @version 1.2
+ * @version 2.0.0
  */
 
 define( 'VOODOOKIT_INC_DIR', '/inc' );
@@ -43,7 +43,6 @@ voodookit_load_template_file( VOODOOKIT_BACKEND_DIR . '/editor.php' );
 // load frontend stuff
 voodookit_load_template_file( VOODOOKIT_FRONTEND_DIR . '/head.php' );
 voodookit_load_template_file( VOODOOKIT_FRONTEND_DIR . '/images.php' );
-voodookit_load_template_file( VOODOOKIT_FRONTEND_DIR . '/navigation.php' );
 
 // extend core blocks
 voodookit_load_template_file( VOODOOKIT_FRONTEND_DIR . '/blocks/blocks.php' );
@@ -60,14 +59,13 @@ voodookit_load_template_file( VOODOOKIT_HELPER_DIR . '/helper.php' );
 voodookit_load_template_file( VOODOOKIT_HELPER_DIR . '/shortcodes.php' );
 
 // load custom nav walker
-voodookit_load_template_file( VOODOOKIT_HELPER_DIR . '/nav-walker.php' );
+voodookit_load_template_file( VOODOOKIT_HELPER_DIR . '/breadcrumb.php' );
 
 
 // load structure
 voodookit_load_template_file( VOODOOKIT_STRUCTURE_DIR . '/slideout.php');
 voodookit_load_template_file( VOODOOKIT_STRUCTURE_DIR . '/header.php');
 voodookit_load_template_file( VOODOOKIT_STRUCTURE_DIR . '/index.php');
-voodookit_load_template_file(VOODOOKIT_STRUCTURE_DIR . '/sidebar.php');
 voodookit_load_template_file(VOODOOKIT_STRUCTURE_DIR . '/footer.php');
 
 // load hooks

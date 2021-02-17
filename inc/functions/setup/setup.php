@@ -38,7 +38,8 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 		// register and use wp_nav_menu() for navigation
 		register_nav_menus( array(
 			'primary' => __( 'Main Navigation', 'voodookit' ),
-			'footer'  => __( 'Footer Navigation', 'voodookit' )
+			'footer'  => __( 'Footer Navigation', 'voodookit' ),
+			'copyright'  => __( 'Copyright Navigation', 'voodookit' )
 		) );
 
 		add_theme_support( 'html5', [ 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ] );
@@ -49,6 +50,9 @@ if ( ! function_exists( 'voodookit_setup' ) ) {
 		// This theme styles the visual editor to resemble the theme style.
 		// @todo set right path for the editor later
 		add_editor_style( array( 'css/normalize.css', 'style.css', 'css/editor-style.css' ) );
+
+		// deaktivate xmlrpc interface
+		add_filter( 'xmlrpc_enabled', '__return_false' );
 
 	}
 
@@ -168,3 +172,22 @@ if(! function_exists('voodookit_ignore_upload_ext') ) {
 }
 
 add_filter('wp_check_filetype_and_ext', 'voodookit_ignore_upload_ext', 10, 4);
+
+
+// Ab hier kopieren
+if (!function_exists('dVoo_redirect_after_login_errors')) {
+
+	/**
+	 * Redirect auf Google nach falscher Eingabe der WP-Zugangsdaten
+	 */
+	function dVoo_redirect_after_login_errors()
+	{
+
+		wp_redirect('https://www.google.de');
+		exit;
+	}
+
+	add_filter('login_errors', 'dVoo_redirect_after_login_errors');
+}
+
+

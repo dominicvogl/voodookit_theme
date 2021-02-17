@@ -1,5 +1,8 @@
 # Changelog
 
+# 3.0.0-alpha1
+* coming sonn (maybe)
+
 ## 0.1.3
 ### NEW
 * add second parameter for ```voodookit_get_button``` with an array and some options

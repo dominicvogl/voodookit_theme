@@ -1,0 +1,7 @@
+$lg-thumb-radius: 4px !default;
+
+.lg-outer {
+	.lg-thumb-item {
+		border-radius: $lg-thumb-radius;
+	}
+}

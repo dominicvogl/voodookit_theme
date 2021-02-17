@@ -48,6 +48,20 @@
 	appearance: $value;
 }
 
+@mixin square(
+	$value: 30px
+) {
+	width: $value;
+	height: $value;
+}
+
+@mixin position-abs($top, $right, $bottom, $left) {
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
 
 @mixin touch-callout ($value) {
 	-webkit-touch-callout: $value;

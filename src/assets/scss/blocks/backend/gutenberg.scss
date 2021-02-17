@@ -1,5 +1,10 @@
 $gutenberg-editor-width: 1200px !default;
 $gutenberg-editor-sidebar-width: 480px !default;
+$gutenberg-editor-block-width: 800px !default;
+
+.wp-block {
+	max-width: $gutenberg-editor-block-width;
+}
 
 .edit-post-visual-editor {
 	.editor-block-list__block {

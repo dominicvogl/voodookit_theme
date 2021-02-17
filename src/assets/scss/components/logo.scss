@@ -1,5 +1,4 @@
 .logo {
-	text-align: center;
 	padding: 1rem 0;
 
 	a {
@@ -8,13 +7,6 @@
 
 	img,
 	svg {
-		max-width: rem-calc(140);
-	}
-}
-
-@include breakpoint(large) {
-
-	.logo {
-		text-align: inherit;
+		max-width: rem-calc(230);
 	}
 }

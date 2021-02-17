@@ -3,7 +3,7 @@ $slideout-bg: #ebebeb !default;
 
 .slideout-menu {
 	position: fixed;
-	left: 0;
+	//left: 0;
 	top: 0;
 	bottom: 0;
 	right: 0;
@@ -13,9 +13,16 @@ $slideout-bg: #ebebeb !default;
 	-webkit-overflow-scrolling: touch;
 	display: none;
 	background-color: $slideout-bg;
+	//background-image: url('../img/Hofmeister_bg_3000x1800px.jpg');
+	//background-repeat: no-repeat;
 
 	.logo {
 		margin: map_get($grid-column-gutter, small) auto;
+
+		img {
+			max-width: 100%;
+			margin: 0 map_get($grid-margin-gutters, small);
+		}
 	}
 }
 

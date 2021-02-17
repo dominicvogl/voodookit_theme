@@ -1,0 +1,154 @@
+@font-face {
+	font-family: "space_icon";
+	src: url('../fonts/generated/space_icon.eot');
+	src: url('../fonts/generated/space_icon.eot?#iefix') format('eot'),
+		url('../fonts/generated/space_icon.woff2') format('woff2'),
+		url('../fonts/generated/space_icon.woff') format('woff'),
+		url('../fonts/generated/space_icon.ttf') format('truetype'),
+		url('../fonts/generated/space_icon.svg#space_icon') format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "space_icon";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == cloud-download {
+		$char: "\E001";
+	}
+	@if $filename == envelope-square {
+		$char: "\E002";
+	}
+	@if $filename == external {
+		$char: "\E003";
+	}
+	@if $filename == file-pdf {
+		$char: "\E004";
+	}
+	@if $filename == heart-full {
+		$char: "\E005";
+	}
+	@if $filename == keyboard_arrow_left {
+		$char: "\E006";
+	}
+	@if $filename == keyboard_arrow_right {
+		$char: "\E007";
+	}
+	@if $filename == keyboard_arrow_top {
+		$char: "\E008";
+	}
+	@if $filename == logo-facebook {
+		$char: "\E009";
+	}
+	@if $filename == logo-instagram {
+		$char: "\E00A";
+	}
+	@if $filename == phone-square {
+		$char: "\E00B";
+	}
+	@if $filename == zoom {
+		$char: "\E00C";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-cloud-download {
+	@include icon(cloud-download);
+}
+.icon-envelope-square {
+	@include icon(envelope-square);
+}
+.icon-external {
+	@include icon(external);
+}
+.icon-file-pdf {
+	@include icon(file-pdf);
+}
+.icon-heart-full {
+	@include icon(heart-full);
+}
+.icon-keyboard_arrow_left {
+	@include icon(keyboard_arrow_left);
+}
+.icon-keyboard_arrow_right {
+	@include icon(keyboard_arrow_right);
+}
+.icon-keyboard_arrow_top {
+	@include icon(keyboard_arrow_top);
+}
+.icon-logo-facebook {
+	@include icon(logo-facebook);
+}
+.icon-logo-instagram {
+	@include icon(logo-instagram);
+}
+.icon-phone-square {
+	@include icon(phone-square);
+}
+.icon-zoom {
+	@include icon(zoom);
+}
+
+
+.icon-cloud-download-after {
+	@include icon(cloud-download, after);
+}
+.icon-envelope-square-after {
+	@include icon(envelope-square, after);
+}
+.icon-external-after {
+	@include icon(external, after);
+}
+.icon-file-pdf-after {
+	@include icon(file-pdf, after);
+}
+.icon-heart-full-after {
+	@include icon(heart-full, after);
+}
+.icon-keyboard_arrow_left-after {
+	@include icon(keyboard_arrow_left, after);
+}
+.icon-keyboard_arrow_right-after {
+	@include icon(keyboard_arrow_right, after);
+}
+.icon-keyboard_arrow_top-after {
+	@include icon(keyboard_arrow_top, after);
+}
+.icon-logo-facebook-after {
+	@include icon(logo-facebook, after);
+}
+.icon-logo-instagram-after {
+	@include icon(logo-instagram, after);
+}
+.icon-phone-square-after {
+	@include icon(phone-square, after);
+}
+.icon-zoom-after {
+	@include icon(zoom, after);
+}

@@ -1,0 +1,24 @@
+a {
+	font-weight: 600;
+}
+
+a[href$=".pdf"] {
+
+	@include icon(file-pdf, after);
+
+	&:after {
+		font-size: 1.5em;
+		display: inline-block;
+		transform: translateY(4px);
+	}
+
+	&.button.icon-cloud-download-after {
+		@include icon(cloud-download, after);
+
+		&:after {
+			line-height: 0;
+			transform: translateY(7px);
+			margin-left: 6px;
+		}
+	}
+}

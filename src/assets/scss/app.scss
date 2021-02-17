@@ -1,39 +1,77 @@
-// settings
+// Fonts
+@import "fonts/fontface";
+@import "generated/generated";
+
+// Settings
 @import "settings/var";
 @import "settings/settings";
 @import "settings/foundation";
 
-// mixins
+// Mixins
 @import "mixins/mixins";
 
-// foundation
-@include foundation-everything
+// Ex: Foundation
+@include foundation-everything;
 
-// vendors
-@import '../../../node_modules/slick-slider/slick/slick.scss';
-@import '../../../node_modules/lazyloadxt/dist/jquery.lazyloadxt.fadein';
-@import '../../../node_modules/swipebox/scss/swipebox';
+// Ex: Vendors
+@import 'slick-carousel/slick/slick.scss';
+//@import 'lazyloadxt/dist/jquery.lazyloadxt.fadein';
+//@import 'swipebox/scss/swipebox';
+@import 'accordion/src/accordion';
+@import 'lightgallery/src/sass/lightgallery';
 
-// own components
+//@import '../../vendor/swipebox/scss/swipebox';
+
+// Elements
+@import "elements/headlines";
+@import "elements/blockquotes";
+@import "elements/button";
+@import "elements/anchors";
+
+// Gutenberg block styles
+@import "blocks/frontend/block-styles";
+
+// Components
 @import "components/grid";
 @import "components/basis";
 @import "components/images";
 @import "components/header";
 @import "components/logo";
+@import "components/breadcrumb";
+@import "components/slider";
+@import "components/cards";
 @import "components/sprites";
+@import "components/forms";
+@import "components/wpcf7";
+@import "components/carousel";
 @import "components/footer";
+@import "components/search";
 @import "components/masonry";
+@import "components/iframe";
 @import "components/swipebox";
 @import "components/navigation/global";
 @import "components/navigation/desktop";
 @import "components/navigation/mobile";
 @import "components/navigation/footer";
 @import "components/slideout";
+@import "components/scroll_to_top";
 @import "components/toggler";
 @import "components/social";
 
-// own gutenberg blocks
-@import "blocks/frontend/carousel";
+// Gutenberg Blocks
+@import "blocks/frontend/lightgallery";
+@import "blocks/frontend/googlemaps";
+@import "blocks/frontend/accordion";
+@import "blocks/frontend/imagegallery";
+@import "blocks/frontend/blocks";
 @import "blocks/frontend/postfeed";
 @import "blocks/frontend/featuredcontents";
 @import "blocks/frontend/introwithimage";
+@import "blocks/frontend/twoteaser";
+@import "blocks/frontend/small-teaser";
+@import "blocks/frontend/imageandcontent";
+@import "blocks/frontend/imagepagecarousel";
+@import "blocks/frontend/tableofcontents";
+
+// layout based styles
+@import "layout/page-header";

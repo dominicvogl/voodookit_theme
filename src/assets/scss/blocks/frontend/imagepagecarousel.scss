@@ -1,0 +1,41 @@
+$carousel-background: #00f !default;
+$carousel-text-color: #fff !default;
+
+@mixin set-carousel-color(
+	$background: $carousel-background,
+	$text-color: $carousel-text-color
+) {
+
+	background: $background;
+	color: $text-color;
+
+	a {
+		color: $text-color;
+	}
+
+	h2,
+	h3 {
+		color: $text-color;
+	}
+
+}
+
+.imagepagecarousel {
+	padding: map_get($grid-column-gutter, medium) 0;
+
+	&.blue {
+		@include set-carousel-color();
+	}
+
+	&.beige {
+		@include set-carousel-color($hoffmeister-beige, $dark-gray);
+	}
+
+	&.red {
+		@include set-carousel-color($hoffmeister-red, $white);
+	}
+
+	h2 {
+		margin: map_get($grid-column-gutter, medium) 0 map_get($grid-column-gutter, medium)
+	}
+}

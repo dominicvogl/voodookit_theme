@@ -1,0 +1,46 @@
+$small-teaser-color: #fff !default;
+
+.small_teaser--wrapper {
+	position: relative;
+	margin: ($global-margin * 0.25) 0;
+}
+
+.small_teaser--title {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	display: block;
+	font-size: rem-calc(21);
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.25em;
+	z-index: 10;
+	color: $small-teaser-color;
+	padding: $global-margin;
+	text-shadow: $headline-text-shadow;
+
+	@include breakpoint(large) {
+		font-size: rem-calc(24);
+	}
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.small_teaser--wrapper {
+		overflow: hidden;
+
+		a {
+			img {
+				transition: transform 400ms ease-out, filter 400ms ease-out;
+				will-change: transform;
+			}
+
+			&:hover {
+				img {
+					filter: blur(2px);
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+}

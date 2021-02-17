@@ -1,0 +1,14 @@
+$global-reduced-width: calc(#{$global-width} - 150px) !default;
+
+@include breakpoint(large) {
+
+	.is-style-two-column-paragraph {
+		columns: 2;
+		column-gap: $global-margin;
+	}
+
+	.is-style-fixed-width-buttons {
+		max-width: $global-reduced-width;
+	}
+
+}

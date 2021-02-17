@@ -1,0 +1,54 @@
+$global-reduced-width: calc(#{$global-width} - 150px) !default;
+
+.app--wrapper {
+	> .block {
+		&-paragraph,
+		&-heading,
+		&-quote,
+		&-buttons,
+		&-list {
+			@include flex-grid-row(collapse, ($global-width), null, true, true, map_get($grid-column-gutter, small));
+			@include flex-grid-column();
+			max-width: $global-reduced-width;
+		}
+	}
+}
+
+.block-paragraph {
+	margin-bottom: $global-margin;
+}
+
+.block-buttons {
+	.wp-block-buttons {
+		padding-left: 0;
+		padding-right: 0;
+		max-width: $global-reduced-width;
+	}
+}
+
+.block-contact-form-selector,
+.wp-block-buttons {
+	@include flex-grid-row(collapse, $global-reduced-width, null, true, true, map_get($grid-column-gutter, small));
+	@include flex-grid-column();
+}
+
+.wp-block-columns {
+	@include flex-grid-row(collapse, $global-reduced-width, null, true, true, map_get($grid-column-gutter, small));
+
+	.wp-block-column {
+		@include flex-grid-column();
+		//padding: 0;
+
+		.block-paragraph {
+			padding: 0;
+		}
+	}
+}
+
+.is-style-fixed-width-paragraph,
+.is-style-fixed-width-buttons,
+.is-style-fixed-width-heading,
+.is-style-fixed-width-list {
+	max-width: $global-reduced-width;
+	margin: 0 auto;
+}

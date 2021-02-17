@@ -21,8 +21,6 @@ add_action( 'voodookit_do_navigation_mobile', 'voodookit_navigation_mobile', 10 
 
 // header and wrapper of them
 add_action( 'voodookit_do_header', 'voodookit_header', 10 );
-// add breadcrumb
-add_action( 'voodookit_do_header', 'voodookit_navigation_breadcrumb', 15 );
 // logo
 add_action( 'voodookit_do_logo', 'voodookit_logo', 10 );
 // slideout toggler
@@ -39,6 +37,7 @@ add_action( 'voodookit_do_slideout', 'voodookit_slideout', 10 );
  */
 
 add_action( 'voodookit_do_before_main', 'voodookit_do_before_main_loop', 10 );
+add_action( 'voodookit_do_nav_breadcrumb', 'voodookit_nav_breadcrumb', 10);
 add_action( 'voodookit_do_main', 'voodookit_do_main_loop', 10 );
 add_action( 'voodookit_do_main', 'voodookit_do_after_main_loop', 10 );
 
@@ -51,6 +50,7 @@ add_action( 'voodookit_do_main', 'voodookit_do_after_main_loop', 10 );
 add_action( 'voodookit_do_before_footer', 'voodookit_before_footer', 10 );
 add_action( 'voodookit_do_footer', 'voodookit_footer', 10 );
 add_action( 'voodookit_do_footer', 'voodookit_copyright', 15 );
+add_action( 'voo_do_scrollToTop_button', 'voo_scrollToTop_button', 10 );
 
 
 

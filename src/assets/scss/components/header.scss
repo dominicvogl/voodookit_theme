@@ -3,4 +3,15 @@ $header-border-radius: 0px !default;
 
 .page-header {
 	background: $header-background;
+	background: linear-gradient(90deg, rgba(0,55,91,1) 0%, rgba(0,22,48,1) 100%);
+
+	// if background image is needed
+	//background-image: url('../img/Hofmeister_bg_3000x1800px.jpg');
+	//background-repeat: no-repeat;
+	//background-size: cover;
+}
+
+.main-header {
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
