@@ -1,28 +1,37 @@
-## ignore folders
-
-# general folders
+# package managers
 node_modules
 bower_components
 
-# wordpress specific
+# wordpress
 core
 custom/languages/
 custom/upgrades/
 custom/uploads/
 custom/plugins/
 
+# IDE
+.idea/*
+*.iml
+*.sublime-*
+.vscode/*
 
-## ignore Files
-
-.idea
+# Mac OS
 .DS_Store
-._*
 .Spotlight-V100
 .Trashes
+
+# Windows
 Thumbs.db
+
+## ignore Files
+._*
 debug.log
+
+# Creative Cloud
 *.psd
 *.ai
+
+# Archives, mountable disks
 *.7z
 *.dmg
 *.gz
